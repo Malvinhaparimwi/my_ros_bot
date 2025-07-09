@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import cv2
 import rclpy
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import CompressedImage
 from rclpy.node import Node
 from cv_bridge import CvBridge
 
@@ -17,7 +17,7 @@ class PublishCamera(Node):
 
         # Image Publisher
         self.publisher = self.create_publisher(
-            Image,
+            CompressedImage,
             "camera",
             20
         )
@@ -36,8 +36,14 @@ class PublishCamera(Node):
 
         # Publishing the ros image message
         if success:
-            image_msg = self.bridge.cv2_to_imgmsg(frame)
-            self.publisher.publish(image_msg)
+            # Encode the frame to JPEG
+            _, buffer = cv2.imencode('.jpg', frame)
+            msg = CompressedImage()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.format = "jpeg"
+            msg.data = buffer.tobytes()
+            self.publisher.publish(msg)
+
 
 def main(args=None):
     rclpy.init(args=args)
