@@ -49,8 +49,8 @@ class CameraPublisher(Node):
         forward = msg.linear.x
         turn = msg.angular.z
 
-        self.enableA.value = abs(1.2)
-        self.enableB.value = abs(1.2)
+        self.enableA.value = abs(0.5)
+        self.enableB.value = abs(0.5)
 
         self.left_motor.forward(1.2)
         self.left_motor.backward(1.2)
