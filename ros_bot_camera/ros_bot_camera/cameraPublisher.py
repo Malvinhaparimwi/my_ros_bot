@@ -12,7 +12,7 @@ class CameraPublisher(Node):
         super().__init__("camera_publisher")
 
         # Declare parameters for flexibility
-        self.declare_parameter("device_id", 4)
+        self.declare_parameter("device_id", 0)
         self.declare_parameter("frame_rate", 30.0)
         self.declare_parameter("width", 820)
         self.declare_parameter("height", 640)
