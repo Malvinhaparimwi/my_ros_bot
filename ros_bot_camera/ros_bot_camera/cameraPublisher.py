@@ -11,28 +11,26 @@ from geometry_msgs.msg import Twist
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__("camera_publisher")
-		# L298N Declaration
-		self.in1 = 17
-		self.in2 = 27
-		self.in3 = 23
-		self.in4 = 24
-	
-		self.ena = 13
-		self.enb = 12
-	
-		GPIO.setmode(GPIO.BCM)
-		GPIO.setup(self.in1, GPIO.OUT)
-		GPIO.setup(self.in2, GPIO.OUT)
-		GPIO.setup(self.in3, GPIO.OUT)
-		GPIO.setup(self.in4, GPIO.OUT)
-		GPIO.setup(self.ena, GPIO.OUT)
-		GPIO.setup(self.ena, GPIO.OUT)
-	
-		self.pwmA = GPIO.PWM(self.ena, 255)
-		self.pwmB = GPIO.PWM(self.enb, 255)
-	
-		self.pwmA.start(0)
-		self.pwnB.start(0)
+        self.in1 = 17
+        self.in2 = 27
+        self.in3 = 23
+        self.in4 = 24
+        
+        self.ena = 13
+        self.enb = 12
+        
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.in1, GPIO.OUT)
+        GPIO.setup(self.in2, GPIO.OUT)
+        GPIO.setup(self.in3, GPIO.OUT)
+        GPIO.setup(self.in4, GPIO.OUT)
+        GPIO.setup(self.ena, GPIO.OUT)
+        GPIO.setup(self.ena, GPIO.OUT)
+        
+        self.pwmA = GPIO.PWM(self.ena, 255)
+        self.pwmB = GPIO.PWM(self.enb, 255)
+        self.pwmA.start(0)
+        self.pwnB.start(0)
 
         # Declare parameters for flexibility
         self.declare_parameter("device_id", 0)
@@ -67,13 +65,13 @@ class CameraPublisher(Node):
         forward = msg.linear.x
         turn = msg.angular.z
 
-	self.pwmA.ChangeDutyCycle(50)
-	self.pwmB.ChangeDutyCycle(50)
+        self.pwmA.ChangeDutyCycle(50)
+        self.pwmB.ChangeDutyCycle(50)
 
-	GPIO.output(self.in1, GPIO.HIGH)
-	GPIO.output(self.in2, GPIO.LOW)
-	GPIO.output(self.in3, GPIO.HIGH)
-	GPIO.output(self.in4, GPIO.LOW)
+        GPIO.output(self.in1, GPIO.HIGH)
+        GPIO.output(self.in2, GPIO.LOW)
+        GPIO.output(self.in3, GPIO.HIGH)
+        GPIO.output(self.in4, GPIO.LOW)
 
     def timer_callback(self):
         ret, frame = self.cap.read()
