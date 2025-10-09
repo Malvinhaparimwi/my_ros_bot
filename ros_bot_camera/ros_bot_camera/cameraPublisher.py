@@ -52,10 +52,10 @@ class CameraPublisher(Node):
         self.enableA.value = abs(0.5)
         self.enableB.value = abs(0.5)
 
-        self.left_motor.forward(1.2)
-        self.left_motor.backward(1.2)
-        self.right_motor.forward(1.2)
-        self.right_motor.backward(1.2)
+        self.left_motor.forward(0.5)
+        self.left_motor.backward(0.5)
+        self.right_motor.forward(0.5)
+        self.right_motor.backward(0.5)
 
     def timer_callback(self):
         ret, frame = self.cap.read()
