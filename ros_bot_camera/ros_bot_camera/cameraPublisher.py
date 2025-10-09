@@ -11,28 +11,28 @@ from geometry_msgs.msg import Twist
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__("camera_publisher")
-	# L298N Declaration
-	self.in1 = 17
-	self.in2 = 27
-	self.in3 = 23
-	self.in4 = 24
-
-	self.ena = 13
-	self.enb = 12
-
-	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(self.in1, GPIO.OUT)
-	GPIO.setup(self.in2, GPIO.OUT)
-	GPIO.setup(self.in3, GPIO.OUT)
-	GPIO.setup(self.in4, GPIO.OUT)
-	GPIO.setup(self.ena, GPIO.OUT)
-	GPIO.setup(self.ena, GPIO.OUT)
-
-	self.pwmA = GPIO.PWM(self.ena, 255)
-	self.pwmB = GPIO.PWM(self.enb, 255)
-
-	self.pwmA.start(0)
-	self.pwnB.start(0)
+		# L298N Declaration
+		self.in1 = 17
+		self.in2 = 27
+		self.in3 = 23
+		self.in4 = 24
+	
+		self.ena = 13
+		self.enb = 12
+	
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setup(self.in1, GPIO.OUT)
+		GPIO.setup(self.in2, GPIO.OUT)
+		GPIO.setup(self.in3, GPIO.OUT)
+		GPIO.setup(self.in4, GPIO.OUT)
+		GPIO.setup(self.ena, GPIO.OUT)
+		GPIO.setup(self.ena, GPIO.OUT)
+	
+		self.pwmA = GPIO.PWM(self.ena, 255)
+		self.pwmB = GPIO.PWM(self.enb, 255)
+	
+		self.pwmA.start(0)
+		self.pwnB.start(0)
 
         # Declare parameters for flexibility
         self.declare_parameter("device_id", 0)
