@@ -1,57 +1,78 @@
 #!/usr/bin/env python3
 import cv2
 import rclpy
-from sensor_msgs.msg import CompressedImage
 from rclpy.node import Node
+from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+from geometry_msgs.msg import Twist
 
-class PublishCamera(Node):
+
+class CameraPublisher(Node):
     def __init__(self):
-        super().__init__("camera_node")
+        super().__init__("camera_publisher")
 
-        # Camera device number found through ~ls /dev/ | grep video
-        self.cameraDeviceNumber = 4
-        self.camera = cv2.VideoCapture(self.cameraDeviceNumber)
+        # Declare parameters for flexibility
+        self.declare_parameter("device_id", 4)
+        self.declare_parameter("frame_rate", 30.0)
+        self.declare_parameter("width", 820)
+        self.declare_parameter("height", 640)
 
+        # Load parameter values
+        self.device_id = self.get_parameter("device_id").value
+        self.frame_rate = self.get_parameter("frame_rate").value
+        self.width = self.get_parameter("width").value
+        self.height = self.get_parameter("height").value
+
+        # Initialize OpenCV camera
+        self.cap = cv2.VideoCapture(self.device_id)
+        if not self.cap.isOpened():
+            self.get_logger().error(f"Failed to open camera device {self.device_id}")
+            rclpy.shutdown()
+            return
+
+        # ROS image publisher
+        self.publisher_ = self.create_publisher(Image, "camera/image_raw", 10)
         self.bridge = CvBridge()
 
-        # Image Publisher
-        self.publisher = self.create_publisher(
-            CompressedImage,
-            "camera",
-            20
-        )
+        # Timer for publishing frames
+        self.timer = self.create_timer(1.0 / self.frame_rate, self.timer_callback)
+        self.get_logger().info(f"Publishing raw camera frames on 'camera/image_raw' at {self.frame_rate} FPS")
 
-        # To publish the image after 0.02 seconds for a smooth video
-        self.timer = self.create_timer(
-            0.02, 
-            self.timer_cb
-        )
+        self.cmd_vel = self.create_subscription(Twist, "cmd_vel", self.cmd_cb, 10)
 
-    
-    def timer_cb(self):
-        # Getting the frame and resizing it
-        success, frame = self.camera.read()
-        frame = cv2.resize(frame, (820, 640), interpolation=cv2.INTER_CUBIC)
+    def cmd_cb(self, msg):
+        forward = msg.linear.x
+        turn = msg.angular.z
 
-        # Publishing the ros image message
-        if success:
-            # Encode the frame to JPEG
-            _, buffer = cv2.imencode('.jpg', frame)
-            msg = CompressedImage()
-            msg.header.stamp = self.get_clock().now().to_msg()
-            msg.format = "jpeg"
-            msg.data = buffer.tobytes()
-            self.publisher.publish(msg)
+
+    def timer_callback(self):
+        ret, frame = self.cap.read()
+        if not ret:
+            self.get_logger().warn("Failed to read frame from camera.")
+            return
+
+        # Resize the frame (optional)
+        frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_CUBIC)
+
+        # Convert OpenCV image (BGR) to ROS Image message
+        msg = self.bridge.cv2_to_imgmsg(frame, encoding="bgr8")
+        msg.header.stamp = self.get_clock().now().to_msg()
+
+        self.publisher_.publish(msg)
+
+    def destroy_node(self):
+        if self.cap.isOpened():
+            self.cap.release()
+        super().destroy_node()
 
 
 def main(args=None):
     rclpy.init(args=args)
-    cameraObject = PublishCamera()
-    rclpy.spin(cameraObject)
-    cameraObject.destroy_node()
-
+    node = CameraPublisher()
+    rclpy.spin(node)
+    node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()
