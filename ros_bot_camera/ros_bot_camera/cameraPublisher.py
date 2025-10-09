@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import RPi.gpio as GPIO
+from gpiozero import Motor, PWMOutputDevice
 import cv2
 import rclpy
 from rclpy.node import Node
@@ -11,26 +11,10 @@ from geometry_msgs.msg import Twist
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__("camera_publisher")
-        self.in1 = 17
-        self.in2 = 27
-        self.in3 = 23
-        self.in4 = 24
-        
-        self.ena = 13
-        self.enb = 12
-        
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.in1, GPIO.OUT)
-        GPIO.setup(self.in2, GPIO.OUT)
-        GPIO.setup(self.in3, GPIO.OUT)
-        GPIO.setup(self.in4, GPIO.OUT)
-        GPIO.setup(self.ena, GPIO.OUT)
-        GPIO.setup(self.ena, GPIO.OUT)
-        
-        self.pwmA = GPIO.PWM(self.ena, 255)
-        self.pwmB = GPIO.PWM(self.enb, 255)
-        self.pwmA.start(0)
-        self.pwnB.start(0)
+        self.left_motor = Motor(forward=17, backward=27, pwm=True)
+        self.right_motor = Motor(forward=23, backward=24, pwm=True)
+        self.enableA = PWMOutputDevice(13)
+        self.enableB = PWMOutputDevice(12)
 
         # Declare parameters for flexibility
         self.declare_parameter("device_id", 0)
@@ -65,13 +49,13 @@ class CameraPublisher(Node):
         forward = msg.linear.x
         turn = msg.angular.z
 
-        self.pwmA.ChangeDutyCycle(50)
-        self.pwmB.ChangeDutyCycle(50)
+        self.enableA.value = abs(1.2)
+        self.enableB.value = abs(1.2)
 
-        GPIO.output(self.in1, GPIO.HIGH)
-        GPIO.output(self.in2, GPIO.LOW)
-        GPIO.output(self.in3, GPIO.HIGH)
-        GPIO.output(self.in4, GPIO.LOW)
+        self.left_motor.forward(1.2)
+        self.left_motor.backward(1.2)
+        self.right_motor.forward(1.2)
+        self.right_motor.backward(1.2)
 
     def timer_callback(self):
         ret, frame = self.cap.read()
