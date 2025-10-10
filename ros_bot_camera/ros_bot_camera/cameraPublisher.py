@@ -46,16 +46,45 @@ class CameraPublisher(Node):
         self.cmd_vel = self.create_subscription(Twist, "cmd_vel", self.cmd_cb, 10)
 
     def cmd_cb(self, msg):
-        forward = msg.linear.x
-        turn = msg.angular.z
+        lin_x = msg.linear.x
+        ang_z = msg.angular.z
 
-        self.enableA.value = abs(0.4)
-        self.enableB.value = abs(0.2)
+        speed, left, right = self.compute_twist(lin_X=lin_x, ang_Z=ang_z)
 
-        self.left_motor.forward(1.0)
-        self.left_motor.backward(1.0)
-        self.right_motor.forward(1.0)
-        self.right_motor.backward(1.0)
+        self.enableA.value = abs(speed)
+        self.enableB.value = abs(speed/2)
+
+        self.left_motor.forward(left)
+        self.left_motor.backward(left)
+        self.right_motor.forward(right)
+        self.right_motor.backward(right)
+    
+    def compute_twist(self, lin_X, ang_Z):
+        if lin_X != 0.0:
+            if lin_X > 0.0:
+                speed = abs(0.4 * lin_X)
+                left = 1.0
+                right = 1.0
+            else:
+                speed = abs(0.4 * lin_X)
+                left = -1.0
+                right = -1.0
+        else:
+            if ang_Z != 0.0:
+                if ang_Z > 0.0:
+                    speed = abs(0.4 * ang_Z)
+                    left = -1.0
+                    right = 1.0
+                else:
+                    speed = abs(0.4 * ang_Z)
+                    left = 1.0
+                    right = -1.0
+            else:
+                speed = 0.0
+                left = 0.0
+                right = 0.0
+
+        return speed, left, right
 
     def timer_callback(self):
         ret, frame = self.cap.read()
