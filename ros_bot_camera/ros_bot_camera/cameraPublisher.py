@@ -62,7 +62,7 @@ class CameraPublisher(Node):
             self.right_motor.forward()
 
         if ang_z < 0.0:
-            self.left_motor.backward()   
+            self.left_motor.backward()
             self.right_motor.forward()
         elif lin_x > 0.0:
             self.left_motor.forward()
