@@ -54,33 +54,34 @@ class CameraPublisher(Node):
         self.enableA.value = abs(speed/2)
         self.enableB.value = abs(speed)
 
-        self.left_motor.forward()
-        self.right_motor.forward()
+        if lin_x < 0.0:
+            self.left_motor.backward()
+            self.right_motor.backward()
+        elif lin_x > 0.0:
+            self.left_motor.forward()
+            self.right_motor.forward()
+
+        if ang_z < 0.0:
+            self.left_motor.backward()
+            self.right_motor.forward()
+        elif lin_x > 0.0:
+            self.left_motor.forward()
+            self.right_motor.backward()
     
     def compute_twist(self, lin_X, ang_Z):
         if lin_X != 0.0:
             if lin_X > 0.0:
                 speed = abs(0.4 * lin_X)
-                left = 1.0
-                right = 1.0
             else:
                 speed = abs(0.4 * lin_X)
-                left = -1.0
-                right = -1.0
         else:
             if ang_Z != 0.0:
                 if ang_Z > 0.0:
                     speed = abs(0.4 * ang_Z)
-                    left = -1.0
-                    right = 1.0
                 else:
                     speed = abs(0.4 * ang_Z)
-                    left = 1.0
-                    right = -1.0
             else:
                 speed = 0.0
-                left = 0.0
-                right = 0.0
 
         return speed
 
