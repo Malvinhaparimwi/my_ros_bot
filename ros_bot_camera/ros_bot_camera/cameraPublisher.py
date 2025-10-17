@@ -49,15 +49,13 @@ class CameraPublisher(Node):
         lin_x = msg.linear.x
         ang_z = msg.angular.z
 
-        speed, left, right = self.compute_twist(lin_X=lin_x, ang_Z=ang_z)
+        speed = self.compute_twist(lin_X=lin_x, ang_Z=ang_z)
 
         self.enableA.value = abs(speed/2)
         self.enableB.value = abs(speed)
 
-        self.left_motor.forward(1)
-        self.left_motor.backward(1)
-        self.right_motor.forward(1)
-        self.right_motor.backward(1)
+        self.left_motor.forward()
+        self.right_motor.forward()
     
     def compute_twist(self, lin_X, ang_Z):
         if lin_X != 0.0:
@@ -84,7 +82,7 @@ class CameraPublisher(Node):
                 left = 0.0
                 right = 0.0
 
-        return speed, left, right
+        return speed
 
     def timer_callback(self):
         ret, frame = self.cap.read()
