@@ -3,7 +3,7 @@ from gpiozero import Motor, PWMOutputDevice
 import cv2
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import CompressedImage
 from cv_bridge import CvBridge
 from geometry_msgs.msg import Twist
 
@@ -36,7 +36,7 @@ class CameraPublisher(Node):
             return
 
         # ROS image publisher
-        self.publisher_ = self.create_publisher(Image, "camera/image_raw", 10)
+        self.publisher_ = self.create_publisher(CompressedImage, "camera/image_raw/compressed", 10)
         self.bridge = CvBridge()
 
         # Timer for publishing frames
@@ -53,33 +53,27 @@ class CameraPublisher(Node):
 
         self.enableA.value = abs(speed/2)
         self.enableB.value = abs(speed)
-
-        if lin_x < 0.0:
-            self.left_motor.backward()
-            self.right_motor.backward()
-        elif lin_x > 0.0:
-            self.left_motor.forward()
-            self.right_motor.forward()
-
-        if ang_z < 0.0:
-            self.left_motor.backward()
-            self.right_motor.forward()
-        elif lin_x > 0.0:
-            self.left_motor.forward()
-            self.right_motor.backward()
     
     def compute_twist(self, lin_X, ang_Z):
         if lin_X != 0.0:
             if lin_X > 0.0:
                 speed = abs(0.4 * lin_X)
+                self.left_motor.forward()
+                self.right_motor.forward()
             else:
                 speed = abs(0.4 * lin_X)
+                self.left_motor.backward()
+                self.right_motor.backward()
         else:
             if ang_Z != 0.0:
                 if ang_Z > 0.0:
                     speed = abs(0.4 * ang_Z)
+                    self.left_motor.forward()
+                    self.right_motor.backward()
                 else:
                     speed = abs(0.4 * ang_Z)
+                    self.left_motor.backward()
+                    self.right_motor.forward()
             else:
                 speed = 0.0
 
@@ -95,7 +89,7 @@ class CameraPublisher(Node):
         frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_CUBIC)
 
         # Convert OpenCV image (BGR) to ROS Image message
-        msg = self.bridge.cv2_to_imgmsg(frame, encoding="bgr8")
+        msg = self.bridge.cv2_to_compressed_imgmsg(frame)
         msg.header.stamp = self.get_clock().now().to_msg()
 
         self.publisher_.publish(msg)
