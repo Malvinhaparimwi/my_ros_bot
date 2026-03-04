@@ -1,0 +1,20 @@
+running develop
+running egg_info
+creating move_base.egg-info
+writing move_base.egg-info/PKG-INFO
+writing dependency_links to move_base.egg-info/dependency_links.txt
+writing requirements to move_base.egg-info/requires.txt
+writing top-level names to move_base.egg-info/top_level.txt
+writing manifest file 'move_base.egg-info/SOURCES.txt'
+reading manifest file 'move_base.egg-info/SOURCES.txt'
+writing manifest file 'move_base.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/eath/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)
+
+Installed /home/eath/my_ros_bot/build/move_base
+running symlink_data
+creating /home/eath/my_ros_bot/install/move_base/share/ament_index
+creating /home/eath/my_ros_bot/install/move_base/share/ament_index/resource_index
+creating /home/eath/my_ros_bot/install/move_base/share/ament_index/resource_index/packages
+symbolically linking /home/eath/my_ros_bot/build/move_base/resource/move_base -> /home/eath/my_ros_bot/install/move_base/share/ament_index/resource_index/packages
+symbolically linking /home/eath/my_ros_bot/build/move_base/package.xml -> /home/eath/my_ros_bot/install/move_base/share/move_base

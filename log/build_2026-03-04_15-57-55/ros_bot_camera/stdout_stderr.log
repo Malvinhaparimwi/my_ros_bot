@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating ros_bot_camera.egg-info
+writing ros_bot_camera.egg-info/PKG-INFO
+writing dependency_links to ros_bot_camera.egg-info/dependency_links.txt
+writing entry points to ros_bot_camera.egg-info/entry_points.txt
+writing requirements to ros_bot_camera.egg-info/requires.txt
+writing top-level names to ros_bot_camera.egg-info/top_level.txt
+writing manifest file 'ros_bot_camera.egg-info/SOURCES.txt'
+reading manifest file 'ros_bot_camera.egg-info/SOURCES.txt'
+writing manifest file 'ros_bot_camera.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/eath/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages/ros-bot-camera.egg-link (link to .)
+Installing camera_node script to /home/eath/my_ros_bot/install/ros_bot_camera/lib/ros_bot_camera
+
+Installed /home/eath/my_ros_bot/build/ros_bot_camera
+running symlink_data
+creating /home/eath/my_ros_bot/install/ros_bot_camera/share/ament_index
+creating /home/eath/my_ros_bot/install/ros_bot_camera/share/ament_index/resource_index
+creating /home/eath/my_ros_bot/install/ros_bot_camera/share/ament_index/resource_index/packages
+symbolically linking /home/eath/my_ros_bot/build/ros_bot_camera/resource/ros_bot_camera -> /home/eath/my_ros_bot/install/ros_bot_camera/share/ament_index/resource_index/packages
+symbolically linking /home/eath/my_ros_bot/build/ros_bot_camera/package.xml -> /home/eath/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera

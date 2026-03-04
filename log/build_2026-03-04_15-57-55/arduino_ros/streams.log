@@ -1,0 +1,24 @@
+[1.704s] Invoking command in '/home/eath/my_ros_bot/build/arduino_ros': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/eath/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/arduino_ros/build --no-deps symlink_data
+[2.182s] running develop
+[2.586s] running egg_info
+[2.586s] creating arduino_ros.egg-info
+[2.629s] writing arduino_ros.egg-info/PKG-INFO
+[2.629s] writing dependency_links to arduino_ros.egg-info/dependency_links.txt
+[2.630s] writing entry points to arduino_ros.egg-info/entry_points.txt
+[2.630s] writing requirements to arduino_ros.egg-info/requires.txt
+[2.630s] writing top-level names to arduino_ros.egg-info/top_level.txt
+[2.630s] writing manifest file 'arduino_ros.egg-info/SOURCES.txt'
+[2.686s] reading manifest file 'arduino_ros.egg-info/SOURCES.txt'
+[2.687s] writing manifest file 'arduino_ros.egg-info/SOURCES.txt'
+[2.732s] running build_ext
+[2.732s] Creating /home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages/arduino-ros.egg-link (link to .)
+[2.734s] Installing controller script to /home/eath/my_ros_bot/install/arduino_ros/lib/arduino_ros
+[2.734s] 
+[2.735s] Installed /home/eath/my_ros_bot/build/arduino_ros
+[2.735s] running symlink_data
+[2.735s] creating /home/eath/my_ros_bot/install/arduino_ros/share/ament_index
+[2.736s] creating /home/eath/my_ros_bot/install/arduino_ros/share/ament_index/resource_index
+[2.736s] creating /home/eath/my_ros_bot/install/arduino_ros/share/ament_index/resource_index/packages
+[2.736s] symbolically linking /home/eath/my_ros_bot/build/arduino_ros/resource/arduino_ros -> /home/eath/my_ros_bot/install/arduino_ros/share/ament_index/resource_index/packages
+[2.736s] symbolically linking /home/eath/my_ros_bot/build/arduino_ros/package.xml -> /home/eath/my_ros_bot/install/arduino_ros/share/arduino_ros
+[2.807s] Invoked command in '/home/eath/my_ros_bot/build/arduino_ros' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/eath/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/arduino_ros/build --no-deps symlink_data

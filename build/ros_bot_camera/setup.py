@@ -1,0 +1,1 @@
+/home/eath/my_ros_bot/ros_bot_camera/setup.py
