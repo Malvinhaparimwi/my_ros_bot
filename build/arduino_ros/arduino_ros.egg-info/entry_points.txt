@@ -1,0 +1,2 @@
+[console_scripts]
+controller = arduino_ros.controller:main
