@@ -1,0 +1,15 @@
+[1.531s] Invoking command in '/home/eath/my_ros_bot/build/move_base': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/move_base/build --no-deps symlink_data
+[1.943s] running develop
+[2.190s] running egg_info
+[2.218s] writing move_base.egg-info/PKG-INFO
+[2.218s] writing dependency_links to move_base.egg-info/dependency_links.txt
+[2.218s] writing requirements to move_base.egg-info/requires.txt
+[2.218s] writing top-level names to move_base.egg-info/top_level.txt
+[2.269s] reading manifest file 'move_base.egg-info/SOURCES.txt'
+[2.270s] writing manifest file 'move_base.egg-info/SOURCES.txt'
+[2.296s] running build_ext
+[2.296s] Creating /home/eath/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)
+[2.297s] 
+[2.297s] Installed /home/eath/my_ros_bot/build/move_base
+[2.297s] running symlink_data
+[2.380s] Invoked command in '/home/eath/my_ros_bot/build/move_base' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/move_base/build --no-deps symlink_data

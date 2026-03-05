@@ -1,0 +1,17 @@
+[1.560s] Invoking command in '/home/eath/my_ros_bot/build/arduino_ros': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/arduino_ros/build --no-deps symlink_data
+[1.964s] running develop
+[2.214s] running egg_info
+[2.241s] writing arduino_ros.egg-info/PKG-INFO
+[2.242s] writing dependency_links to arduino_ros.egg-info/dependency_links.txt
+[2.242s] writing entry points to arduino_ros.egg-info/entry_points.txt
+[2.242s] writing requirements to arduino_ros.egg-info/requires.txt
+[2.242s] writing top-level names to arduino_ros.egg-info/top_level.txt
+[2.294s] reading manifest file 'arduino_ros.egg-info/SOURCES.txt'
+[2.295s] writing manifest file 'arduino_ros.egg-info/SOURCES.txt'
+[2.331s] running build_ext
+[2.331s] Creating /home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages/arduino-ros.egg-link (link to .)
+[2.332s] Installing controller script to /home/eath/my_ros_bot/install/arduino_ros/lib/arduino_ros
+[2.333s] 
+[2.333s] Installed /home/eath/my_ros_bot/build/arduino_ros
+[2.333s] running symlink_data
+[2.406s] Invoked command in '/home/eath/my_ros_bot/build/arduino_ros' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/arduino_ros/build --no-deps symlink_data
