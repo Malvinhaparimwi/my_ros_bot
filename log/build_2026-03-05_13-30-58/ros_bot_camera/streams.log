@@ -1,0 +1,17 @@
+[1.528s] Invoking command in '/home/eath/my_ros_bot/build/ros_bot_camera': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/ros_bot_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/ros_bot_camera/build --no-deps symlink_data
+[1.933s] running develop
+[2.176s] running egg_info
+[2.202s] writing ros_bot_camera.egg-info/PKG-INFO
+[2.203s] writing dependency_links to ros_bot_camera.egg-info/dependency_links.txt
+[2.203s] writing entry points to ros_bot_camera.egg-info/entry_points.txt
+[2.203s] writing requirements to ros_bot_camera.egg-info/requires.txt
+[2.203s] writing top-level names to ros_bot_camera.egg-info/top_level.txt
+[2.254s] reading manifest file 'ros_bot_camera.egg-info/SOURCES.txt'
+[2.254s] writing manifest file 'ros_bot_camera.egg-info/SOURCES.txt'
+[2.280s] running build_ext
+[2.280s] Creating /home/eath/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages/ros-bot-camera.egg-link (link to .)
+[2.281s] Installing camera_node script to /home/eath/my_ros_bot/install/ros_bot_camera/lib/ros_bot_camera
+[2.281s] 
+[2.282s] Installed /home/eath/my_ros_bot/build/ros_bot_camera
+[2.282s] running symlink_data
+[2.350s] Invoked command in '/home/eath/my_ros_bot/build/ros_bot_camera' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(ros_env) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/eath/my_ros_bot/build/ros_bot_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eath/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(ros_env) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/eath/my_ros_bot/build/ros_bot_camera/build --no-deps symlink_data
