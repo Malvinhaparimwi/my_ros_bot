@@ -8,7 +8,7 @@ import serial
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
-data = serial.Serial("/dev/ttyUSB1", 9600)
+data = serial.Serial("/dev/ttyUSB0", 9600)
 
 # Choosing which platform we are working on, 'posix' or 'new technology(nt)
 if os.name == 'nt':
