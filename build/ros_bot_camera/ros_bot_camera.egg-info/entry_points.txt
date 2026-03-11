@@ -1,2 +1,0 @@
-[console_scripts]
-camera_node = ros_bot_camera.cameraPublisher:main
