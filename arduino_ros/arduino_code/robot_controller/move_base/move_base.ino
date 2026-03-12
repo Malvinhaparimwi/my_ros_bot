@@ -1,12 +1,12 @@
 #include <ArduinoJson.h>
 
 // Motors Pins
-const int in1 = 7;
-const int in2 = 8;
-const int in3 = 12;
-const int in4 = 10;
+const int in1 = 10;
+const int in2 = 9;
+const int in3 = 8;
+const int in4 = 7;
 
-const int ena = 9;
+const int ena = 12;
 const int enb = 11;
 
 void setup(){
@@ -18,13 +18,13 @@ void setup(){
 
   // ROS TEST
   pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
+  Serial1.begin(9600);
 }
 
 void loop(){
-    if (Serial.available() > 0) {
+    if (Serial1.available() > 0) {
       // Read the JSON string
-      String input = Serial.readStringUntil('\n');
+      String input = Serial1.readStringUntil('\n');
   
       // Create a buffer for the JSON object
       StaticJsonDocument<200> doc;
