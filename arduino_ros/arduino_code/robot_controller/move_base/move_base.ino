@@ -18,13 +18,13 @@ void setup(){
 
   // ROS TEST
   pinMode(LED_BUILTIN, OUTPUT);
-  Serial1.begin(9600);
+  Serial.begin(9600);
 }
 
 void loop(){
-    if (Serial1.available() > 0) {
+    if (Serial.available() > 0) {
       // Read the JSON string
-      String input = Serial1.readStringUntil('\n');
+      String input = Serial.readStringUntil('\n');
   
       // Create a buffer for the JSON object
       StaticJsonDocument<200> doc;

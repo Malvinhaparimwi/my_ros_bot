@@ -5,7 +5,7 @@ import serial
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
-data = serial.Serial("/dev/ttyAMA0", 9600)
+data = serial.Serial("/dev/serial/by-id/usb-Arduino_Nano_33_BLE_3E1994D9FA7CF7D9-if00", 9600)
 
 class Controller(Node):
     def __init__(self):
