@@ -4,7 +4,6 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
 from cv_bridge import CvBridge
-from geometry_msgs.msg import Twist
 
 
 class CameraPublisher(Node):
