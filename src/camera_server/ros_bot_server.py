@@ -1,39 +1,53 @@
 import cv2
-from cv_bridge import CvBridge
 from flask import Flask, Response
+from picamera2 import Picamera2
 
- # Declare constants for flexibility
-DEVICE_ID = 4
-FRAME_RATE = 30.0
+# Config
 WIDTH = 820
 HEIGHT = 640
+FRAME_RATE = 30
 
-# Initalize the flask app
 app = Flask(__name__)
 
-# Initialize OpenCV camera
-cap = cv2.VideoCapture(DEVICE_ID)
+# Initialize Picamera2 (libcamera backend)
+picam2 = Picamera2()
 
-# Generating frames
+config = picam2.create_video_configuration(
+    main={"size": (WIDTH, HEIGHT), "format": "RGB888"},
+    controls={"FrameRate": FRAME_RATE}
+)
+
+picam2.configure(config)
+picam2.start()
+
 def generate_frames():
     while True:
-        ret, frame = cap.read()
-        if not ret:
-            print("Failed to read frame from camera.")
-            break
+        # Capture frame as NumPy array (RGB)
+        frame = picam2.capture_array()
 
-        # Resize the frame (optional)
-        frame = cv2.resize(frame, (WIDTH, HEIGHT), interpolation=cv2.INTER_CUBIC)
+        # Convert RGB → BGR (OpenCV format)
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame = buffer.tobytes()
+        # Encode to JPEG
+        success, buffer = cv2.imencode('.jpg', frame)
+        if not success:
+            continue
 
-        yield(b'--frame\r\n'
-              b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-        
+        frame_bytes = buffer.tobytes()
+
+        yield (
+            b'--frame\r\n'
+            b'Content-Type: image/jpeg\r\n\r\n' +
+            frame_bytes +
+            b'\r\n'
+        )
+
 @app.route("/stream")
 def camera_stream():
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(
+        generate_frames(),
+        mimetype='multipart/x-mixed-replace; boundary=frame'
+    )
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=2003)
+    app.run(host='0.0.0.0', port=2003, threaded=True)
