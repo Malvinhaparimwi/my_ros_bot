@@ -46,7 +46,7 @@ class Controller(Node):
 
         self.tty_attr = None if os.name == 'nt' else termios.tcgetattr(sys.stdin)
 
-        self.publisher_ = self.create_publisher(Twist, 'cmd_vel', 10)
+        self.publisher_ = self.create_publisher(Twist, 'onyx/cmd_vel', 10)
 
         self.linear_velocity = 0.0
         self.angular_velocity = 0.0
