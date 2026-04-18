@@ -1,39 +1,23 @@
-#include <ArduinoJson.h>
-#include <Arduino_LSM9DS1.h>
+const int soundPin = 18; // Pin for ESP32
 
-unsigned long lastIMUTime = 0;
-const long imuInterval = 50;
+const int ledPin = 13;     /
 
-void setup(){
-
+void setup() {
   Serial.begin(115200);
-  // Remove while(!Serial) if you want it to run without a PC attached
-  if (!IMU.begin()) { /* blink LED or something */ }
+  pinMode(soundPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.println("3-Pin Sound Sensor Test Active...");
 }
 
-void loop(){
-  unsigned long currentTime = millis();
-  if(currentTime - lastIMUTime >= imuInterval){
-    lastIMUTime = currentTime;
-    sendIMUData();
-  }
-}
+void loop() {
+  // Most 3-pin sensors go LOW when they hear sound
+  int sensorState = digitalRead(soundPin);
 
-void sendIMUData(){
-  float ax, ay, az, gx, gy, gz;
-  if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable()) {
-    IMU.readAcceleration(ax, ay, az);
-    IMU.readGyroscope(gx, gy, gz);
-
-    StaticJsonDocument<200> imuDoc;
-    imuDoc["ax"] = ax;
-    imuDoc["ay"] = ay;
-    imuDoc["az"] = az;
-    imuDoc["gx"] = gx;
-    imuDoc["gy"] = gy;
-    imuDoc["gz"] = gz;
-
-    serializeJson(imuDoc, Serial);
-    Serial.println(); 
+  if (sensorState == LOW) { 
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Sound Detected!");
+    delay(200); // Small pause to see the LED flash
+  } else {
+    digitalWrite(ledPin, LOW);
   }
 }

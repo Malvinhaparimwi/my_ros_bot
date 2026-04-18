@@ -12,6 +12,13 @@ def generate_launch_description():
             ),
 
         Node(
+            package='pump_controller',
+            executable='controller',
+            name='pump_controller',
+            output='screen'
+            ),
+
+        Node(
             package='ros_bot_imu',
             executable='imu_begin',
             name='imu_node',
