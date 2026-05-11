@@ -11,19 +11,19 @@ def generate_launch_description():
             output='screen'
             ),
 
-        Node(
-            package='pump_controller',
-            executable='controller',
-            name='pump_controller',
-            output='screen'
-            ),
-
-        Node(
-            package='ros_bot_imu',
-            executable='imu_begin',
-            name='imu_node',
-            output='screen'
-            ),
+        #Node(
+         #   package='pump_controller',
+          #  executable='controller',
+           # name='pump_controller',
+            #output='screen'
+            #),
+#
+ #       Node(
+  #          package='ros_bot_imu',
+   #         executable='imu_begin',
+    #        name='imu_node',
+     #       output='screen'
+      #      ),
 
         Node(
             package='camera_ros',
@@ -32,8 +32,8 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {
-                    'width': 640,
-                    'height': 480,
+                    'width': 2592,
+                    'height': 1944,
                     'frame_rate': 30.0,
                     'format': 'BGR888',
                     'auto_exposure': 0,
