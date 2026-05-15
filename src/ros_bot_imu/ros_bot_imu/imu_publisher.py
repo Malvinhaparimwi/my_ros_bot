@@ -83,10 +83,17 @@ def quat_to_euler(q):
 # ── ROS2 Node ─────────────────────────────────────────────────────────────────
 class ImuNanoNode(Node):
 
+    # Tune this to just above your sensor's idle noise floor (degrees/s).
+    # Hold the sensor still, observe raw gz values, set slightly above max seen.
+    GYRO_DEADBAND_DEG = 0.5   # °/s
+
+    # Number of samples to average for startup bias calibration.
+    CALIB_SAMPLES = 200
+
     def __init__(self):
         super().__init__('imu_nano')
 
-        self.declare_parameter('port',     '/dev/ttyACM0')
+        self.declare_parameter('port',     '/dev/serial/by-id/usb-Arduino_Nano_33_BLE_5121ED79AD58E624-if00')
         self.declare_parameter('baud',     115200)
         self.declare_parameter('frame_id', 'imu_link')
 
@@ -104,6 +111,9 @@ class ImuNanoNode(Node):
         self.yaw_zero  = 0.0
         self.lock      = threading.Lock()
 
+        # Gyro Z bias (rad/s) — estimated during calibration
+        self.gz_bias = 0.0
+
         self.imu_pub   = self.create_publisher(Imu,            '/imu/data',        10)
         self.euler_pub = self.create_publisher(Vector3Stamped,  '/imu/euler',       10)
         self.swept_pub = self.create_publisher(Float32,         '/imu/angle_swept', 10)
@@ -117,7 +127,48 @@ class ImuNanoNode(Node):
             self.get_logger().error(f'Serial error: {e}')
             raise
 
+        # Calibrate gyro bias before starting the reader thread
+        self._calibrate_gyro()
+
         threading.Thread(target=self._reader, daemon=True).start()
+
+    # ── Gyro bias calibration ─────────────────────────────────────────────────
+    def _calibrate_gyro(self):
+        """
+        Collect CALIB_SAMPLES readings while the sensor is still and average
+        the raw gz values to estimate the gyro Z-axis bias.
+        Hold the sensor motionless during the ~2 s this takes.
+        """
+        self.get_logger().info(
+            f'Calibrating gyro Z bias ({self.CALIB_SAMPLES} samples) — hold sensor still...'
+        )
+        samples = []
+        while len(samples) < self.CALIB_SAMPLES:
+            try:
+                raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
+            except Exception:
+                continue
+
+            if not raw.startswith('D '):
+                continue
+
+            parts = raw.split()
+            if len(parts) != 13:
+                continue
+
+            try:
+                vals = [float(p) for p in parts[1:]]
+            except ValueError:
+                continue
+
+            lgz = vals[5]
+            mgz = vals[11]
+            samples.append(math.radians((lgz + mgz) * 0.5))
+
+        self.gz_bias = sum(samples) / len(samples)
+        self.get_logger().info(
+            f'Gyro Z bias estimated: {math.degrees(self.gz_bias):.4f} °/s'
+        )
 
     # ── Reset ─────────────────────────────────────────────────────────────────
     def reset_callback(self, request, response):
@@ -135,6 +186,8 @@ class ImuNanoNode(Node):
 
     # ── Serial reader ─────────────────────────────────────────────────────────
     def _reader(self):
+        deadband_rad = math.radians(self.GYRO_DEADBAND_DEG)
+
         while rclpy.ok():
             try:
                 raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
@@ -162,7 +215,11 @@ class ImuNanoNode(Node):
             az = (laz + maz)  * 0.5
             gx = math.radians((lgx + mgx) * 0.5)
             gy = math.radians((lgy + mgy) * 0.5)
-            gz = math.radians((lgz + mgz) * 0.5)
+
+            # ── Bias-corrected gz with deadband ───────────────────────────────
+            gz_raw = math.radians((lgz + mgz) * 0.5)
+            gz_corrected = gz_raw - self.gz_bias
+            gz = gz_corrected if abs(gz_corrected) > deadband_rad else 0.0
 
             accel_roll  = math.atan2(ay, az)
             accel_pitch = math.atan2(-ax, math.sqrt(ay*ay + az*az))
@@ -218,8 +275,8 @@ class ImuNanoNode(Node):
         euler_msg.vector.z = math.degrees(yaw)
         self.euler_pub.publish(euler_msg)
 
-        # Unbounded accumulated angle from reset point
-        # positive = one direction, negative = other, can exceed 360
+        # Unbounded accumulated angle from reset point.
+        # Positive = one direction, negative = other, can exceed ±360°.
         swept = math.degrees(raw_yaw - yaw_zero)
         swept_msg = Float32()
         swept_msg.data = float(swept)
