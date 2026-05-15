@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'move_base'
+package_name = 'ros_bot_sim'
 
 setup(
     name=package_name,
@@ -24,7 +24,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'drive_robot = move_base.move_base:main'
         ],
     },
 )

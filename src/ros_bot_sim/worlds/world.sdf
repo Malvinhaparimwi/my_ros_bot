@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="farm_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-contact-system"
+      name="gz::sim::systems::Contact">
+    </plugin>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.25 0.15 0.08 1</ambient>
+            <diffuse>0.35 0.20 0.10 1</diffuse>
+            <specular>0.05 0.03 0.02 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+       <!-- ═══════════════════════════════════════════════════════════
+         ROW 0  —  x = -0.600 m  (leftmost row)
+    ════════════════════════════════════════════════════════════════ -->
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_0</name>
+      <pose>-0.600 0.175 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_1</name>
+      <pose>-0.600 0.350 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_2</name>
+      <pose>-0.600 0.525 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_3</name>
+      <pose>-0.600 0.700 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_4</name>
+      <pose>-0.600 0.875 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_5</name>
+      <pose>-0.600 1.050 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_6</name>
+      <pose>-0.600 1.225 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_7</name>
+      <pose>-0.600 1.400 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r0_8</name>
+      <pose>-0.600 1.575 0 0 0 0</pose>
+    </include>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ROW 1  —  x = -0.200 m  (right wall of lane 0 / left wall of lane 1)
+    ════════════════════════════════════════════════════════════════ -->
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_0</name>
+      <pose>-0.200 0.175 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_1</name>
+      <pose>-0.200 0.350 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_2</name>
+      <pose>-0.200 0.525 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_3</name>
+      <pose>-0.200 0.700 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_4</name>
+      <pose>-0.200 0.875 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_5</name>
+      <pose>-0.200 1.050 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_6</name>
+      <pose>-0.200 1.225 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_7</name>
+      <pose>-0.200 1.400 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r1_8</name>
+      <pose>-0.200 1.575 0 0 0 0</pose>
+    </include>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ROW 2  —  x = +0.200 m  (right wall of lane 1 / left wall of lane 2)
+    ════════════════════════════════════════════════════════════════ -->
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_0</name>
+      <pose>0.200 0.175 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_1</name>
+      <pose>0.200 0.350 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_2</name>
+      <pose>0.200 0.525 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_3</name>
+      <pose>0.200 0.700 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_4</name>
+      <pose>0.200 0.875 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_5</name>
+      <pose>0.200 1.050 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_6</name>
+      <pose>0.200 1.225 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_7</name>
+      <pose>0.200 1.400 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r2_8</name>
+      <pose>0.200 1.575 0 0 0 0</pose>
+    </include>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ROW 3  —  x = +0.600 m  (rightmost row)
+    ════════════════════════════════════════════════════════════════ -->
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_0</name>
+      <pose>0.600 0.175 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_1</name>
+      <pose>0.600 0.350 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_2</name>
+      <pose>0.600 0.525 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_3</name>
+      <pose>0.600 0.700 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_4</name>
+      <pose>0.600 0.875 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_5</name>
+      <pose>0.600 1.050 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_6</name>
+      <pose>0.600 1.225 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_7</name>
+      <pose>0.600 1.400 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://big_plant</uri>
+      <name>plant_r3_8</name>
+      <pose>0.600 1.575 0 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>
