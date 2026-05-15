@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'drive_robot = move_base.move_base:main'
         ],
     },
 )

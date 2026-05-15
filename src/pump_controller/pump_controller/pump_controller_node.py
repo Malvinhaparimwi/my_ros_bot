@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-import pigpio
+import RPi.GPIO as GPIO
 
 
 PUMP_PIN = 17
@@ -12,9 +12,8 @@ class PumpControllerNode(Node):
     def __init__(self):
         super().__init__('pump_controller')
 
-        self.pi = pigpio.pi()
-        self.pi.set_mode(PUMP_PIN, pigpio.OUTPUT)
-        self.pi.write(PUMP_PIN, 1)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(PUMP_PIN, GPIO.OUT, initial=GPIO.HIGH)  # HIGH = relay off
 
         self.subscription = self.create_subscription(
             String,
@@ -29,19 +28,19 @@ class PumpControllerNode(Node):
         command = msg.data.strip().lower()
 
         if command == 'on':
-            self.pi.write(PUMP_PIN, 0)
+            GPIO.output(PUMP_PIN, GPIO.LOW)
             self.get_logger().info('Pump ON')
 
         elif command == 'off':
-            self.pi.write(PUMP_PIN, 1)
+            GPIO.output(PUMP_PIN, GPIO.HIGH)
             self.get_logger().info('Pump OFF')
 
         else:
             self.get_logger().warn(f'Unknown command: "{msg.data}" — use "on" or "off"')
 
     def destroy_node(self):
-        self.pi.write(PUMP_PIN, 1)
-        self.pi.stop()
+        GPIO.output(PUMP_PIN, GPIO.HIGH)  # turn off pump on shutdown
+        GPIO.cleanup()
         super().destroy_node()
 
 
