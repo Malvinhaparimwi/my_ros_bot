@@ -4,7 +4,7 @@ from std_msgs.msg import String
 import pigpio
 
 
-PUMP_PIN = 17
+PUMP_PIN = 14
 
 
 class PumpControllerNode(Node):
