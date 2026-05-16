@@ -16,6 +16,8 @@ import RosService from '../services/RosService';
 
 const TOPIC = '/camera/left/compressed';
 const MSG_TYPE = 'sensor_msgs/CompressedImage';
+const DISPLAY_FRAME_MS = 83; // ~12 fps keeps base64 image swaps smooth in RN.
+const ROS_THROTTLE_MS = 80;
 const { width: SCREEN_W } = Dimensions.get('window');
 const CAM_W = SCREEN_W - 32;
 const CAM_H = Math.round(CAM_W * (9 / 16));
@@ -23,22 +25,75 @@ const CORNER = 14;
 const CORNER_T = 2;
 
 export default function CameraView({ connected }) {
-  const [imageUri, setImageUri] = useState(null);
+  const [frameSlots, setFrameSlots] = useState([null, null]);
+  const [visibleFrameIndex, setVisibleFrameIndex] = useState(null);
   const [fps, setFps] = useState(0);
   const [paused, setPaused] = useState(false);
   const fpsCountRef = useRef(0);
   const pausedRef = useRef(false);
   const lastFpsUpdate = useRef(Date.now());
+  const latestFrameRef = useRef(null);
+  const lastRenderRef = useRef(0);
+  const renderTimerRef = useRef(null);
+  const visibleFrameIndexRef = useRef(null);
+  const pendingFrameIndexRef = useRef(null);
+
+  const revealFrame = index => {
+    if (pendingFrameIndexRef.current !== index) return;
+    pendingFrameIndexRef.current = null;
+    visibleFrameIndexRef.current = index;
+    setVisibleFrameIndex(index);
+  };
 
   useEffect(() => {
-    if (!connected) return;
+    if (!connected) {
+      setFrameSlots([null, null]);
+      setVisibleFrameIndex(null);
+      visibleFrameIndexRef.current = null;
+      pendingFrameIndexRef.current = null;
+      setFps(0);
+      latestFrameRef.current = null;
+      fpsCountRef.current = 0;
+      return;
+    }
+
+    const showLatestFrame = () => {
+      renderTimerRef.current = null;
+      if (!latestFrameRef.current || pausedRef.current) return;
+
+      const visibleIndex = visibleFrameIndexRef.current;
+      const nextIndex = visibleIndex === 0 ? 1 : 0;
+      const nextFrame = latestFrameRef.current;
+      pendingFrameIndexRef.current = nextIndex;
+      setFrameSlots(slots => {
+        if (slots[nextIndex] === nextFrame) return slots;
+        const nextSlots = [...slots];
+        nextSlots[nextIndex] = nextFrame;
+        return nextSlots;
+      });
+      lastRenderRef.current = Date.now();
+    };
 
     const handler = msg => {
       if (pausedRef.current) return;
       const format = msg.format?.includes('png') ? 'png' : 'jpeg';
-      setImageUri(`data:image/${format};base64,${msg.data}`);
+      latestFrameRef.current = `data:image/${format};base64,${msg.data}`;
+
       fpsCountRef.current += 1;
       const now = Date.now();
+
+      const elapsed = now - lastRenderRef.current;
+      if (!renderTimerRef.current) {
+        if (elapsed >= DISPLAY_FRAME_MS) {
+          showLatestFrame();
+        } else {
+          renderTimerRef.current = setTimeout(
+            showLatestFrame,
+            DISPLAY_FRAME_MS - elapsed,
+          );
+        }
+      }
+
       if (now - lastFpsUpdate.current >= 1000) {
         setFps(fpsCountRef.current);
         fpsCountRef.current = 0;
@@ -46,9 +101,21 @@ export default function CameraView({ connected }) {
       }
     };
 
-    RosService.subscribe(TOPIC, MSG_TYPE, handler);
-    return () => RosService.unsubscribe(TOPIC, handler);
+    RosService.subscribe(TOPIC, MSG_TYPE, handler, {
+      throttle_rate: ROS_THROTTLE_MS,
+      queue_length: 1,
+    });
+
+    return () => {
+      if (renderTimerRef.current) {
+        clearTimeout(renderTimerRef.current);
+        renderTimerRef.current = null;
+      }
+      RosService.unsubscribe(TOPIC, handler);
+    };
   }, [connected]);
+
+  const hasFrame = visibleFrameIndex !== null;
 
   return (
     <View style={styles.wrapper}>
@@ -80,17 +147,27 @@ export default function CameraView({ connected }) {
             <Text style={styles.offlineText}>NO SIGNAL</Text>
             <Text style={styles.offlineSub}>Connect to robot hotspot</Text>
           </View>
-        ) : !imageUri ? (
+        ) : !hasFrame ? (
           <View style={styles.offline}>
             <Text style={styles.offlineText}>WAITING FOR STREAM</Text>
             {/* <Text style={styles.offlineSub}>Check camera topic</Text> */}
           </View>
         ) : (
-          <Image
-            source={{ uri: imageUri }}
-            style={styles.image}
-            resizeMode="contain"
-          />
+          frameSlots.map((uri, index) =>
+            uri ? (
+              <Image
+                key={index}
+                source={{ uri }}
+                style={[
+                  styles.image,
+                  visibleFrameIndex === index && styles.imageVisible,
+                ]}
+                resizeMode="contain"
+                fadeDuration={0}
+                onLoad={() => revealFrame(index)}
+              />
+            ) : null,
+          )
         )}
 
         {/* Corner brackets — blue on light */}
@@ -188,8 +265,13 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   image: {
+    ...StyleSheet.absoluteFillObject,
     width: '100%',
     height: '100%',
+    opacity: 0,
+  },
+  imageVisible: {
+    opacity: 1,
   },
 
   // No signal state

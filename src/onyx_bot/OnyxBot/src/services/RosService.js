@@ -16,6 +16,7 @@ class RosService extends EventEmitter {
     this.reconnectTimer = null;
     this.msgId = 0;
     this.subscriptions = {};
+    this.subscriptionOptions = {};
     this.advertised = {};
   }
 
@@ -82,12 +83,13 @@ class RosService extends EventEmitter {
   }
 
   // ─── Subscribe ───────────────────────────────────────────────
-  subscribe(topic, type, callback) {
+  subscribe(topic, type, callback, options = {}) {
     if (!this.subscriptions[topic]) {
       this.subscriptions[topic] = [];
     }
     this.subscriptions[topic].push(callback);
-    this._send({ op: 'subscribe', topic, type });
+    this.subscriptionOptions[topic] = { type, ...options };
+    this._send({ op: 'subscribe', topic, type, ...options });
   }
 
   unsubscribe(topic, callback) {
@@ -100,6 +102,7 @@ class RosService extends EventEmitter {
       delete this.subscriptions[topic];
     }
     if (!this.subscriptions[topic] || this.subscriptions[topic].length === 0) {
+      delete this.subscriptionOptions[topic];
       this._send({ op: 'unsubscribe', topic });
     }
   }
@@ -108,7 +111,11 @@ class RosService extends EventEmitter {
     // Re-send subscribe for all active topics after reconnect
     Object.keys(this.subscriptions).forEach(topic => {
       if (this.subscriptions[topic].length > 0) {
-        this._send({ op: 'subscribe', topic });
+        this._send({
+          op: 'subscribe',
+          topic,
+          ...this.subscriptionOptions[topic],
+        });
       }
     });
   }
