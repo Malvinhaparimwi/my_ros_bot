@@ -1,53 +1,50 @@
-import cv2
-from flask import Flask, Response
-from picamera2 import Picamera2
+#!/usr/bin/env python3
+"""
+robot_api.py  –  Pi-side REST API for robot.service control
+Run this as a separate systemd service (robot-api.service).
 
-# Config
-WIDTH = 820
-HEIGHT = 640
-FRAME_RATE = 30
+Install: pip3 install flask
+Run once to test: python3 robot_api.py
+
+Sudoers entry needed (visudo):
+  pi ALL=(ALL) NOPASSWD: /bin/systemctl start robot.service, \
+                         /bin/systemctl stop robot.service, \
+                         /bin/systemctl restart robot.service, \
+                         /bin/systemctl status robot.service
+"""
+
+from flask import Flask, jsonify
+import subprocess
 
 app = Flask(__name__)
+ALLOWED = {'start', 'stop', 'restart', 'status'}
 
-# Initialize Picamera2 (libcamera backend)
-picam2 = Picamera2()
 
-config = picam2.create_video_configuration(
-    main={"size": (WIDTH, HEIGHT), "format": "RGB888"},
-    controls={"FrameRate": FRAME_RATE}
-)
+@app.route('/service/<action>', methods=['POST'])
+def service(action):
+    if action not in ALLOWED:
+        return jsonify({'error': f'Invalid action: {action}'}), 400
 
-picam2.configure(config)
-picam2.start()
-
-def generate_frames():
-    while True:
-        # Capture frame as NumPy array (RGB)
-        frame = picam2.capture_array()
-
-        # Convert RGB → BGR (OpenCV format)
-        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-
-        # Encode to JPEG
-        success, buffer = cv2.imencode('.jpg', frame)
-        if not success:
-            continue
-
-        frame_bytes = buffer.tobytes()
-
-        yield (
-            b'--frame\r\n'
-            b'Content-Type: image/jpeg\r\n\r\n' +
-            frame_bytes +
-            b'\r\n'
-        )
-
-@app.route("/stream")
-def camera_stream():
-    return Response(
-        generate_frames(),
-        mimetype='multipart/x-mixed-replace; boundary=frame'
+    result = subprocess.run(
+        ['sudo', 'systemctl', action, 'robot.service'],
+        capture_output=True,
+        text=True,
+        timeout=10,
     )
+    return jsonify({
+        'action': action,
+        'returncode': result.returncode,
+        'stdout': result.stdout.strip(),
+        'stderr': result.stderr.strip(),
+        'success': result.returncode == 0,
+    })
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=2003, threaded=True)
+
+@app.route('/ping', methods=['GET'])
+def ping():
+    return jsonify({'pong': True})
+
+
+if __name__ == '__main__':
+    # Bind to hotspot interface IP
+    app.run(host='0.0.0.0', port=5001, debug=False)

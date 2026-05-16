@@ -6,7 +6,7 @@
 
 import { EventEmitter } from 'eventemitter3';
 
-const ROS_BRIDGE_URL = 'ws://10.42.0.1:9090';
+const ROS_BRIDGE_URL = 'ws://192.168.50.1:9090';
 
 class RosService extends EventEmitter {
   constructor() {

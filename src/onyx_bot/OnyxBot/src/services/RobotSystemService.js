@@ -31,7 +31,7 @@
  *                          /bin/systemctl status robot.service
  */
 
-const PI_API_BASE = 'http://10.42.0.1:5001';
+const PI_API_BASE = 'http://192.168.50.1:5001';
 const TIMEOUT_MS = 5000;
 
 async function _fetchWithTimeout(url, options = {}) {
