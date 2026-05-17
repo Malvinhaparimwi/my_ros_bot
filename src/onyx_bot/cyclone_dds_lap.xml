@@ -2,7 +2,9 @@
 <CycloneDDS>
   <Domain>
     <General>
-      <NetworkInterfaceAddress>wlp2s0</NetworkInterfaceAddress>
+      <Interfaces>
+        <NetworkInterface name="wlp2s0"/>
+      </Interfaces>
       <AllowMulticast>false</AllowMulticast>
     </General>
     <Discovery>

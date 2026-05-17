@@ -2,7 +2,9 @@
 <CycloneDDS>
   <Domain>
     <General>
-      <NetworkInterfaceAddress>wlan0</NetworkInterfaceAddress>
+      <Interfaces>
+        <NetworkInterface name="wlan0"/>
+      </Interfaces>
       <AllowMulticast>false</AllowMulticast>
     </General>
     <Discovery>
