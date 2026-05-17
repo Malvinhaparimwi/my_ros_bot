@@ -1,0 +1,449 @@
+[0.000000] (-) TimerEvent: {}
+[0.000930] (arduino_ros) JobQueued: {'identifier': 'arduino_ros', 'dependencies': OrderedDict()}
+[0.001840] (bot_teleop) JobQueued: {'identifier': 'bot_teleop', 'dependencies': OrderedDict()}
+[0.001932] (move_base) JobQueued: {'identifier': 'move_base', 'dependencies': OrderedDict()}
+[0.001998] (onyx_robot) JobQueued: {'identifier': 'onyx_robot', 'dependencies': OrderedDict()}
+[0.002062] (pump_controller) JobQueued: {'identifier': 'pump_controller', 'dependencies': OrderedDict()}
+[0.002126] (ros_bot_camera) JobQueued: {'identifier': 'ros_bot_camera', 'dependencies': OrderedDict()}
+[0.002187] (ros_bot_imu) JobQueued: {'identifier': 'ros_bot_imu', 'dependencies': OrderedDict()}
+[0.002248] (ros_bot_sim) JobQueued: {'identifier': 'ros_bot_sim', 'dependencies': OrderedDict()}
+[0.002310] (arduino_ros) JobStarted: {'identifier': 'arduino_ros'}
+[0.052128] (bot_teleop) JobStarted: {'identifier': 'bot_teleop'}
+[0.082199] (move_base) JobStarted: {'identifier': 'move_base'}
+[0.099186] (-) TimerEvent: {}
+[0.111989] (onyx_robot) JobStarted: {'identifier': 'onyx_robot'}
+[0.199380] (-) TimerEvent: {}
+[0.299997] (-) TimerEvent: {}
+[0.400600] (-) TimerEvent: {}
+[0.501231] (-) TimerEvent: {}
+[0.601871] (-) TimerEvent: {}
+[0.702569] (-) TimerEvent: {}
+[0.803593] (-) TimerEvent: {}
+[0.904223] (-) TimerEvent: {}
+[1.004820] (-) TimerEvent: {}
+[1.105522] (-) TimerEvent: {}
+[1.206399] (-) TimerEvent: {}
+[1.307142] (-) TimerEvent: {}
+[1.407763] (-) TimerEvent: {}
+[1.508410] (-) TimerEvent: {}
+[1.609079] (-) TimerEvent: {}
+[1.709673] (-) TimerEvent: {}
+[1.810302] (-) TimerEvent: {}
+[1.910875] (-) TimerEvent: {}
+[2.011437] (-) TimerEvent: {}
+[2.112159] (-) TimerEvent: {}
+[2.213069] (-) TimerEvent: {}
+[2.313872] (-) TimerEvent: {}
+[2.414478] (-) TimerEvent: {}
+[2.515108] (-) TimerEvent: {}
+[2.615680] (-) TimerEvent: {}
+[2.716309] (-) TimerEvent: {}
+[2.816908] (-) TimerEvent: {}
+[2.917506] (-) TimerEvent: {}
+[3.018116] (-) TimerEvent: {}
+[3.118860] (-) TimerEvent: {}
+[3.219638] (-) TimerEvent: {}
+[3.320299] (-) TimerEvent: {}
+[3.420950] (-) TimerEvent: {}
+[3.521595] (-) TimerEvent: {}
+[3.622231] (-) TimerEvent: {}
+[3.722848] (-) TimerEvent: {}
+[3.823454] (-) TimerEvent: {}
+[3.924053] (-) TimerEvent: {}
+[4.024632] (-) TimerEvent: {}
+[4.125399] (-) TimerEvent: {}
+[4.226246] (-) TimerEvent: {}
+[4.327107] (-) TimerEvent: {}
+[4.427886] (-) TimerEvent: {}
+[4.574962] (-) TimerEvent: {}
+[4.675873] (-) TimerEvent: {}
+[4.778841] (-) TimerEvent: {}
+[4.880628] (-) TimerEvent: {}
+[4.981647] (-) TimerEvent: {}
+[5.084922] (-) TimerEvent: {}
+[5.185768] (-) TimerEvent: {}
+[5.286508] (-) TimerEvent: {}
+[5.389918] (-) TimerEvent: {}
+[5.490656] (-) TimerEvent: {}
+[5.591558] (-) TimerEvent: {}
+[5.693249] (-) TimerEvent: {}
+[5.794527] (-) TimerEvent: {}
+[5.895433] (-) TimerEvent: {}
+[5.996590] (-) TimerEvent: {}
+[6.097582] (-) TimerEvent: {}
+[6.198568] (-) TimerEvent: {}
+[6.299910] (-) TimerEvent: {}
+[6.400717] (-) TimerEvent: {}
+[6.501763] (-) TimerEvent: {}
+[6.605021] (-) TimerEvent: {}
+[6.705895] (-) TimerEvent: {}
+[6.807401] (-) TimerEvent: {}
+[6.908220] (-) TimerEvent: {}
+[7.009561] (-) TimerEvent: {}
+[7.110370] (-) TimerEvent: {}
+[7.211274] (-) TimerEvent: {}
+[7.311924] (-) TimerEvent: {}
+[7.412568] (-) TimerEvent: {}
+[7.514018] (-) TimerEvent: {}
+[7.615408] (-) TimerEvent: {}
+[7.716964] (-) TimerEvent: {}
+[7.819966] (-) TimerEvent: {}
+[7.921936] (-) TimerEvent: {}
+[8.026258] (-) TimerEvent: {}
+[8.127089] (-) TimerEvent: {}
+[8.228900] (-) TimerEvent: {}
+[8.332250] (-) TimerEvent: {}
+[8.433765] (-) TimerEvent: {}
+[8.536681] (-) TimerEvent: {}
+[8.640264] (-) TimerEvent: {}
+[8.741048] (-) TimerEvent: {}
+[8.845256] (-) TimerEvent: {}
+[8.946100] (-) TimerEvent: {}
+[9.047726] (-) TimerEvent: {}
+[9.149931] (-) TimerEvent: {}
+[9.250637] (-) TimerEvent: {}
+[9.351591] (-) TimerEvent: {}
+[9.455185] (-) TimerEvent: {}
+[9.561595] (-) TimerEvent: {}
+[9.805649] (onyx_robot) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/onyx_robot/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/onyx_robot', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/onyx_robot', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[9.814716] (-) TimerEvent: {}
+[9.832096] (move_base) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/move_base/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/move_base', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/move_base', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[9.841115] (arduino_ros) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/arduino_ros/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/arduino_ros', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/arduino_ros', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[9.856762] (bot_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/bot_teleop/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/bot_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/bot_teleop', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[9.914944] (-) TimerEvent: {}
+[10.016971] (-) TimerEvent: {}
+[10.121510] (-) TimerEvent: {}
+[10.223605] (-) TimerEvent: {}
+[10.326439] (-) TimerEvent: {}
+[10.427920] (-) TimerEvent: {}
+[10.530751] (-) TimerEvent: {}
+[10.631537] (-) TimerEvent: {}
+[10.734938] (-) TimerEvent: {}
+[10.835675] (-) TimerEvent: {}
+[10.936427] (-) TimerEvent: {}
+[11.037172] (-) TimerEvent: {}
+[11.138943] (-) TimerEvent: {}
+[11.242941] (-) TimerEvent: {}
+[11.343739] (-) TimerEvent: {}
+[11.444465] (-) TimerEvent: {}
+[11.545228] (-) TimerEvent: {}
+[11.646016] (-) TimerEvent: {}
+[11.748911] (-) TimerEvent: {}
+[11.849604] (-) TimerEvent: {}
+[11.950376] (-) TimerEvent: {}
+[12.051970] (-) TimerEvent: {}
+[12.072843] (bot_teleop) StdoutLine: {'line': b'running develop\n'}
+[12.100085] (onyx_robot) StdoutLine: {'line': b'running develop\n'}
+[12.154945] (-) TimerEvent: {}
+[12.158040] (move_base) StdoutLine: {'line': b'running develop\n'}
+[12.255147] (-) TimerEvent: {}
+[12.359355] (-) TimerEvent: {}
+[12.442059] (arduino_ros) StdoutLine: {'line': b'running develop\n'}
+[12.459562] (-) TimerEvent: {}
+[12.560360] (-) TimerEvent: {}
+[12.661164] (-) TimerEvent: {}
+[12.764226] (-) TimerEvent: {}
+[12.865073] (-) TimerEvent: {}
+[12.966491] (-) TimerEvent: {}
+[13.068896] (-) TimerEvent: {}
+[13.176728] (-) TimerEvent: {}
+[13.282766] (-) TimerEvent: {}
+[13.390052] (-) TimerEvent: {}
+[13.493927] (-) TimerEvent: {}
+[13.529055] (bot_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[13.594098] (-) TimerEvent: {}
+[13.618114] (onyx_robot) StdoutLine: {'line': b'running egg_info\n'}
+[13.657901] (bot_teleop) StdoutLine: {'line': b'writing bot_teleop.egg-info/PKG-INFO\n'}
+[13.658520] (bot_teleop) StdoutLine: {'line': b'writing dependency_links to bot_teleop.egg-info/dependency_links.txt\n'}
+[13.661796] (bot_teleop) StdoutLine: {'line': b'writing entry points to bot_teleop.egg-info/entry_points.txt\n'}
+[13.664663] (bot_teleop) StdoutLine: {'line': b'writing requirements to bot_teleop.egg-info/requires.txt\n'}
+[13.669541] (bot_teleop) StdoutLine: {'line': b'writing top-level names to bot_teleop.egg-info/top_level.txt\n'}
+[13.694296] (-) TimerEvent: {}
+[13.739027] (move_base) StdoutLine: {'line': b'running egg_info\n'}
+[13.745260] (onyx_robot) StdoutLine: {'line': b'writing onyx_robot.egg-info/PKG-INFO\n'}
+[13.746846] (onyx_robot) StdoutLine: {'line': b'writing dependency_links to onyx_robot.egg-info/dependency_links.txt\n'}
+[13.748347] (onyx_robot) StdoutLine: {'line': b'writing requirements to onyx_robot.egg-info/requires.txt\n'}
+[13.753963] (onyx_robot) StdoutLine: {'line': b'writing top-level names to onyx_robot.egg-info/top_level.txt\n'}
+[13.796931] (-) TimerEvent: {}
+[13.885352] (move_base) StdoutLine: {'line': b'writing move_base.egg-info/PKG-INFO\n'}
+[13.887190] (move_base) StdoutLine: {'line': b'writing dependency_links to move_base.egg-info/dependency_links.txt\n'}
+[13.890497] (move_base) StdoutLine: {'line': b'writing entry points to move_base.egg-info/entry_points.txt\n'}
+[13.895741] (move_base) StdoutLine: {'line': b'writing requirements to move_base.egg-info/requires.txt\n'}
+[13.896380] (move_base) StdoutLine: {'line': b'writing top-level names to move_base.egg-info/top_level.txt\n'}
+[13.896933] (-) TimerEvent: {}
+[13.934753] (bot_teleop) StdoutLine: {'line': b"reading manifest file 'bot_teleop.egg-info/SOURCES.txt'\n"}
+[13.939991] (bot_teleop) StdoutLine: {'line': b"writing manifest file 'bot_teleop.egg-info/SOURCES.txt'\n"}
+[13.991894] (arduino_ros) StdoutLine: {'line': b'running egg_info\n'}
+[13.999933] (-) TimerEvent: {}
+[14.003679] (onyx_robot) StdoutLine: {'line': b"reading manifest file 'onyx_robot.egg-info/SOURCES.txt'\n"}
+[14.011089] (onyx_robot) StdoutLine: {'line': b"writing manifest file 'onyx_robot.egg-info/SOURCES.txt'\n"}
+[14.102914] (bot_teleop) StdoutLine: {'line': b'running build_ext\n'}
+[14.103530] (-) TimerEvent: {}
+[14.104042] (bot_teleop) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages/bot-teleop.egg-link (link to .)\n'}
+[14.107833] (bot_teleop) StdoutLine: {'line': b'Installing bot_teleop script to /home/Malvin/my_ros_bot/install/bot_teleop/lib/bot_teleop\n'}
+[14.110061] (bot_teleop) StdoutLine: {'line': b'\n'}
+[14.112443] (bot_teleop) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/bot_teleop\n'}
+[14.113432] (bot_teleop) StdoutLine: {'line': b'running symlink_data\n'}
+[14.128964] (arduino_ros) StdoutLine: {'line': b'writing arduino_ros.egg-info/PKG-INFO\n'}
+[14.129889] (arduino_ros) StdoutLine: {'line': b'writing dependency_links to arduino_ros.egg-info/dependency_links.txt\n'}
+[14.135949] (arduino_ros) StdoutLine: {'line': b'writing entry points to arduino_ros.egg-info/entry_points.txt\n'}
+[14.136919] (arduino_ros) StdoutLine: {'line': b'writing requirements to arduino_ros.egg-info/requires.txt\n'}
+[14.139039] (arduino_ros) StdoutLine: {'line': b'writing top-level names to arduino_ros.egg-info/top_level.txt\n'}
+[14.160834] (onyx_robot) StdoutLine: {'line': b'running build_ext\n'}
+[14.165015] (onyx_robot) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages/onyx-robot.egg-link (link to .)\n'}
+[14.171961] (onyx_robot) StdoutLine: {'line': b'\n'}
+[14.172988] (onyx_robot) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/onyx_robot\n'}
+[14.176991] (onyx_robot) StdoutLine: {'line': b'running symlink_data\n'}
+[14.197691] (move_base) StdoutLine: {'line': b"reading manifest file 'move_base.egg-info/SOURCES.txt'\n"}
+[14.203879] (-) TimerEvent: {}
+[14.208849] (move_base) StdoutLine: {'line': b"writing manifest file 'move_base.egg-info/SOURCES.txt'\n"}
+[14.307015] (-) TimerEvent: {}
+[14.408485] (-) TimerEvent: {}
+[14.435638] (bot_teleop) CommandEnded: {'returncode': 0}
+[14.465550] (move_base) StdoutLine: {'line': b'running build_ext\n'}
+[14.471739] (move_base) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)\n'}
+[14.472434] (move_base) StdoutLine: {'line': b'Installing drive_robot script to /home/Malvin/my_ros_bot/install/move_base/lib/move_base\n'}
+[14.474182] (move_base) StdoutLine: {'line': b'\n'}
+[14.476334] (move_base) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/move_base\n'}
+[14.478712] (move_base) StdoutLine: {'line': b'running symlink_data\n'}
+[14.509248] (-) TimerEvent: {}
+[14.520507] (bot_teleop) JobEnded: {'identifier': 'bot_teleop', 'rc': 0}
+[14.527998] (pump_controller) JobStarted: {'identifier': 'pump_controller'}
+[14.584174] (onyx_robot) CommandEnded: {'returncode': 0}
+[14.609599] (-) TimerEvent: {}
+[14.618256] (arduino_ros) StdoutLine: {'line': b"reading manifest file 'arduino_ros.egg-info/SOURCES.txt'\n"}
+[14.623379] (arduino_ros) StdoutLine: {'line': b"writing manifest file 'arduino_ros.egg-info/SOURCES.txt'\n"}
+[14.650075] (onyx_robot) JobEnded: {'identifier': 'onyx_robot', 'rc': 0}
+[14.659880] (ros_bot_camera) JobStarted: {'identifier': 'ros_bot_camera'}
+[14.709768] (-) TimerEvent: {}
+[14.747051] (arduino_ros) StdoutLine: {'line': b'running build_ext\n'}
+[14.747853] (arduino_ros) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages/arduino-ros.egg-link (link to .)\n'}
+[14.750372] (arduino_ros) StdoutLine: {'line': b'Installing controller script to /home/Malvin/my_ros_bot/install/arduino_ros/lib/arduino_ros\n'}
+[14.751937] (arduino_ros) StdoutLine: {'line': b'\n'}
+[14.752570] (arduino_ros) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/arduino_ros\n'}
+[14.754577] (arduino_ros) StdoutLine: {'line': b'running symlink_data\n'}
+[14.812006] (-) TimerEvent: {}
+[14.916124] (-) TimerEvent: {}
+[15.016917] (-) TimerEvent: {}
+[15.117507] (-) TimerEvent: {}
+[15.218148] (-) TimerEvent: {}
+[15.318822] (-) TimerEvent: {}
+[15.419409] (-) TimerEvent: {}
+[15.520036] (-) TimerEvent: {}
+[15.620608] (-) TimerEvent: {}
+[15.721310] (-) TimerEvent: {}
+[15.801959] (move_base) CommandEnded: {'returncode': 0}
+[15.821442] (-) TimerEvent: {}
+[15.839095] (move_base) JobEnded: {'identifier': 'move_base', 'rc': 0}
+[15.844335] (ros_bot_imu) JobStarted: {'identifier': 'ros_bot_imu'}
+[15.921687] (-) TimerEvent: {}
+[16.022695] (-) TimerEvent: {}
+[16.123406] (-) TimerEvent: {}
+[16.224129] (-) TimerEvent: {}
+[16.324758] (-) TimerEvent: {}
+[16.425400] (-) TimerEvent: {}
+[16.526136] (-) TimerEvent: {}
+[16.627003] (-) TimerEvent: {}
+[16.727596] (-) TimerEvent: {}
+[16.828213] (-) TimerEvent: {}
+[16.928982] (-) TimerEvent: {}
+[17.018806] (arduino_ros) CommandEnded: {'returncode': 0}
+[17.029305] (-) TimerEvent: {}
+[17.056080] (arduino_ros) JobEnded: {'identifier': 'arduino_ros', 'rc': 0}
+[17.059237] (ros_bot_sim) JobStarted: {'identifier': 'ros_bot_sim'}
+[17.129482] (-) TimerEvent: {}
+[17.230204] (-) TimerEvent: {}
+[17.331209] (-) TimerEvent: {}
+[17.431897] (-) TimerEvent: {}
+[17.532621] (-) TimerEvent: {}
+[17.633412] (-) TimerEvent: {}
+[17.734353] (-) TimerEvent: {}
+[17.835018] (-) TimerEvent: {}
+[17.935643] (-) TimerEvent: {}
+[18.036307] (-) TimerEvent: {}
+[18.137063] (-) TimerEvent: {}
+[18.237911] (-) TimerEvent: {}
+[18.338954] (-) TimerEvent: {}
+[18.440706] (-) TimerEvent: {}
+[18.541462] (-) TimerEvent: {}
+[18.642446] (-) TimerEvent: {}
+[18.743254] (-) TimerEvent: {}
+[18.845574] (-) TimerEvent: {}
+[18.947162] (-) TimerEvent: {}
+[19.047926] (-) TimerEvent: {}
+[19.148618] (-) TimerEvent: {}
+[19.249353] (-) TimerEvent: {}
+[19.350152] (-) TimerEvent: {}
+[19.452387] (-) TimerEvent: {}
+[19.553317] (-) TimerEvent: {}
+[19.655204] (-) TimerEvent: {}
+[19.757593] (-) TimerEvent: {}
+[19.861933] (-) TimerEvent: {}
+[19.962726] (-) TimerEvent: {}
+[20.065292] (-) TimerEvent: {}
+[20.168239] (-) TimerEvent: {}
+[20.269089] (-) TimerEvent: {}
+[20.372214] (-) TimerEvent: {}
+[20.474155] (-) TimerEvent: {}
+[20.578490] (-) TimerEvent: {}
+[20.679621] (-) TimerEvent: {}
+[20.768002] (pump_controller) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/pump_controller/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/pump_controller', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/pump_controller', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[20.782544] (-) TimerEvent: {}
+[20.883748] (-) TimerEvent: {}
+[20.986943] (-) TimerEvent: {}
+[21.090821] (-) TimerEvent: {}
+[21.194255] (-) TimerEvent: {}
+[21.296073] (-) TimerEvent: {}
+[21.398933] (-) TimerEvent: {}
+[21.501929] (-) TimerEvent: {}
+[21.602859] (-) TimerEvent: {}
+[21.705940] (-) TimerEvent: {}
+[21.809022] (-) TimerEvent: {}
+[21.910551] (-) TimerEvent: {}
+[22.013601] (-) TimerEvent: {}
+[22.119152] (-) TimerEvent: {}
+[22.222925] (-) TimerEvent: {}
+[22.323847] (-) TimerEvent: {}
+[22.426995] (-) TimerEvent: {}
+[22.530962] (-) TimerEvent: {}
+[22.634964] (-) TimerEvent: {}
+[22.735943] (-) TimerEvent: {}
+[22.841364] (-) TimerEvent: {}
+[22.952062] (-) TimerEvent: {}
+[23.053501] (-) TimerEvent: {}
+[23.157285] (-) TimerEvent: {}
+[23.260371] (-) TimerEvent: {}
+[23.367942] (-) TimerEvent: {}
+[23.469667] (-) TimerEvent: {}
+[23.574955] (-) TimerEvent: {}
+[23.680175] (ros_bot_camera) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/ros_bot_camera/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/ros_bot_camera', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/ros_bot_camera', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/ros_bot_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[23.688203] (-) TimerEvent: {}
+[23.796954] (-) TimerEvent: {}
+[23.897948] (-) TimerEvent: {}
+[23.998894] (-) TimerEvent: {}
+[24.104200] (-) TimerEvent: {}
+[24.207982] (-) TimerEvent: {}
+[24.309340] (-) TimerEvent: {}
+[24.413566] (-) TimerEvent: {}
+[24.526566] (ros_bot_sim) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/ros_bot_sim/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/ros_bot_sim', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/ros_bot_sim', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/ros_bot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[24.529680] (-) TimerEvent: {}
+[24.632912] (-) TimerEvent: {}
+[24.738560] (-) TimerEvent: {}
+[24.749752] (pump_controller) StdoutLine: {'line': b'running develop\n'}
+[24.839985] (-) TimerEvent: {}
+[24.944939] (-) TimerEvent: {}
+[25.045920] (-) TimerEvent: {}
+[25.149395] (-) TimerEvent: {}
+[25.252903] (-) TimerEvent: {}
+[25.353620] (-) TimerEvent: {}
+[25.454575] (-) TimerEvent: {}
+[25.462918] (ros_bot_imu) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/Malvin/my_ros_bot/build/ros_bot_imu/build', '--no-deps', 'symlink_data'], 'cwd': '/home/Malvin/my_ros_bot/build/ros_bot_imu', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot/src', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/ros_bot_imu', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/build/ros_bot_imu/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1'}, 'shell': False}
+[25.557619] (-) TimerEvent: {}
+[25.660838] (-) TimerEvent: {}
+[25.765042] (-) TimerEvent: {}
+[25.869924] (-) TimerEvent: {}
+[25.973942] (-) TimerEvent: {}
+[26.077138] (-) TimerEvent: {}
+[26.180654] (-) TimerEvent: {}
+[26.285232] (-) TimerEvent: {}
+[26.386094] (-) TimerEvent: {}
+[26.488159] (-) TimerEvent: {}
+[26.589755] (-) TimerEvent: {}
+[26.691506] (-) TimerEvent: {}
+[26.698053] (pump_controller) StdoutLine: {'line': b'running egg_info\n'}
+[26.791680] (-) TimerEvent: {}
+[26.810091] (ros_bot_camera) StdoutLine: {'line': b'running develop\n'}
+[26.816985] (pump_controller) StdoutLine: {'line': b'writing pump_controller.egg-info/PKG-INFO\n'}
+[26.818515] (pump_controller) StdoutLine: {'line': b'writing dependency_links to pump_controller.egg-info/dependency_links.txt\n'}
+[26.822925] (pump_controller) StdoutLine: {'line': b'writing entry points to pump_controller.egg-info/entry_points.txt\n'}
+[26.823978] (pump_controller) StdoutLine: {'line': b'writing requirements to pump_controller.egg-info/requires.txt\n'}
+[26.827510] (pump_controller) StdoutLine: {'line': b'writing top-level names to pump_controller.egg-info/top_level.txt\n'}
+[26.891923] (-) TimerEvent: {}
+[26.995234] (-) TimerEvent: {}
+[27.087224] (pump_controller) StdoutLine: {'line': b"reading manifest file 'pump_controller.egg-info/SOURCES.txt'\n"}
+[27.095111] (pump_controller) StdoutLine: {'line': b"writing manifest file 'pump_controller.egg-info/SOURCES.txt'\n"}
+[27.095755] (-) TimerEvent: {}
+[27.174207] (ros_bot_sim) StdoutLine: {'line': b'running develop\n'}
+[27.195961] (-) TimerEvent: {}
+[27.229275] (pump_controller) StdoutLine: {'line': b'running build_ext\n'}
+[27.230347] (pump_controller) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump-controller.egg-link (link to .)\n'}
+[27.233920] (pump_controller) StdoutLine: {'line': b'Installing controller script to /home/Malvin/my_ros_bot/install/pump_controller/lib/pump_controller\n'}
+[27.235654] (pump_controller) StdoutLine: {'line': b'\n'}
+[27.236770] (pump_controller) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/pump_controller\n'}
+[27.237362] (pump_controller) StdoutLine: {'line': b'running symlink_data\n'}
+[27.299013] (-) TimerEvent: {}
+[27.400104] (-) TimerEvent: {}
+[27.443508] (pump_controller) CommandEnded: {'returncode': 0}
+[27.489581] (pump_controller) JobEnded: {'identifier': 'pump_controller', 'rc': 0}
+[27.500273] (-) TimerEvent: {}
+[27.600961] (-) TimerEvent: {}
+[27.701906] (-) TimerEvent: {}
+[27.802560] (-) TimerEvent: {}
+[27.903289] (-) TimerEvent: {}
+[27.932104] (ros_bot_imu) StdoutLine: {'line': b'running develop\n'}
+[28.003459] (-) TimerEvent: {}
+[28.104121] (-) TimerEvent: {}
+[28.205278] (-) TimerEvent: {}
+[28.212977] (ros_bot_camera) StdoutLine: {'line': b'running egg_info\n'}
+[28.305468] (-) TimerEvent: {}
+[28.322331] (ros_bot_camera) StdoutLine: {'line': b'writing ros_bot_camera.egg-info/PKG-INFO\n'}
+[28.324594] (ros_bot_camera) StdoutLine: {'line': b'writing dependency_links to ros_bot_camera.egg-info/dependency_links.txt\n'}
+[28.329326] (ros_bot_camera) StdoutLine: {'line': b'writing entry points to ros_bot_camera.egg-info/entry_points.txt\n'}
+[28.330329] (ros_bot_camera) StdoutLine: {'line': b'writing requirements to ros_bot_camera.egg-info/requires.txt\n'}
+[28.331104] (ros_bot_camera) StdoutLine: {'line': b'writing top-level names to ros_bot_camera.egg-info/top_level.txt\n'}
+[28.405635] (-) TimerEvent: {}
+[28.506339] (-) TimerEvent: {}
+[28.545450] (ros_bot_camera) StdoutLine: {'line': b"reading manifest file 'ros_bot_camera.egg-info/SOURCES.txt'\n"}
+[28.546388] (ros_bot_sim) StdoutLine: {'line': b'running egg_info\n'}
+[28.552122] (ros_bot_camera) StdoutLine: {'line': b"writing manifest file 'ros_bot_camera.egg-info/SOURCES.txt'\n"}
+[28.606563] (-) TimerEvent: {}
+[28.652914] (ros_bot_sim) StdoutLine: {'line': b'writing ros_bot_sim.egg-info/PKG-INFO\n'}
+[28.653523] (ros_bot_sim) StdoutLine: {'line': b'writing dependency_links to ros_bot_sim.egg-info/dependency_links.txt\n'}
+[28.656273] (ros_bot_sim) StdoutLine: {'line': b'writing requirements to ros_bot_sim.egg-info/requires.txt\n'}
+[28.657342] (ros_bot_sim) StdoutLine: {'line': b'writing top-level names to ros_bot_sim.egg-info/top_level.txt\n'}
+[28.665027] (ros_bot_camera) StdoutLine: {'line': b'running build_ext\n'}
+[28.665721] (ros_bot_camera) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages/ros-bot-camera.egg-link (link to .)\n'}
+[28.668969] (ros_bot_camera) StdoutLine: {'line': b'Installing camera_begin script to /home/Malvin/my_ros_bot/install/ros_bot_camera/lib/ros_bot_camera\n'}
+[28.671417] (ros_bot_camera) StdoutLine: {'line': b'\n'}
+[28.672120] (ros_bot_camera) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/ros_bot_camera\n'}
+[28.672641] (ros_bot_camera) StdoutLine: {'line': b'running symlink_data\n'}
+[28.706874] (-) TimerEvent: {}
+[28.807825] (-) TimerEvent: {}
+[28.858257] (ros_bot_camera) CommandEnded: {'returncode': 0}
+[28.900505] (ros_bot_camera) JobEnded: {'identifier': 'ros_bot_camera', 'rc': 0}
+[28.907919] (-) TimerEvent: {}
+[28.954579] (ros_bot_sim) StdoutLine: {'line': b"reading manifest file 'ros_bot_sim.egg-info/SOURCES.txt'\n"}
+[28.958904] (ros_bot_sim) StdoutLine: {'line': b"writing manifest file 'ros_bot_sim.egg-info/SOURCES.txt'\n"}
+[29.008203] (-) TimerEvent: {}
+[29.066718] (ros_bot_sim) StdoutLine: {'line': b'running build_ext\n'}
+[29.067535] (ros_bot_sim) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages/ros-bot-sim.egg-link (link to .)\n'}
+[29.070008] (ros_bot_sim) StdoutLine: {'line': b'\n'}
+[29.070565] (ros_bot_sim) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/ros_bot_sim\n'}
+[29.071225] (ros_bot_sim) StdoutLine: {'line': b'running symlink_data\n'}
+[29.108543] (-) TimerEvent: {}
+[29.209481] (-) TimerEvent: {}
+[29.234858] (ros_bot_sim) CommandEnded: {'returncode': 0}
+[29.272065] (ros_bot_sim) JobEnded: {'identifier': 'ros_bot_sim', 'rc': 0}
+[29.302199] (ros_bot_imu) StdoutLine: {'line': b'running egg_info\n'}
+[29.309596] (-) TimerEvent: {}
+[29.380583] (ros_bot_imu) StdoutLine: {'line': b'writing ros_bot_imu.egg-info/PKG-INFO\n'}
+[29.381754] (ros_bot_imu) StdoutLine: {'line': b'writing dependency_links to ros_bot_imu.egg-info/dependency_links.txt\n'}
+[29.382852] (ros_bot_imu) StdoutLine: {'line': b'writing entry points to ros_bot_imu.egg-info/entry_points.txt\n'}
+[29.383674] (ros_bot_imu) StdoutLine: {'line': b'writing requirements to ros_bot_imu.egg-info/requires.txt\n'}
+[29.384557] (ros_bot_imu) StdoutLine: {'line': b'writing top-level names to ros_bot_imu.egg-info/top_level.txt\n'}
+[29.409738] (-) TimerEvent: {}
+[29.510316] (-) TimerEvent: {}
+[29.543010] (ros_bot_imu) StdoutLine: {'line': b"reading manifest file 'ros_bot_imu.egg-info/SOURCES.txt'\n"}
+[29.547027] (ros_bot_imu) StdoutLine: {'line': b"writing manifest file 'ros_bot_imu.egg-info/SOURCES.txt'\n"}
+[29.610456] (-) TimerEvent: {}
+[29.631633] (ros_bot_imu) StdoutLine: {'line': b'running build_ext\n'}
+[29.632322] (ros_bot_imu) StdoutLine: {'line': b'Creating /home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages/ros-bot-imu.egg-link (link to .)\n'}
+[29.634896] (ros_bot_imu) StdoutLine: {'line': b'Installing imu_begin script to /home/Malvin/my_ros_bot/install/ros_bot_imu/lib/ros_bot_imu\n'}
+[29.636242] (ros_bot_imu) StdoutLine: {'line': b'\n'}
+[29.636747] (ros_bot_imu) StdoutLine: {'line': b'Installed /home/Malvin/my_ros_bot/build/ros_bot_imu\n'}
+[29.637245] (ros_bot_imu) StdoutLine: {'line': b'running symlink_data\n'}
+[29.710745] (-) TimerEvent: {}
+[29.790694] (ros_bot_imu) CommandEnded: {'returncode': 0}
+[29.810874] (-) TimerEvent: {}
+[29.826862] (ros_bot_imu) JobEnded: {'identifier': 'ros_bot_imu', 'rc': 0}
+[29.830329] (-) EventReactorShutdown: {}

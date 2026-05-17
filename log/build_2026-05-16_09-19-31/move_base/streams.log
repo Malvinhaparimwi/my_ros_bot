@@ -1,0 +1,17 @@
+[10.283s] Invoking command in '/home/Malvin/my_ros_bot/build/move_base': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data
+[12.889s] running develop
+[14.428s] running egg_info
+[14.714s] writing move_base.egg-info/PKG-INFO
+[14.716s] writing dependency_links to move_base.egg-info/dependency_links.txt
+[14.718s] writing entry points to move_base.egg-info/entry_points.txt
+[14.719s] writing requirements to move_base.egg-info/requires.txt
+[14.721s] writing top-level names to move_base.egg-info/top_level.txt
+[14.953s] reading manifest file 'move_base.egg-info/SOURCES.txt'
+[15.029s] writing manifest file 'move_base.egg-info/SOURCES.txt'
+[15.149s] running build_ext
+[15.149s] Creating /home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)
+[15.153s] Installing drive_robot script to /home/Malvin/my_ros_bot/install/move_base/lib/move_base
+[15.154s] 
+[15.154s] Installed /home/Malvin/my_ros_bot/build/move_base
+[15.155s] running symlink_data
+[16.392s] Invoked command in '/home/Malvin/my_ros_bot/build/move_base' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data

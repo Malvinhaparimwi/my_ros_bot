@@ -1,0 +1,32 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Found Python3: /home/Malvin/robot_space/bin/python3 (found version "3.12.3") found components: Interpreter 
+[31mCMake Error at CMakeLists.txt:16 (find_package):
+  By not providing "Findament_cmake_mypy.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "ament_cmake_mypy", but CMake did not find one.
+
+  Could not find a package configuration file provided by "ament_cmake_mypy"
+  with any of the following names:
+
+    ament_cmake_mypyConfig.cmake
+    ament_cmake_mypy-config.cmake
+
+  Add the installation prefix of "ament_cmake_mypy" to CMAKE_PREFIX_PATH or
+  set "ament_cmake_mypy_DIR" to a directory containing one of the above
+  files.  If "ament_cmake_mypy" provides a separate development package or
+  SDK, be sure it has been installed.
+
+[0m
+-- Configuring incomplete, errors occurred!

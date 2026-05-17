@@ -1,0 +1,248 @@
+[0.000000] (-) TimerEvent: {}
+[0.001562] (-) JobUnselected: {'identifier': 'arduino_ros'}
+[0.001690] (-) JobUnselected: {'identifier': 'bot_teleop'}
+[0.001760] (-) JobUnselected: {'identifier': 'move_base'}
+[0.001822] (-) JobUnselected: {'identifier': 'onyx_robot'}
+[0.001883] (-) JobUnselected: {'identifier': 'pump_controller'}
+[0.001944] (-) JobUnselected: {'identifier': 'ros_bot_camera'}
+[0.002003] (-) JobUnselected: {'identifier': 'ros_bot_imu'}
+[0.002062] (-) JobUnselected: {'identifier': 'ros_bot_sim'}
+[0.002121] (-) JobUnselected: {'identifier': 'rosapi'}
+[0.002179] (-) JobUnselected: {'identifier': 'rosapi_msgs'}
+[0.002237] (-) JobUnselected: {'identifier': 'rosbridge_msgs'}
+[0.002295] (-) JobUnselected: {'identifier': 'rosbridge_test_msgs'}
+[0.002376] (rosbridge_library) JobQueued: {'identifier': 'rosbridge_library', 'dependencies': OrderedDict({'rosbridge_test_msgs': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs'})}
+[0.002471] (rosbridge_server) JobQueued: {'identifier': 'rosbridge_server', 'dependencies': OrderedDict({'rosapi_msgs': '/home/Malvin/my_ros_bot/install/rosapi_msgs', 'rosbridge_msgs': '/home/Malvin/my_ros_bot/install/rosbridge_msgs', 'rosbridge_test_msgs': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs', 'rosbridge_library': '/home/Malvin/my_ros_bot/install/rosbridge_library', 'rosapi': '/home/Malvin/my_ros_bot/install/rosapi'})}
+[0.002592] (rosbridge_suite) JobQueued: {'identifier': 'rosbridge_suite', 'dependencies': OrderedDict({'rosapi_msgs': '/home/Malvin/my_ros_bot/install/rosapi_msgs', 'rosbridge_msgs': '/home/Malvin/my_ros_bot/install/rosbridge_msgs', 'rosbridge_test_msgs': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs', 'rosbridge_library': '/home/Malvin/my_ros_bot/install/rosbridge_library', 'rosapi': '/home/Malvin/my_ros_bot/install/rosapi', 'rosbridge_server': '/home/Malvin/my_ros_bot/install/rosbridge_server'})}
+[0.002672] (rosbridge_library) JobStarted: {'identifier': 'rosbridge_library'}
+[0.060454] (rosbridge_library) JobProgress: {'identifier': 'rosbridge_library', 'progress': 'cmake'}
+[0.066133] (rosbridge_library) Command: {'cmd': ['/usr/bin/cmake', '/home/Malvin/my_ros_bot/src/rosbridge_suite/rosbridge_library', '-DCMAKE_INSTALL_PREFIX=/home/Malvin/my_ros_bot/install/rosbridge_library'], 'cwd': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy'}), 'shell': False}
+[0.099260] (-) TimerEvent: {}
+[0.138910] (rosbridge_library) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[0.199398] (-) TimerEvent: {}
+[0.300001] (-) TimerEvent: {}
+[0.400700] (-) TimerEvent: {}
+[0.501262] (-) TimerEvent: {}
+[0.601851] (-) TimerEvent: {}
+[0.702439] (-) TimerEvent: {}
+[0.802936] (-) TimerEvent: {}
+[0.903523] (-) TimerEvent: {}
+[1.004233] (-) TimerEvent: {}
+[1.104935] (-) TimerEvent: {}
+[1.205515] (-) TimerEvent: {}
+[1.306118] (-) TimerEvent: {}
+[1.406710] (-) TimerEvent: {}
+[1.507214] (-) TimerEvent: {}
+[1.607797] (-) TimerEvent: {}
+[1.708499] (-) TimerEvent: {}
+[1.809311] (-) TimerEvent: {}
+[1.909958] (-) TimerEvent: {}
+[2.010471] (-) TimerEvent: {}
+[2.110991] (-) TimerEvent: {}
+[2.211635] (-) TimerEvent: {}
+[2.312513] (-) TimerEvent: {}
+[2.413432] (-) TimerEvent: {}
+[2.514250] (-) TimerEvent: {}
+[2.615145] (-) TimerEvent: {}
+[2.716005] (-) TimerEvent: {}
+[2.816880] (-) TimerEvent: {}
+[2.917839] (-) TimerEvent: {}
+[3.779690] (-) TimerEvent: {}
+[3.880667] (-) TimerEvent: {}
+[3.981497] (-) TimerEvent: {}
+[4.082299] (-) TimerEvent: {}
+[4.183175] (-) TimerEvent: {}
+[4.283926] (-) TimerEvent: {}
+[4.384490] (-) TimerEvent: {}
+[4.485024] (-) TimerEvent: {}
+[4.585605] (-) TimerEvent: {}
+[4.686163] (-) TimerEvent: {}
+[4.786778] (-) TimerEvent: {}
+[4.887360] (-) TimerEvent: {}
+[4.987925] (-) TimerEvent: {}
+[5.088452] (-) TimerEvent: {}
+[5.189007] (-) TimerEvent: {}
+[5.289599] (-) TimerEvent: {}
+[5.390125] (-) TimerEvent: {}
+[5.490706] (-) TimerEvent: {}
+[5.591239] (-) TimerEvent: {}
+[5.691906] (-) TimerEvent: {}
+[5.792783] (-) TimerEvent: {}
+[5.893554] (-) TimerEvent: {}
+[5.994065] (-) TimerEvent: {}
+[6.094652] (-) TimerEvent: {}
+[6.195209] (-) TimerEvent: {}
+[6.295782] (-) TimerEvent: {}
+[6.396316] (-) TimerEvent: {}
+[6.496899] (-) TimerEvent: {}
+[6.597435] (-) TimerEvent: {}
+[6.697946] (-) TimerEvent: {}
+[6.798485] (-) TimerEvent: {}
+[6.899015] (-) TimerEvent: {}
+[6.999604] (-) TimerEvent: {}
+[7.100219] (-) TimerEvent: {}
+[7.201017] (-) TimerEvent: {}
+[7.302024] (-) TimerEvent: {}
+[7.403155] (-) TimerEvent: {}
+[7.486227] (rosbridge_library) StdoutLine: {'line': b'-- Found ament_cmake_mypy: 0.17.5 (/opt/ros/jazzy/share/ament_cmake_mypy/cmake)\n'}
+[7.490844] (rosbridge_library) StdoutLine: {'line': b'-- Configuring done (7.4s)\n'}
+[7.503300] (-) TimerEvent: {}
+[7.604037] (-) TimerEvent: {}
+[7.662380] (rosbridge_library) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[7.704244] (-) TimerEvent: {}
+[7.805062] (-) TimerEvent: {}
+[7.905736] (-) TimerEvent: {}
+[8.006537] (-) TimerEvent: {}
+[8.107525] (-) TimerEvent: {}
+[11.966780] (rosbridge_library) StdoutLine: {'line': b'-- Build files have been written to: /home/Malvin/my_ros_bot/build/rosbridge_library\n'}
+[11.967445] (-) TimerEvent: {}
+[11.978111] (rosbridge_library) CommandEnded: {'returncode': 0}
+[11.979688] (rosbridge_library) JobProgress: {'identifier': 'rosbridge_library', 'progress': 'build'}
+[11.981574] (rosbridge_library) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/Malvin/my_ros_bot/build/rosbridge_library', '--', '-j4', '-l4'], 'cwd': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy'}), 'shell': False}
+[12.067682] (-) TimerEvent: {}
+[12.168397] (-) TimerEvent: {}
+[12.269010] (-) TimerEvent: {}
+[12.310260] (rosbridge_library) StdoutLine: {'line': b'Built target ament_cmake_python_copy_rosbridge_library\n'}
+[12.369220] (-) TimerEvent: {}
+[12.469925] (-) TimerEvent: {}
+[12.570539] (-) TimerEvent: {}
+[12.671102] (-) TimerEvent: {}
+[12.771682] (-) TimerEvent: {}
+[12.872229] (-) TimerEvent: {}
+[12.972810] (-) TimerEvent: {}
+[13.073313] (-) TimerEvent: {}
+[13.173862] (-) TimerEvent: {}
+[13.274512] (-) TimerEvent: {}
+[13.312887] (rosbridge_library) StdoutLine: {'line': b'running egg_info\n'}
+[13.316116] (rosbridge_library) StdoutLine: {'line': b'creating rosbridge_library.egg-info\n'}
+[13.374632] (-) TimerEvent: {}
+[13.395300] (rosbridge_library) StdoutLine: {'line': b'writing rosbridge_library.egg-info/PKG-INFO\n'}
+[13.396213] (rosbridge_library) StdoutLine: {'line': b'writing dependency_links to rosbridge_library.egg-info/dependency_links.txt\n'}
+[13.397033] (rosbridge_library) StdoutLine: {'line': b'writing top-level names to rosbridge_library.egg-info/top_level.txt\n'}
+[13.397636] (rosbridge_library) StdoutLine: {'line': b"writing manifest file 'rosbridge_library.egg-info/SOURCES.txt'\n"}
+[13.474771] (-) TimerEvent: {}
+[13.575285] (-) TimerEvent: {}
+[13.636206] (rosbridge_library) StdoutLine: {'line': b"reading manifest file 'rosbridge_library.egg-info/SOURCES.txt'\n"}
+[13.639522] (rosbridge_library) StdoutLine: {'line': b"writing manifest file 'rosbridge_library.egg-info/SOURCES.txt'\n"}
+[13.675564] (-) TimerEvent: {}
+[13.776439] (-) TimerEvent: {}
+[13.783724] (rosbridge_library) StdoutLine: {'line': b'Built target ament_cmake_python_build_rosbridge_library_egg\n'}
+[13.834479] (rosbridge_library) CommandEnded: {'returncode': 0}
+[13.836908] (rosbridge_library) JobProgress: {'identifier': 'rosbridge_library', 'progress': 'install'}
+[13.876622] (-) TimerEvent: {}
+[13.882010] (rosbridge_library) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/Malvin/my_ros_bot/build/rosbridge_library'], 'cwd': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'Malvin', 'SSH_CLIENT': '192.168.50.252 54194 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'HOME': '/home/Malvin', 'OLDPWD': '/home/Malvin/my_ros_bot', 'SSH_TTY': '/dev/pts/1', 'ROS_PYTHON_VERSION': '3', 'PS1': '(robot_space) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/Malvin/my_ros_bot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'Malvin', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '9', 'PATH': '/opt/ros/jazzy/bin:/home/Malvin/robot_space/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'VIRTUAL_ENV_PROMPT': '(robot_space)', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'ROS_DOMAIN_ID': '23', 'AMENT_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GST_PLUGIN_PATH': '/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VIRTUAL_ENV': '/home/Malvin/robot_space', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/Malvin/my_ros_bot/build/rosbridge_library', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.252 54194 192.168.50.1 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/ros_bot_camera:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/pump_controller:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/onyx_robot:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/move_base:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/bot_teleop:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:/home/Malvin/my_ros_bot/build/arduino_ros:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/Malvin/my_ros_bot/install/rosbridge_test_msgs:/home/Malvin/my_ros_bot/install/ros_bot_sim:/home/Malvin/my_ros_bot/install/ros_bot_imu:/home/Malvin/my_ros_bot/install/ros_bot_camera:/home/Malvin/my_ros_bot/install/pump_controller:/home/Malvin/my_ros_bot/install/onyx_robot:/home/Malvin/my_ros_bot/install/move_base:/home/Malvin/my_ros_bot/install/bot_teleop:/home/Malvin/my_ros_bot/install/arduino_ros:/opt/ros/jazzy'}), 'shell': False}
+[13.924589] (rosbridge_library) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[13.925312] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/pythonpath.sh\n'}
+[13.926779] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/pythonpath.dsv\n'}
+[13.927912] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library-4.1.0-py3.12.egg-info\n'}
+[13.929017] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library-4.1.0-py3.12.egg-info/dependency_links.txt\n'}
+[13.930290] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library-4.1.0-py3.12.egg-info/SOURCES.txt\n'}
+[13.931525] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library-4.1.0-py3.12.egg-info/top_level.txt\n'}
+[13.932753] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library-4.1.0-py3.12.egg-info/PKG-INFO\n'}
+[13.934044] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library\n'}
+[13.934756] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities\n'}
+[13.935654] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/service_response.py\n'}
+[13.936931] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/unadvertise_action.py\n'}
+[13.938102] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise.py\n'}
+[13.939351] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/unadvertise_service.py\n'}
+[13.940508] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/subscribe.py\n'}
+[13.941760] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/action_result.py\n'}
+[13.942913] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/fragmentation.py\n'}
+[13.944104] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise_action.py\n'}
+[13.945449] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/send_action_goal.py\n'}
+[13.946672] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/__init__.py\n'}
+[13.947735] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/call_service.py\n'}
+[13.948935] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/publish.py\n'}
+[13.950159] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/action_feedback.py\n'}
+[13.951347] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise_service.py\n'}
+[13.952532] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/defragmentation.py\n'}
+[13.953682] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal\n'}
+[13.954618] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/subscription_modifiers.py\n'}
+[13.955885] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/publishers.py\n'}
+[13.957094] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/exceptions.py\n'}
+[13.958277] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/message_conversion.py\n'}
+[13.959578] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/pngcompression.py\n'}
+[13.960712] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/__init__.py\n'}
+[13.961771] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/services.py\n'}
+[13.962931] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/outgoing_message.py\n'}
+[13.964069] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/subscribers.py\n'}
+[13.965307] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/actions.py\n'}
+[13.966500] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/topics.py\n'}
+[13.967621] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/cbor_conversion.py\n'}
+[13.968762] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/ros_loader.py\n'}
+[13.969942] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/qos_extraction.py\n'}
+[13.971123] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/type_support.py\n'}
+[13.972254] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/protocol.py\n'}
+[13.973449] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/__init__.py\n'}
+[13.974463] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util\n'}
+[13.975211] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util/__init__.py\n'}
+[13.976339] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util/ros.py\n'}
+[13.976740] (-) TimerEvent: {}
+[13.977496] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capability.py\n'}
+[13.978612] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/rosbridge_protocol.py\n'}
+[14.076943] (-) TimerEvent: {}
+[14.177481] (-) TimerEvent: {}
+[14.278065] (-) TimerEvent: {}
+[14.321874] (rosbridge_library) StdoutLine: {'line': b"Listing '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library'...\n"}
+[14.323947] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/__init__.py'...\n"}
+[14.324920] (rosbridge_library) StdoutLine: {'line': b"Listing '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities'...\n"}
+[14.325924] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/__init__.py'...\n"}
+[14.326833] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/action_feedback.py'...\n"}
+[14.327752] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/action_result.py'...\n"}
+[14.328714] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise.py'...\n"}
+[14.329392] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise_action.py'...\n"}
+[14.330574] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/advertise_service.py'...\n"}
+[14.331598] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/call_service.py'...\n"}
+[14.332449] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/defragmentation.py'...\n"}
+[14.333419] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/fragmentation.py'...\n"}
+[14.334144] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/publish.py'...\n"}
+[14.335051] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/send_action_goal.py'...\n"}
+[14.335963] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/service_response.py'...\n"}
+[14.336783] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/subscribe.py'...\n"}
+[14.337644] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/unadvertise_action.py'...\n"}
+[14.338307] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capabilities/unadvertise_service.py'...\n"}
+[14.338936] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/capability.py'...\n"}
+[14.339516] (rosbridge_library) StdoutLine: {'line': b"Listing '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal'...\n"}
+[14.339984] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/__init__.py'...\n"}
+[14.340488] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/actions.py'...\n"}
+[14.341016] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/cbor_conversion.py'...\n"}
+[14.341527] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/exceptions.py'...\n"}
+[14.342085] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/message_conversion.py'...\n"}
+[14.342601] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/outgoing_message.py'...\n"}
+[14.343278] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/pngcompression.py'...\n"}
+[14.344484] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/publishers.py'...\n"}
+[14.345513] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/qos_extraction.py'...\n"}
+[14.346206] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/ros_loader.py'...\n"}
+[14.346749] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/services.py'...\n"}
+[14.347455] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/subscribers.py'...\n"}
+[14.348359] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/subscription_modifiers.py'...\n"}
+[14.348995] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/topics.py'...\n"}
+[14.349543] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/internal/type_support.py'...\n"}
+[14.350029] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/protocol.py'...\n"}
+[14.350433] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/rosbridge_protocol.py'...\n"}
+[14.351439] (rosbridge_library) StdoutLine: {'line': b"Listing '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util'...\n"}
+[14.351886] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util/__init__.py'...\n"}
+[14.352238] (rosbridge_library) StdoutLine: {'line': b"Compiling '/home/Malvin/my_ros_bot/install/rosbridge_library/lib/python3.12/site-packages/rosbridge_library/util/ros.py'...\n"}
+[14.355766] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/ament_index/resource_index/package_run_dependencies/rosbridge_library\n'}
+[14.357549] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/ament_index/resource_index/parent_prefix_path/rosbridge_library\n'}
+[14.358874] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/ament_prefix_path.sh\n'}
+[14.360134] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/ament_prefix_path.dsv\n'}
+[14.361466] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/path.sh\n'}
+[14.362615] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/environment/path.dsv\n'}
+[14.363815] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/local_setup.bash\n'}
+[14.365042] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/local_setup.sh\n'}
+[14.366293] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/local_setup.zsh\n'}
+[14.367555] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/local_setup.dsv\n'}
+[14.368815] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/package.dsv\n'}
+[14.370513] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/ament_index/resource_index/packages/rosbridge_library\n'}
+[14.372075] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/cmake/rosbridge_libraryConfig.cmake\n'}
+[14.373220] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/cmake/rosbridge_libraryConfig-version.cmake\n'}
+[14.374545] (rosbridge_library) StdoutLine: {'line': b'-- Installing: /home/Malvin/my_ros_bot/install/rosbridge_library/share/rosbridge_library/package.xml\n'}
+[14.378262] (-) TimerEvent: {}
+[14.382266] (rosbridge_library) CommandEnded: {'returncode': 0}
+[14.478497] (-) TimerEvent: {}
+[14.523230] (rosbridge_library) JobEnded: {'identifier': 'rosbridge_library', 'rc': 0}
+[14.527237] (rosbridge_server) JobStarted: {'identifier': 'rosbridge_server'}
+[14.559049] (rosbridge_server) JobEnded: {'identifier': 'rosbridge_server', 'rc': 1}
+[14.570288] (rosbridge_suite) JobSkipped: {'identifier': 'rosbridge_suite'}
+[14.570700] (-) EventReactorShutdown: {}

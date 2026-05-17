@@ -1,0 +1,24 @@
+[6.477s] Invoking command in '/home/Malvin/my_ros_bot/build/bot_teleop': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages: VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data
+[7.977s] running develop
+[8.738s] running egg_info
+[8.739s] creating bot_teleop.egg-info
+[8.811s] writing bot_teleop.egg-info/PKG-INFO
+[8.813s] writing dependency_links to bot_teleop.egg-info/dependency_links.txt
+[8.813s] writing entry points to bot_teleop.egg-info/entry_points.txt
+[8.819s] writing requirements to bot_teleop.egg-info/requires.txt
+[8.820s] writing top-level names to bot_teleop.egg-info/top_level.txt
+[8.821s] writing manifest file 'bot_teleop.egg-info/SOURCES.txt'
+[8.957s] reading manifest file 'bot_teleop.egg-info/SOURCES.txt'
+[8.961s] writing manifest file 'bot_teleop.egg-info/SOURCES.txt'
+[9.040s] running build_ext
+[9.040s] Creating /home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages/bot-teleop.egg-link (link to .)
+[9.047s] Installing bot_teleop script to /home/Malvin/my_ros_bot/install/bot_teleop/lib/bot_teleop
+[9.049s] 
+[9.053s] Installed /home/Malvin/my_ros_bot/build/bot_teleop
+[9.055s] running symlink_data
+[9.069s] creating /home/Malvin/my_ros_bot/install/bot_teleop/share/ament_index
+[9.079s] creating /home/Malvin/my_ros_bot/install/bot_teleop/share/ament_index/resource_index
+[9.081s] creating /home/Malvin/my_ros_bot/install/bot_teleop/share/ament_index/resource_index/packages
+[9.087s] symbolically linking /home/Malvin/my_ros_bot/build/bot_teleop/resource/bot_teleop -> /home/Malvin/my_ros_bot/install/bot_teleop/share/ament_index/resource_index/packages
+[9.113s] symbolically linking /home/Malvin/my_ros_bot/build/bot_teleop/package.xml -> /home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop
+[9.369s] Invoked command in '/home/Malvin/my_ros_bot/build/bot_teleop' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages: VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data

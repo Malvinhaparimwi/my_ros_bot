@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing pump_controller.egg-info/PKG-INFO
+writing dependency_links to pump_controller.egg-info/dependency_links.txt
+writing entry points to pump_controller.egg-info/entry_points.txt
+writing requirements to pump_controller.egg-info/requires.txt
+writing top-level names to pump_controller.egg-info/top_level.txt
+reading manifest file 'pump_controller.egg-info/SOURCES.txt'
+writing manifest file 'pump_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump-controller.egg-link (link to .)
+Installing controller script to /home/Malvin/my_ros_bot/install/pump_controller/lib/pump_controller
+
+Installed /home/Malvin/my_ros_bot/build/pump_controller
+running symlink_data
+symbolically linking /home/Malvin/my_ros_bot/build/pump_controller/resource/pump_controller -> /home/Malvin/my_ros_bot/install/pump_controller/share/ament_index/resource_index/packages
+symbolically linking /home/Malvin/my_ros_bot/build/pump_controller/package.xml -> /home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller

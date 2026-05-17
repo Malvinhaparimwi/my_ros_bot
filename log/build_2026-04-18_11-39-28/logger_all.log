@@ -1,0 +1,187 @@
+[0.784s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'pump_controller']
+[0.785s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['pump_controller'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff84485550>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff8463d160>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff8463d160>>, mixin_verb=('build',))
+[1.006s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.006s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.007s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.007s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.007s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.007s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.008s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/Malvin/my_ros_bot'
+[1.008s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.009s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.010s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.011s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.146s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.147s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.147s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.147s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.147s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.148s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.148s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.149s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.151s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.151s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.152s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.152s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.153s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.153s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.154s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.154s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.154s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.155s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.155s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.155s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.155s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.156s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.157s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.157s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.158s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.158s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.159s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['ignore', 'ignore_ament_install']
+[1.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ignore'
+[1.160s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ignore_ament_install'
+[1.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['colcon_pkg']
+[1.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'colcon_pkg'
+[1.161s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['colcon_meta']
+[1.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'colcon_meta'
+[1.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['ros']
+[1.162s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ros'
+[1.173s] DEBUG:colcon.colcon_core.package_identification:Package 'src/arduino_ros' with type 'ros.ament_python' and name 'arduino_ros'
+[1.173s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['ignore', 'ignore_ament_install']
+[1.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ignore'
+[1.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ignore_ament_install'
+[1.174s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['colcon_pkg']
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'colcon_pkg'
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['colcon_meta']
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'colcon_meta'
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['ros']
+[1.175s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ros'
+[1.177s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bot_teleop' with type 'ros.ament_python' and name 'bot_teleop'
+[1.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) by extensions ['ignore', 'ignore_ament_install']
+[1.178s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) by extension 'ignore'
+[1.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) ignored
+[1.179s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['ignore', 'ignore_ament_install']
+[1.180s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ignore'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ignore_ament_install'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['colcon_pkg']
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'colcon_pkg'
+[1.181s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['colcon_meta']
+[1.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'colcon_meta'
+[1.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['ros']
+[1.182s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ros'
+[1.184s] DEBUG:colcon.colcon_core.package_identification:Package 'src/move_base' with type 'ros.ament_python' and name 'move_base'
+[1.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) by extensions ['ignore', 'ignore_ament_install']
+[1.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) by extension 'ignore'
+[1.185s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) ignored
+[1.186s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['ignore', 'ignore_ament_install']
+[1.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ignore'
+[1.187s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ignore_ament_install'
+[1.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['colcon_pkg']
+[1.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'colcon_pkg'
+[1.188s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['colcon_meta']
+[1.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'colcon_meta'
+[1.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['ros']
+[1.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ros'
+[1.191s] DEBUG:colcon.colcon_core.package_identification:Package 'src/onyx_robot' with type 'ros.ament_python' and name 'onyx_robot'
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ignore'
+[1.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ignore_ament_install'
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['colcon_pkg']
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'colcon_pkg'
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['colcon_meta']
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'colcon_meta'
+[1.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['ros']
+[1.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ros'
+[1.197s] DEBUG:colcon.colcon_core.package_identification:Package 'src/pump_controller' with type 'ros.ament_python' and name 'pump_controller'
+[1.197s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['ignore', 'ignore_ament_install']
+[1.198s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ignore'
+[1.198s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ignore_ament_install'
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['colcon_pkg']
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'colcon_pkg'
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['colcon_meta']
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'colcon_meta'
+[1.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['ros']
+[1.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ros'
+[1.202s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_bot_imu' with type 'ros.ament_python' and name 'ros_bot_imu'
+[1.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.330s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'arduino_ros' in 'src/arduino_ros'
+[1.331s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'bot_teleop' in 'src/bot_teleop'
+[1.332s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'move_base' in 'src/move_base'
+[1.332s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'onyx_robot' in 'src/onyx_robot'
+[1.333s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ros_bot_imu' in 'src/ros_bot_imu'
+[1.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.372s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/Malvin/my_ros_bot/install
+[1.384s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 205 installed packages in /opt/ros/jazzy
+[1.388s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.704s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_args' from command line to 'None'
+[1.705s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_target' from command line to 'None'
+[1.705s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.705s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[1.705s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_clean_first' from command line to 'False'
+[1.706s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_force_configure' from command line to 'False'
+[1.706s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'ament_cmake_args' from command line to 'None'
+[1.706s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[1.707s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.707s] DEBUG:colcon.colcon_core.verb:Building package 'pump_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/pump_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/pump_controller', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/pump_controller', 'symlink_install': False, 'test_result_base': None}
+[1.708s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.712s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.714s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/pump_controller' with build type 'ament_python'
+[1.714s] Level 1:colcon.colcon_core.shell:create_environment_hook('pump_controller', 'ament_prefix_path')
+[1.728s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.729s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.ps1'
+[1.732s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.dsv'
+[1.737s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.sh'
+[1.741s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.741s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.808s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/pump_controller'
+[2.809s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.809s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.893s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/pump_controller': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build
+[9.438s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/pump_controller' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build
+[9.443s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/src/pump_controller': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pump_controller build --build-base /home/Malvin/my_ros_bot/build/pump_controller/build install --record /home/Malvin/my_ros_bot/build/pump_controller/install.log --single-version-externally-managed install_data --force
+[12.195s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/src/pump_controller' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pump_controller build --build-base /home/Malvin/my_ros_bot/build/pump_controller/build install --record /home/Malvin/my_ros_bot/build/pump_controller/install.log --single-version-externally-managed install_data --force
+[12.213s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller' for CMake module files
+[12.217s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller' for CMake config files
+[12.223s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib'
+[12.225s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/bin'
+[12.225s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib/pkgconfig/pump_controller.pc'
+[12.226s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages'
+[12.227s] Level 1:colcon.colcon_core.shell:create_environment_hook('pump_controller', 'pythonpath')
+[12.228s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.ps1'
+[12.231s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.dsv'
+[12.235s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.sh'
+[12.240s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/bin'
+[12.241s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pump_controller)
+[12.242s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.ps1'
+[12.248s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.dsv'
+[12.252s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.sh'
+[12.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.bash'
+[12.261s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.zsh'
+[12.266s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/pump_controller/share/colcon-core/packages/pump_controller)
+[12.269s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[12.270s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[12.271s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[12.271s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[12.277s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[12.278s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.ps1'
+[12.283s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/Malvin/my_ros_bot/install/_local_setup_util_ps1.py'
+[12.290s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.ps1'
+[12.298s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.sh'
+[12.302s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/Malvin/my_ros_bot/install/_local_setup_util_sh.py'
+[12.306s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.sh'
+[12.314s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.bash'
+[12.317s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.bash'
+[12.326s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.zsh'
+[12.328s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.zsh'

@@ -1,0 +1,15 @@
+[7.469s] Invoking command in '/home/Malvin/my_ros_bot/build/ros_bot_sim': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_sim/build --no-deps symlink_data
+[10.115s] running develop
+[11.487s] running egg_info
+[11.593s] writing ros_bot_sim.egg-info/PKG-INFO
+[11.594s] writing dependency_links to ros_bot_sim.egg-info/dependency_links.txt
+[11.597s] writing requirements to ros_bot_sim.egg-info/requires.txt
+[11.598s] writing top-level names to ros_bot_sim.egg-info/top_level.txt
+[11.895s] reading manifest file 'ros_bot_sim.egg-info/SOURCES.txt'
+[11.899s] writing manifest file 'ros_bot_sim.egg-info/SOURCES.txt'
+[12.007s] running build_ext
+[12.008s] Creating /home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages/ros-bot-sim.egg-link (link to .)
+[12.010s] 
+[12.011s] Installed /home/Malvin/my_ros_bot/build/ros_bot_sim
+[12.012s] running symlink_data
+[12.176s] Invoked command in '/home/Malvin/my_ros_bot/build/ros_bot_sim' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_sim/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_sim/build --no-deps symlink_data

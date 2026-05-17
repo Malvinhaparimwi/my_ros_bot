@@ -1,0 +1,15 @@
+[10.381s] Invoking command in '/home/Malvin/my_ros_bot/build/move_base': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data
+[12.419s] running develop
+[13.753s] running egg_info
+[13.881s] writing move_base.egg-info/PKG-INFO
+[13.882s] writing dependency_links to move_base.egg-info/dependency_links.txt
+[13.886s] writing requirements to move_base.egg-info/requires.txt
+[13.898s] writing top-level names to move_base.egg-info/top_level.txt
+[14.141s] reading manifest file 'move_base.egg-info/SOURCES.txt'
+[14.148s] writing manifest file 'move_base.egg-info/SOURCES.txt'
+[14.297s] running build_ext
+[14.302s] Creating /home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)
+[14.314s] 
+[14.319s] Installed /home/Malvin/my_ros_bot/build/move_base
+[14.324s] running symlink_data
+[15.062s] Invoked command in '/home/Malvin/my_ros_bot/build/move_base' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data

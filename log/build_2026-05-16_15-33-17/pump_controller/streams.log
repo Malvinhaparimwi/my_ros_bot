@@ -1,0 +1,17 @@
+[6.247s] Invoking command in '/home/Malvin/my_ros_bot/build/pump_controller': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data
+[10.222s] running develop
+[12.170s] running egg_info
+[12.289s] writing pump_controller.egg-info/PKG-INFO
+[12.291s] writing dependency_links to pump_controller.egg-info/dependency_links.txt
+[12.295s] writing entry points to pump_controller.egg-info/entry_points.txt
+[12.296s] writing requirements to pump_controller.egg-info/requires.txt
+[12.300s] writing top-level names to pump_controller.egg-info/top_level.txt
+[12.560s] reading manifest file 'pump_controller.egg-info/SOURCES.txt'
+[12.567s] writing manifest file 'pump_controller.egg-info/SOURCES.txt'
+[12.702s] running build_ext
+[12.703s] Creating /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump-controller.egg-link (link to .)
+[12.706s] Installing controller script to /home/Malvin/my_ros_bot/install/pump_controller/lib/pump_controller
+[12.708s] 
+[12.709s] Installed /home/Malvin/my_ros_bot/build/pump_controller
+[12.710s] running symlink_data
+[12.916s] Invoked command in '/home/Malvin/my_ros_bot/build/pump_controller' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data

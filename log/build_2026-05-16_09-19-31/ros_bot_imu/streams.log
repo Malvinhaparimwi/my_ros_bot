@@ -1,0 +1,17 @@
+[8.430s] Invoking command in '/home/Malvin/my_ros_bot/build/ros_bot_imu': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_imu/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_imu/build --no-deps symlink_data
+[10.639s] running develop
+[12.042s] running egg_info
+[12.134s] writing ros_bot_imu.egg-info/PKG-INFO
+[12.135s] writing dependency_links to ros_bot_imu.egg-info/dependency_links.txt
+[12.136s] writing entry points to ros_bot_imu.egg-info/entry_points.txt
+[12.137s] writing requirements to ros_bot_imu.egg-info/requires.txt
+[12.138s] writing top-level names to ros_bot_imu.egg-info/top_level.txt
+[12.444s] reading manifest file 'ros_bot_imu.egg-info/SOURCES.txt'
+[12.450s] writing manifest file 'ros_bot_imu.egg-info/SOURCES.txt'
+[12.556s] running build_ext
+[12.557s] Creating /home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages/ros-bot-imu.egg-link (link to .)
+[12.559s] Installing imu_begin script to /home/Malvin/my_ros_bot/install/ros_bot_imu/lib/ros_bot_imu
+[12.561s] 
+[12.561s] Installed /home/Malvin/my_ros_bot/build/ros_bot_imu
+[12.562s] running symlink_data
+[12.785s] Invoked command in '/home/Malvin/my_ros_bot/build/ros_bot_imu' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_imu/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_imu/build --no-deps symlink_data

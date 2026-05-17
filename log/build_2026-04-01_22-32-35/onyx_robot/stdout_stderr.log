@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating onyx_robot.egg-info
+writing onyx_robot.egg-info/PKG-INFO
+writing dependency_links to onyx_robot.egg-info/dependency_links.txt
+writing requirements to onyx_robot.egg-info/requires.txt
+writing top-level names to onyx_robot.egg-info/top_level.txt
+writing manifest file 'onyx_robot.egg-info/SOURCES.txt'
+reading manifest file 'onyx_robot.egg-info/SOURCES.txt'
+writing manifest file 'onyx_robot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages/onyx-robot.egg-link (link to .)
+
+Installed /home/Malvin/my_ros_bot/build/onyx_robot
+running symlink_data
+creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index
+creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index
+creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index/packages
+symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/resource/onyx_robot -> /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index/packages
+symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/package.xml -> /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot
+creating /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/launch
+symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/launch/robot_launch.py -> /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/launch

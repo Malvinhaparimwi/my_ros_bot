@@ -1,0 +1,15 @@
+[7.686s] Invoking command in '/home/Malvin/my_ros_bot/build/onyx_robot': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data
+[9.710s] running develop
+[10.979s] running egg_info
+[11.096s] writing onyx_robot.egg-info/PKG-INFO
+[11.097s] writing dependency_links to onyx_robot.egg-info/dependency_links.txt
+[11.101s] writing requirements to onyx_robot.egg-info/requires.txt
+[11.103s] writing top-level names to onyx_robot.egg-info/top_level.txt
+[11.441s] reading manifest file 'onyx_robot.egg-info/SOURCES.txt'
+[11.451s] writing manifest file 'onyx_robot.egg-info/SOURCES.txt'
+[11.731s] running build_ext
+[11.731s] Creating /home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages/onyx-robot.egg-link (link to .)
+[11.734s] 
+[11.735s] Installed /home/Malvin/my_ros_bot/build/onyx_robot
+[11.735s] running symlink_data
+[12.865s] Invoked command in '/home/Malvin/my_ros_bot/build/onyx_robot' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data

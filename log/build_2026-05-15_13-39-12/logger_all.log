@@ -1,0 +1,458 @@
+[0.862s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.863s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffa9eb5ac0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffaa056180>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffaa056180>>, mixin_verb=('build',))
+[1.219s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.220s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.220s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/Malvin/my_ros_bot'
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.221s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.222s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.223s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.517s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.517s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.517s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.518s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.518s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.518s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.521s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.521s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.521s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.522s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.523s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['ignore', 'ignore_ament_install']
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ignore'
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ignore_ament_install'
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['colcon_pkg']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'colcon_pkg'
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['colcon_meta']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'colcon_meta'
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extensions ['ros']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/arduino_ros) by extension 'ros'
+[1.538s] DEBUG:colcon.colcon_core.package_identification:Package 'src/arduino_ros' with type 'ros.ament_python' and name 'arduino_ros'
+[1.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['ignore', 'ignore_ament_install']
+[1.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ignore'
+[1.539s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ignore_ament_install'
+[1.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['colcon_pkg']
+[1.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'colcon_pkg'
+[1.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['colcon_meta']
+[1.540s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'colcon_meta'
+[1.541s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extensions ['ros']
+[1.541s] Level 1:colcon.colcon_core.package_identification:_identify(src/bot_teleop) by extension 'ros'
+[1.543s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bot_teleop' with type 'ros.ament_python' and name 'bot_teleop'
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) by extensions ['ignore', 'ignore_ament_install']
+[1.544s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) by extension 'ignore'
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(src/camera_server) ignored
+[1.545s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['ignore', 'ignore_ament_install']
+[1.546s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ignore'
+[1.546s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ignore_ament_install'
+[1.546s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['colcon_pkg']
+[1.546s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'colcon_pkg'
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['colcon_meta']
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'colcon_meta'
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extensions ['ros']
+[1.547s] Level 1:colcon.colcon_core.package_identification:_identify(src/move_base) by extension 'ros'
+[1.550s] DEBUG:colcon.colcon_core.package_identification:Package 'src/move_base' with type 'ros.ament_python' and name 'move_base'
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) by extensions ['ignore', 'ignore_ament_install']
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) by extension 'ignore'
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_bot) ignored
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['ignore', 'ignore_ament_install']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ignore'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ignore_ament_install'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['colcon_pkg']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'colcon_pkg'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['colcon_meta']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'colcon_meta'
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extensions ['ros']
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(src/onyx_robot) by extension 'ros'
+[1.555s] DEBUG:colcon.colcon_core.package_identification:Package 'src/onyx_robot' with type 'ros.ament_python' and name 'onyx_robot'
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ignore'
+[1.556s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ignore_ament_install'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['colcon_pkg']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'colcon_pkg'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['colcon_meta']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'colcon_meta'
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extensions ['ros']
+[1.557s] Level 1:colcon.colcon_core.package_identification:_identify(src/pump_controller) by extension 'ros'
+[1.561s] DEBUG:colcon.colcon_core.package_identification:Package 'src/pump_controller' with type 'ros.ament_python' and name 'pump_controller'
+[1.561s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extensions ['ignore', 'ignore_ament_install']
+[1.562s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extension 'ignore'
+[1.562s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extension 'ignore_ament_install'
+[1.562s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extensions ['colcon_pkg']
+[1.562s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extension 'colcon_pkg'
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extensions ['colcon_meta']
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extension 'colcon_meta'
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extensions ['ros']
+[1.563s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_camera) by extension 'ros'
+[1.571s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_bot_camera' with type 'ros.ament_python' and name 'ros_bot_camera'
+[1.572s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['ignore', 'ignore_ament_install']
+[1.572s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ignore'
+[1.573s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ignore_ament_install'
+[1.573s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['colcon_pkg']
+[1.573s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'colcon_pkg'
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['colcon_meta']
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'colcon_meta'
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extensions ['ros']
+[1.574s] Level 1:colcon.colcon_core.package_identification:_identify(src/ros_bot_imu) by extension 'ros'
+[1.638s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ros_bot_imu' with type 'ros.ament_python' and name 'ros_bot_imu'
+[1.638s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.639s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.639s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.639s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.639s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.746s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.747s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.765s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/Malvin/my_ros_bot/install
+[1.773s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 205 installed packages in /opt/ros/jazzy
+[1.776s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_args' from command line to 'None'
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_target' from command line to 'None'
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_clean_first' from command line to 'False'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'cmake_force_configure' from command line to 'False'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'ament_cmake_args' from command line to 'None'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[1.918s] Level 5:colcon.colcon_core.verb:set package 'arduino_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.918s] DEBUG:colcon.colcon_core.verb:Building package 'arduino_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/arduino_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/arduino_ros', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/arduino_ros', 'symlink_install': True, 'test_result_base': None}
+[1.919s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_args' from command line to 'None'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_target' from command line to 'None'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[1.920s] Level 5:colcon.colcon_core.verb:set package 'bot_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.920s] DEBUG:colcon.colcon_core.verb:Building package 'bot_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/bot_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/bot_teleop', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/bot_teleop', 'symlink_install': True, 'test_result_base': None}
+[1.921s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_args' from command line to 'None'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_target' from command line to 'None'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_clean_cache' from command line to 'False'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_clean_first' from command line to 'False'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'cmake_force_configure' from command line to 'False'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'ament_cmake_args' from command line to 'None'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'catkin_cmake_args' from command line to 'None'
+[1.922s] Level 5:colcon.colcon_core.verb:set package 'move_base' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.922s] DEBUG:colcon.colcon_core.verb:Building package 'move_base' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/move_base', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/move_base', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/move_base', 'symlink_install': True, 'test_result_base': None}
+[1.923s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_args' from command line to 'None'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_target' from command line to 'None'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_clean_cache' from command line to 'False'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_clean_first' from command line to 'False'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'cmake_force_configure' from command line to 'False'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'ament_cmake_args' from command line to 'None'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'catkin_cmake_args' from command line to 'None'
+[1.924s] Level 5:colcon.colcon_core.verb:set package 'onyx_robot' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.924s] DEBUG:colcon.colcon_core.verb:Building package 'onyx_robot' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/onyx_robot', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/onyx_robot', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/onyx_robot', 'symlink_install': True, 'test_result_base': None}
+[1.925s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_args' from command line to 'None'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_target' from command line to 'None'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_clean_first' from command line to 'False'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'cmake_force_configure' from command line to 'False'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'ament_cmake_args' from command line to 'None'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[1.926s] Level 5:colcon.colcon_core.verb:set package 'pump_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.926s] DEBUG:colcon.colcon_core.verb:Building package 'pump_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/pump_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/pump_controller', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/pump_controller', 'symlink_install': True, 'test_result_base': None}
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_args' from command line to 'None'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_target' from command line to 'None'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_clean_cache' from command line to 'False'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_clean_first' from command line to 'False'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'cmake_force_configure' from command line to 'False'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'ament_cmake_args' from command line to 'None'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'catkin_cmake_args' from command line to 'None'
+[1.928s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_camera' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.928s] DEBUG:colcon.colcon_core.verb:Building package 'ros_bot_camera' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/ros_bot_camera', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/ros_bot_camera', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/ros_bot_camera', 'symlink_install': True, 'test_result_base': None}
+[1.929s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_args' from command line to 'None'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_target' from command line to 'None'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_clean_cache' from command line to 'False'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_clean_first' from command line to 'False'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'cmake_force_configure' from command line to 'False'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'ament_cmake_args' from command line to 'None'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'catkin_cmake_args' from command line to 'None'
+[1.930s] Level 5:colcon.colcon_core.verb:set package 'ros_bot_imu' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.930s] DEBUG:colcon.colcon_core.verb:Building package 'ros_bot_imu' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/Malvin/my_ros_bot/build/ros_bot_imu', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/Malvin/my_ros_bot/install/ros_bot_imu', 'merge_install': False, 'path': '/home/Malvin/my_ros_bot/src/ros_bot_imu', 'symlink_install': True, 'test_result_base': None}
+[1.931s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.934s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.935s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/arduino_ros' with build type 'ament_python'
+[1.936s] Level 1:colcon.colcon_core.shell:create_environment_hook('arduino_ros', 'ament_prefix_path')
+[1.952s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.953s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/ament_prefix_path.ps1'
+[1.957s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/ament_prefix_path.dsv'
+[2.102s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/ament_prefix_path.sh'
+[2.169s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.169s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.192s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/bot_teleop' with build type 'ament_python'
+[2.192s] Level 1:colcon.colcon_core.shell:create_environment_hook('bot_teleop', 'ament_prefix_path')
+[2.193s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/ament_prefix_path.ps1'
+[2.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/ament_prefix_path.dsv'
+[2.198s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/ament_prefix_path.sh'
+[2.201s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.202s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.220s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/move_base' with build type 'ament_python'
+[2.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('move_base', 'ament_prefix_path')
+[2.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/ament_prefix_path.ps1'
+[2.224s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/ament_prefix_path.dsv'
+[2.229s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/ament_prefix_path.sh'
+[2.232s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.232s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.254s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/onyx_robot' with build type 'ament_python'
+[2.255s] Level 1:colcon.colcon_core.shell:create_environment_hook('onyx_robot', 'ament_prefix_path')
+[2.256s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/ament_prefix_path.ps1'
+[2.258s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/ament_prefix_path.dsv'
+[2.261s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/ament_prefix_path.sh'
+[2.264s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.264s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.273s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/arduino_ros'
+[3.274s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.274s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.218s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/bot_teleop'
+[4.218s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.219s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.214s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/move_base'
+[5.215s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.215s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.236s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/onyx_robot'
+[6.237s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.237s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.586s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/onyx_robot': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data
+[12.602s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/move_base': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data
+[12.623s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/bot_teleop': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data
+[12.643s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/arduino_ros': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/arduino_ros/build --no-deps symlink_data
+[16.911s] Level 1:colcon.colcon_core.shell:create_environment_hook('bot_teleop', 'pythonpath_develop')
+[16.914s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/bot_teleop/share/bot_teleop/hook/pythonpath_develop.ps1'
+[16.919s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/bot_teleop' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data
+[16.925s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/bot_teleop/share/bot_teleop/hook/pythonpath_develop.dsv'
+[16.929s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/bot_teleop/share/bot_teleop/hook/pythonpath_develop.sh'
+[16.969s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop' for CMake module files
+[16.972s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop' for CMake config files
+[16.976s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop/lib'
+[16.976s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop/bin'
+[16.976s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop/lib/pkgconfig/bot_teleop.pc'
+[16.977s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages'
+[16.978s] Level 1:colcon.colcon_core.shell:create_environment_hook('bot_teleop', 'pythonpath')
+[16.978s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/pythonpath.ps1'
+[16.980s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/pythonpath.dsv'
+[16.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/hook/pythonpath.sh'
+[16.987s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/bot_teleop/bin'
+[16.987s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bot_teleop)
+[16.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/package.ps1'
+[16.994s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/package.dsv'
+[17.054s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/package.sh'
+[17.063s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/package.bash'
+[17.075s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/bot_teleop/share/bot_teleop/package.zsh'
+[17.145s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/bot_teleop/share/colcon-core/packages/bot_teleop)
+[17.152s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/pump_controller' with build type 'ament_python'
+[17.152s] Level 1:colcon.colcon_core.shell:create_environment_hook('pump_controller', 'ament_prefix_path')
+[17.153s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.ps1'
+[17.156s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.dsv'
+[17.201s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/ament_prefix_path.sh'
+[17.206s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.207s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.233s] Level 1:colcon.colcon_core.shell:create_environment_hook('onyx_robot', 'pythonpath_develop')
+[17.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/onyx_robot/share/onyx_robot/hook/pythonpath_develop.ps1'
+[17.235s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/onyx_robot' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data
+[17.237s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/onyx_robot/share/onyx_robot/hook/pythonpath_develop.dsv'
+[17.239s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/onyx_robot/share/onyx_robot/hook/pythonpath_develop.sh'
+[17.243s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot' for CMake module files
+[17.246s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot' for CMake config files
+[17.250s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot/lib'
+[17.251s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot/bin'
+[17.251s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot/lib/pkgconfig/onyx_robot.pc'
+[17.252s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages'
+[17.252s] Level 1:colcon.colcon_core.shell:create_environment_hook('onyx_robot', 'pythonpath')
+[17.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/pythonpath.ps1'
+[17.255s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/pythonpath.dsv'
+[17.258s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/hook/pythonpath.sh'
+[17.262s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/onyx_robot/bin'
+[17.262s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(onyx_robot)
+[17.264s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/package.ps1'
+[17.267s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/package.dsv'
+[17.269s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/package.sh'
+[17.272s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/package.bash'
+[17.275s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/package.zsh'
+[17.278s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/onyx_robot/share/colcon-core/packages/onyx_robot)
+[17.279s] Level 1:colcon.colcon_core.shell:create_environment_hook('move_base', 'pythonpath_develop')
+[17.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/move_base/share/move_base/hook/pythonpath_develop.ps1'
+[17.283s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/move_base' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data
+[17.327s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/move_base/share/move_base/hook/pythonpath_develop.dsv'
+[17.331s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/move_base/share/move_base/hook/pythonpath_develop.sh'
+[17.335s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base' for CMake module files
+[17.340s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base' for CMake config files
+[17.343s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base/lib'
+[17.344s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base/bin'
+[17.344s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base/lib/pkgconfig/move_base.pc'
+[17.345s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages'
+[17.345s] Level 1:colcon.colcon_core.shell:create_environment_hook('move_base', 'pythonpath')
+[17.346s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/pythonpath.ps1'
+[17.349s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/pythonpath.dsv'
+[17.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/move_base/share/move_base/hook/pythonpath.sh'
+[17.355s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/move_base/bin'
+[17.355s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(move_base)
+[17.356s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/move_base/share/move_base/package.ps1'
+[17.359s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/move_base/share/move_base/package.dsv'
+[17.362s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/move_base/share/move_base/package.sh'
+[17.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/move_base/share/move_base/package.bash'
+[17.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/move_base/share/move_base/package.zsh'
+[17.377s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/move_base/share/colcon-core/packages/move_base)
+[17.378s] Level 1:colcon.colcon_core.shell:create_environment_hook('arduino_ros', 'pythonpath_develop')
+[17.378s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/arduino_ros/share/arduino_ros/hook/pythonpath_develop.ps1'
+[17.384s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/arduino_ros' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/arduino_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/arduino_ros/build --no-deps symlink_data
+[17.385s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/arduino_ros/share/arduino_ros/hook/pythonpath_develop.dsv'
+[17.388s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/arduino_ros/share/arduino_ros/hook/pythonpath_develop.sh'
+[17.391s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros' for CMake module files
+[17.395s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros' for CMake config files
+[17.399s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros/lib'
+[17.399s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros/bin'
+[17.400s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros/lib/pkgconfig/arduino_ros.pc'
+[17.401s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros/lib/python3.12/site-packages'
+[17.401s] Level 1:colcon.colcon_core.shell:create_environment_hook('arduino_ros', 'pythonpath')
+[17.402s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/pythonpath.ps1'
+[17.436s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/pythonpath.dsv'
+[17.440s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/hook/pythonpath.sh'
+[17.447s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/arduino_ros/bin'
+[17.448s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(arduino_ros)
+[17.450s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/package.ps1'
+[17.453s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/package.dsv'
+[17.456s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/package.sh'
+[17.458s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/package.bash'
+[17.461s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/arduino_ros/share/arduino_ros/package.zsh'
+[17.464s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/arduino_ros/share/colcon-core/packages/arduino_ros)
+[17.467s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/ros_bot_camera' with build type 'ament_python'
+[17.467s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_camera', 'ament_prefix_path')
+[17.468s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/ament_prefix_path.ps1'
+[17.471s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/ament_prefix_path.dsv'
+[17.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/ament_prefix_path.sh'
+[17.477s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.477s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.495s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/Malvin/my_ros_bot/src/ros_bot_imu' with build type 'ament_python'
+[17.496s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_imu', 'ament_prefix_path')
+[17.496s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/ament_prefix_path.ps1'
+[17.499s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/ament_prefix_path.dsv'
+[17.502s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/ament_prefix_path.sh'
+[17.550s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.551s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[18.504s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/pump_controller'
+[18.505s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[18.505s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.450s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/ros_bot_camera'
+[19.451s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.451s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[20.454s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/Malvin/my_ros_bot/src/ros_bot_imu'
+[20.454s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[20.455s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[23.823s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/pump_controller': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data
+[23.834s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/ros_bot_camera': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_camera/build --no-deps symlink_data
+[23.892s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/Malvin/my_ros_bot/build/ros_bot_imu': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_imu/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_imu/build --no-deps symlink_data
+[27.464s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_camera', 'pythonpath_develop')
+[27.465s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/ros_bot_camera/share/ros_bot_camera/hook/pythonpath_develop.ps1'
+[27.467s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/ros_bot_camera' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_camera/build --no-deps symlink_data
+[27.469s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/ros_bot_camera/share/ros_bot_camera/hook/pythonpath_develop.dsv'
+[27.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/ros_bot_camera/share/ros_bot_camera/hook/pythonpath_develop.sh'
+[27.477s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera' for CMake module files
+[27.480s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera' for CMake config files
+[27.483s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera/lib'
+[27.483s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera/bin'
+[27.484s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/pkgconfig/ros_bot_camera.pc'
+[27.485s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera/lib/python3.12/site-packages'
+[27.485s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_camera', 'pythonpath')
+[27.486s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/pythonpath.ps1'
+[27.499s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/pythonpath.dsv'
+[27.501s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/hook/pythonpath.sh'
+[27.505s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_camera/bin'
+[27.506s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_bot_camera)
+[27.507s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/package.ps1'
+[27.510s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/package.dsv'
+[27.513s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/package.sh'
+[27.515s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/package.bash'
+[27.519s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_camera/share/ros_bot_camera/package.zsh'
+[27.522s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/ros_bot_camera/share/colcon-core/packages/ros_bot_camera)
+[27.528s] Level 1:colcon.colcon_core.shell:create_environment_hook('pump_controller', 'pythonpath_develop')
+[27.530s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/pump_controller/share/pump_controller/hook/pythonpath_develop.ps1'
+[27.538s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/pump_controller/share/pump_controller/hook/pythonpath_develop.dsv'
+[27.539s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/pump_controller' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data
+[27.542s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/pump_controller/share/pump_controller/hook/pythonpath_develop.sh'
+[27.546s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller' for CMake module files
+[27.551s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller' for CMake config files
+[27.555s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib'
+[27.556s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/bin'
+[27.556s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib/pkgconfig/pump_controller.pc'
+[27.558s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages'
+[27.559s] Level 1:colcon.colcon_core.shell:create_environment_hook('pump_controller', 'pythonpath')
+[27.560s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.ps1'
+[27.564s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.dsv'
+[27.567s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/hook/pythonpath.sh'
+[27.589s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/pump_controller/bin'
+[27.590s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pump_controller)
+[27.591s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.ps1'
+[27.596s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.dsv'
+[27.599s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.sh'
+[27.602s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.bash'
+[27.605s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller/package.zsh'
+[27.608s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/pump_controller/share/colcon-core/packages/pump_controller)
+[27.690s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_imu', 'pythonpath_develop')
+[27.691s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/ros_bot_imu/share/ros_bot_imu/hook/pythonpath_develop.ps1'
+[27.692s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/Malvin/my_ros_bot/build/ros_bot_imu' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/ros_bot_imu/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/ros_bot_imu/build --no-deps symlink_data
+[27.694s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/build/ros_bot_imu/share/ros_bot_imu/hook/pythonpath_develop.dsv'
+[27.696s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/build/ros_bot_imu/share/ros_bot_imu/hook/pythonpath_develop.sh'
+[27.700s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu' for CMake module files
+[27.704s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu' for CMake config files
+[27.708s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu/lib'
+[27.708s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu/bin'
+[27.708s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/pkgconfig/ros_bot_imu.pc'
+[27.710s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu/lib/python3.12/site-packages'
+[27.710s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_bot_imu', 'pythonpath')
+[27.711s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/pythonpath.ps1'
+[27.713s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/pythonpath.dsv'
+[27.716s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/hook/pythonpath.sh'
+[27.720s] Level 1:colcon.colcon_core.environment:checking '/home/Malvin/my_ros_bot/install/ros_bot_imu/bin'
+[27.720s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_bot_imu)
+[27.721s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/package.ps1'
+[27.724s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/package.dsv'
+[27.764s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/package.sh'
+[27.769s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/package.bash'
+[27.773s] INFO:colcon.colcon_core.shell:Creating package script '/home/Malvin/my_ros_bot/install/ros_bot_imu/share/ros_bot_imu/package.zsh'
+[27.775s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/Malvin/my_ros_bot/install/ros_bot_imu/share/colcon-core/packages/ros_bot_imu)
+[27.777s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[27.778s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[27.779s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[27.779s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[27.781s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[27.782s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.ps1'
+[27.786s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/Malvin/my_ros_bot/install/_local_setup_util_ps1.py'
+[27.873s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.ps1'
+[27.881s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.sh'
+[27.886s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/Malvin/my_ros_bot/install/_local_setup_util_sh.py'
+[27.890s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.sh'
+[27.896s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.bash'
+[27.902s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.bash'
+[27.909s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/Malvin/my_ros_bot/install/local_setup.zsh'
+[27.915s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/Malvin/my_ros_bot/install/setup.zsh'

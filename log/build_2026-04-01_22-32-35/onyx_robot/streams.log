@@ -1,0 +1,24 @@
+[7.554s] Invoking command in '/home/Malvin/my_ros_bot/build/onyx_robot': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data
+[9.637s] running develop
+[10.883s] running egg_info
+[10.884s] creating onyx_robot.egg-info
+[11.000s] writing onyx_robot.egg-info/PKG-INFO
+[11.003s] writing dependency_links to onyx_robot.egg-info/dependency_links.txt
+[11.006s] writing requirements to onyx_robot.egg-info/requires.txt
+[11.006s] writing top-level names to onyx_robot.egg-info/top_level.txt
+[11.007s] writing manifest file 'onyx_robot.egg-info/SOURCES.txt'
+[11.254s] reading manifest file 'onyx_robot.egg-info/SOURCES.txt'
+[11.259s] writing manifest file 'onyx_robot.egg-info/SOURCES.txt'
+[11.386s] running build_ext
+[11.387s] Creating /home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages/onyx-robot.egg-link (link to .)
+[11.389s] 
+[11.392s] Installed /home/Malvin/my_ros_bot/build/onyx_robot
+[11.392s] running symlink_data
+[11.393s] creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index
+[11.397s] creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index
+[11.398s] creating /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index/packages
+[11.403s] symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/resource/onyx_robot -> /home/Malvin/my_ros_bot/install/onyx_robot/share/ament_index/resource_index/packages
+[11.404s] symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/package.xml -> /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot
+[11.405s] creating /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/launch
+[11.409s] symbolically linking /home/Malvin/my_ros_bot/build/onyx_robot/launch/robot_launch.py -> /home/Malvin/my_ros_bot/install/onyx_robot/share/onyx_robot/launch
+[11.725s] Invoked command in '/home/Malvin/my_ros_bot/build/onyx_robot' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/onyx_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/onyx_robot/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/onyx_robot/build --no-deps symlink_data

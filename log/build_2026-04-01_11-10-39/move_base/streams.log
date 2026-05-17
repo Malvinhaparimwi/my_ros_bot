@@ -1,0 +1,22 @@
+[6.503s] Invoking command in '/home/Malvin/my_ros_bot/build/move_base': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages: VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data
+[8.020s] running develop
+[8.798s] running egg_info
+[8.799s] creating move_base.egg-info
+[8.877s] writing move_base.egg-info/PKG-INFO
+[8.877s] writing dependency_links to move_base.egg-info/dependency_links.txt
+[8.879s] writing requirements to move_base.egg-info/requires.txt
+[8.885s] writing top-level names to move_base.egg-info/top_level.txt
+[8.886s] writing manifest file 'move_base.egg-info/SOURCES.txt'
+[9.151s] reading manifest file 'move_base.egg-info/SOURCES.txt'
+[9.164s] writing manifest file 'move_base.egg-info/SOURCES.txt'
+[9.370s] running build_ext
+[9.370s] Creating /home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages/move-base.egg-link (link to .)
+[9.375s] 
+[9.376s] Installed /home/Malvin/my_ros_bot/build/move_base
+[9.377s] running symlink_data
+[9.379s] creating /home/Malvin/my_ros_bot/install/move_base/share/ament_index
+[9.382s] creating /home/Malvin/my_ros_bot/install/move_base/share/ament_index/resource_index
+[9.384s] creating /home/Malvin/my_ros_bot/install/move_base/share/ament_index/resource_index/packages
+[9.386s] symbolically linking /home/Malvin/my_ros_bot/build/move_base/resource/move_base -> /home/Malvin/my_ros_bot/install/move_base/share/ament_index/resource_index/packages
+[9.390s] symbolically linking /home/Malvin/my_ros_bot/build/move_base/package.xml -> /home/Malvin/my_ros_bot/install/move_base/share/move_base
+[9.565s] Invoked command in '/home/Malvin/my_ros_bot/build/move_base' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/move_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/move_base/lib/python3.12/site-packages: VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/move_base/build --no-deps symlink_data

@@ -1,0 +1,19 @@
+[5.764s] Invoking command in '/home/Malvin/my_ros_bot/build/pump_controller': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data --force
+[7.878s] running develop
+[9.081s] running egg_info
+[9.180s] writing pump_controller.egg-info/PKG-INFO
+[9.182s] writing dependency_links to pump_controller.egg-info/dependency_links.txt
+[9.185s] writing entry points to pump_controller.egg-info/entry_points.txt
+[9.185s] writing requirements to pump_controller.egg-info/requires.txt
+[9.186s] writing top-level names to pump_controller.egg-info/top_level.txt
+[9.411s] reading manifest file 'pump_controller.egg-info/SOURCES.txt'
+[9.415s] writing manifest file 'pump_controller.egg-info/SOURCES.txt'
+[9.522s] running build_ext
+[9.524s] Creating /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump-controller.egg-link (link to .)
+[9.525s] Installing controller script to /home/Malvin/my_ros_bot/install/pump_controller/lib/pump_controller
+[9.528s] 
+[9.528s] Installed /home/Malvin/my_ros_bot/build/pump_controller
+[9.531s] running symlink_data
+[9.535s] symbolically linking /home/Malvin/my_ros_bot/build/pump_controller/resource/pump_controller -> /home/Malvin/my_ros_bot/install/pump_controller/share/ament_index/resource_index/packages
+[9.536s] symbolically linking /home/Malvin/my_ros_bot/build/pump_controller/package.xml -> /home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller
+[9.720s] Invoked command in '/home/Malvin/my_ros_bot/build/pump_controller' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/pump_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/pump_controller/build --no-deps symlink_data --force

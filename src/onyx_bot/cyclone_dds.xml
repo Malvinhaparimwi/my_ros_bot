@@ -1,0 +1,15 @@
+<!-- ~/cyclone_dds.xml -->
+<CycloneDDS>
+  <Domain>
+    <General>
+      <NetworkInterfaceAddress>wlan0</NetworkInterfaceAddress>
+      <AllowMulticast>false</AllowMulticast>
+    </General>
+    <Discovery>
+      <ParticipantIndex>auto</ParticipantIndex>
+      <Peers>
+        <Peer address="192.168.50.252"/>
+      </Peers>
+    </Discovery>
+  </Domain>
+</CycloneDDS>

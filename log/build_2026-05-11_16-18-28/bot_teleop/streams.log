@@ -1,0 +1,17 @@
+[7.572s] Invoking command in '/home/Malvin/my_ros_bot/build/bot_teleop': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data
+[9.602s] running develop
+[10.848s] running egg_info
+[10.965s] writing bot_teleop.egg-info/PKG-INFO
+[10.966s] writing dependency_links to bot_teleop.egg-info/dependency_links.txt
+[10.969s] writing entry points to bot_teleop.egg-info/entry_points.txt
+[10.970s] writing requirements to bot_teleop.egg-info/requires.txt
+[10.970s] writing top-level names to bot_teleop.egg-info/top_level.txt
+[11.214s] reading manifest file 'bot_teleop.egg-info/SOURCES.txt'
+[11.220s] writing manifest file 'bot_teleop.egg-info/SOURCES.txt'
+[11.343s] running build_ext
+[11.344s] Creating /home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages/bot-teleop.egg-link (link to .)
+[11.349s] Installing bot_teleop script to /home/Malvin/my_ros_bot/install/bot_teleop/lib/bot_teleop
+[11.350s] 
+[11.351s] Installed /home/Malvin/my_ros_bot/build/bot_teleop
+[11.356s] running symlink_data
+[11.645s] Invoked command in '/home/Malvin/my_ros_bot/build/bot_teleop' returned '0': PS1=(robot_space) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/Malvin/my_ros_bot/build/bot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/Malvin/my_ros_bot/install/bot_teleop/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(robot_space) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/Malvin/my_ros_bot/build/bot_teleop/build --no-deps symlink_data

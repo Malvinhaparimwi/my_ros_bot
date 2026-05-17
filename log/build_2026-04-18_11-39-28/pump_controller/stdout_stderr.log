@@ -1,0 +1,32 @@
+running develop
+Removing /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump-controller.egg-link (link to .)
+running egg_info
+writing ../../build/pump_controller/pump_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/pump_controller/pump_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/pump_controller/pump_controller.egg-info/entry_points.txt
+writing requirements to ../../build/pump_controller/pump_controller.egg-info/requires.txt
+writing top-level names to ../../build/pump_controller/pump_controller.egg-info/top_level.txt
+reading manifest file '../../build/pump_controller/pump_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/pump_controller/pump_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/Malvin/my_ros_bot/build/pump_controller/build
+creating /home/Malvin/my_ros_bot/build/pump_controller/build/lib
+creating /home/Malvin/my_ros_bot/build/pump_controller/build/lib/pump_controller
+copying pump_controller/__init__.py -> /home/Malvin/my_ros_bot/build/pump_controller/build/lib/pump_controller
+copying pump_controller/pump_controller_node.py -> /home/Malvin/my_ros_bot/build/pump_controller/build/lib/pump_controller
+running install
+running install_lib
+creating /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller
+copying /home/Malvin/my_ros_bot/build/pump_controller/build/lib/pump_controller/__init__.py -> /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller
+copying /home/Malvin/my_ros_bot/build/pump_controller/build/lib/pump_controller/pump_controller_node.py -> /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller
+byte-compiling /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller/pump_controller_node.py to pump_controller_node.cpython-312.pyc
+running install_data
+copying resource/pump_controller -> /home/Malvin/my_ros_bot/install/pump_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/Malvin/my_ros_bot/install/pump_controller/share/pump_controller
+running install_egg_info
+Copying ../../build/pump_controller/pump_controller.egg-info to /home/Malvin/my_ros_bot/install/pump_controller/lib/python3.12/site-packages/pump_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing controller script to /home/Malvin/my_ros_bot/install/pump_controller/lib/pump_controller
+writing list of installed files to '/home/Malvin/my_ros_bot/build/pump_controller/install.log'
