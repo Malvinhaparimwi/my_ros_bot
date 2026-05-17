@@ -33,4 +33,7 @@ def generate_launch_description():
             package='ros_bot_camera',
             executable='camera_begin',
             name='camera_node',
-            output='screen')])
+            output='screen',
+            respawn=True,
+            respawn_delay=3.0
+            )])
