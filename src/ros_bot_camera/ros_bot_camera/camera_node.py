@@ -18,8 +18,7 @@ class StereoCameraNode(Node):
             10
         )
 
-        # Pi Camera pipeline
-        pi_pipeline = (
+        self.pi_pipeline = (
             "libcamerasrc ! "
             "video/x-raw,width=1280,height=720,framerate=30/1 ! "
             "videoconvert ! "
@@ -27,23 +26,8 @@ class StereoCameraNode(Node):
             "appsink drop=true max-buffers=1 sync=false"
         )
 
-        # Open Pi camera
-        self.get_logger().info('Opening Pi Camera...')
-
-        self.cam_pi = cv2.VideoCapture(pi_pipeline, cv2.CAP_GSTREAMER)
-
-        if not self.cam_pi.isOpened():
-            self.get_logger().error('Failed to open Pi Camera!')
-            self.cam_pi = None
-        else:
-            self.get_logger().info('Pi Camera opened OK')
-
-        # Warm up
-        self.get_logger().info('Warming up camera...')
-
-        if self.cam_pi:
-            for _ in range(10):
-                self.cam_pi.read()
+        self.cam_pi = None
+        self.open_camera()
 
         # Timer (20 FPS)
         self.timer = self.create_timer(
@@ -52,6 +36,25 @@ class StereoCameraNode(Node):
         )
 
         self.get_logger().info('Camera node ready')
+
+    def open_camera(self):
+        self.get_logger().info('Opening Pi Camera...')
+
+        camera = cv2.VideoCapture(self.pi_pipeline, cv2.CAP_GSTREAMER)
+
+        if not camera.isOpened():
+            self.get_logger().warn('Pi Camera unavailable; will retry')
+            camera.release()
+            return False
+
+        self.cam_pi = camera
+        self.get_logger().info('Pi Camera opened OK')
+        self.get_logger().info('Warming up camera...')
+
+        for _ in range(10):
+            self.cam_pi.read()
+
+        return True
 
     def make_compressed_msg(self, frame, stamp, quality=80):
 
@@ -74,13 +77,15 @@ class StereoCameraNode(Node):
     def timer_callback(self):
 
         if not self.cam_pi:
-            self.get_logger().warn('Pi Camera unavailable')
+            self.open_camera()
             return
 
         ret, frame = self.cam_pi.read()
 
         if not ret:
             self.get_logger().warn('Pi Camera frame drop')
+            self.cam_pi.release()
+            self.cam_pi = None
             return
 
         stamp = self.get_clock().now().to_msg()
