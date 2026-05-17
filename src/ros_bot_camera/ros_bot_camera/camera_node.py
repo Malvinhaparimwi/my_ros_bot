@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 
+import os
+import select
+import subprocess
+
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
-import cv2
+
+
+JPEG_START = b'\xff\xd8'
+JPEG_END = b'\xff\xd9'
+MAX_BUFFER_BYTES = 4 * 1024 * 1024
 
 
 class StereoCameraNode(Node):
@@ -18,15 +26,8 @@ class StereoCameraNode(Node):
             10
         )
 
-        self.pi_pipeline = (
-            "libcamerasrc ! "
-            "video/x-raw,width=1280,height=720,framerate=30/1 ! "
-            "videoconvert ! "
-            "video/x-raw,format=BGR ! "
-            "appsink drop=true max-buffers=1 sync=false"
-        )
-
-        self.cam_pi = None
+        self.camera_proc = None
+        self.jpeg_buffer = bytearray()
         self.open_camera()
 
         # Timer (20 FPS)
@@ -38,62 +39,114 @@ class StereoCameraNode(Node):
         self.get_logger().info('Camera node ready')
 
     def open_camera(self):
-        self.get_logger().info('Opening Pi Camera...')
+        if self.camera_proc and self.camera_proc.poll() is None:
+            return True
 
-        camera = cv2.VideoCapture(self.pi_pipeline, cv2.CAP_GSTREAMER)
+        self.get_logger().info('Opening Pi Camera with rpicam-vid...')
 
-        if not camera.isOpened():
-            self.get_logger().warn('Pi Camera unavailable; will retry')
-            camera.release()
+        cmd = [
+            'rpicam-vid',
+            '--codec', 'mjpeg',
+            '--width', '1280',
+            '--height', '720',
+            '--framerate', '20',
+            '--timeout', '0',
+            '--nopreview',
+            '--output', '-',
+        ]
+
+        try:
+            self.camera_proc = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+                bufsize=0,
+            )
+        except FileNotFoundError:
+            self.get_logger().error('rpicam-vid not found')
+            self.camera_proc = None
             return False
 
-        self.cam_pi = camera
-        self.get_logger().info('Pi Camera opened OK')
-        self.get_logger().info('Warming up camera...')
-
-        for _ in range(10):
-            self.cam_pi.read()
+        self.jpeg_buffer.clear()
+        self.get_logger().info('Pi Camera process started')
 
         return True
 
-    def make_compressed_msg(self, frame, stamp, quality=80):
+    def close_camera(self):
+        if not self.camera_proc:
+            return
 
-        ret, buf = cv2.imencode(
-            '.jpg',
-            frame,
-            [cv2.IMWRITE_JPEG_QUALITY, quality]
-        )
+        if self.camera_proc.poll() is None:
+            self.camera_proc.terminate()
+            try:
+                self.camera_proc.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                self.camera_proc.kill()
 
-        if not ret:
+        self.camera_proc = None
+        self.jpeg_buffer.clear()
+
+    def read_latest_jpeg(self):
+        if not self.camera_proc or self.camera_proc.poll() is not None:
+            self.close_camera()
+            self.open_camera()
             return None
 
+        stdout = self.camera_proc.stdout
+        if not stdout:
+            return None
+
+        while True:
+            ready, _, _ = select.select([stdout], [], [], 0)
+            if not ready:
+                break
+
+            chunk = os.read(stdout.fileno(), 65536)
+            if not chunk:
+                break
+
+            self.jpeg_buffer.extend(chunk)
+
+            if len(self.jpeg_buffer) > MAX_BUFFER_BYTES:
+                del self.jpeg_buffer[:-MAX_BUFFER_BYTES]
+
+        latest_frame = None
+
+        while True:
+            start = self.jpeg_buffer.find(JPEG_START)
+            if start < 0:
+                if len(self.jpeg_buffer) > 1:
+                    del self.jpeg_buffer[:-1]
+                break
+
+            if start > 0:
+                del self.jpeg_buffer[:start]
+
+            end = self.jpeg_buffer.find(JPEG_END, len(JPEG_START))
+            if end < 0:
+                break
+
+            frame_end = end + len(JPEG_END)
+            latest_frame = bytes(self.jpeg_buffer[:frame_end])
+            del self.jpeg_buffer[:frame_end]
+
+        return latest_frame
+
+    def make_compressed_msg(self, jpeg_data, stamp):
         msg = CompressedImage()
         msg.header.stamp = stamp
         msg.format = 'jpeg'
-        msg.data = buf.tobytes()
+        msg.data = jpeg_data
 
         return msg
 
     def timer_callback(self):
-
-        if not self.cam_pi:
-            self.open_camera()
-            return
-
-        ret, frame = self.cam_pi.read()
-
-        if not ret:
-            self.get_logger().warn('Pi Camera frame drop')
-            self.cam_pi.release()
-            self.cam_pi = None
+        jpeg_data = self.read_latest_jpeg()
+        if not jpeg_data:
             return
 
         stamp = self.get_clock().now().to_msg()
-
-        left_msg = self.make_compressed_msg(
-            frame,
-            stamp
-        )
+        left_msg = self.make_compressed_msg(jpeg_data, stamp)
 
         if left_msg:
             self.pub_left.publish(left_msg)
@@ -101,9 +154,7 @@ class StereoCameraNode(Node):
     def destroy_node(self):
 
         self.get_logger().info('Shutting down camera...')
-
-        if self.cam_pi:
-            self.cam_pi.release()
+        self.close_camera()
 
         super().destroy_node()
 

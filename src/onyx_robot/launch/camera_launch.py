@@ -7,7 +7,6 @@ def generate_launch_description():
     return LaunchDescription([
         SetEnvironmentVariable('ROS_DOMAIN_ID', '23'),
         SetEnvironmentVariable('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'),
-        SetEnvironmentVariable('XDG_RUNTIME_DIR', '/tmp'),
         SetEnvironmentVariable('LIBCAMERA_LOG_LEVELS', '*:3'),
 
         Node(
