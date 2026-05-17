@@ -186,7 +186,9 @@ export default function DashboardScreen() {
             <View style={styles.statGrid}>
               <View style={[styles.statTile, styles.statTilePrimary]}>
                 <Text style={styles.statLabel}>Field Coverage</Text>
-                <Text style={[styles.statValue, styles.statValuePrimary]}>68%</Text>
+                <Text style={[styles.statValue, styles.statValuePrimary]}>
+                  68%
+                </Text>
                 <View style={styles.progressTrack}>
                   <View style={styles.progressFill} />
                 </View>

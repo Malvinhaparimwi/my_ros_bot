@@ -16,7 +16,7 @@ class Controller(Node):
             "angular_z": 0.0,
         }
 
-        self.cmd_vel_subscriber = self.create_subscription(Twist, 'onyx/cmd_vel', self.cmd_vel_cb, qos_profile=10)
+        self.cmd_vel_subscriber = self.create_subscription(Twist, '/onyx/cmd_vel', self.cmd_vel_cb, qos_profile=10)
         self.get_logger().info("Controller Ready")
 
         

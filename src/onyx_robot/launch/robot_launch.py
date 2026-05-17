@@ -1,9 +1,13 @@
 import os
 from launch import LaunchDescription
+from launch.actions import SetEnvironmentVariable
 from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
+        SetEnvironmentVariable('ROS_DOMAIN_ID', '23'),
+        SetEnvironmentVariable('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'),
+
         Node(
             package='arduino_ros',
             executable='controller',

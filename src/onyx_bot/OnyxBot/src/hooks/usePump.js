@@ -1,13 +1,14 @@
 /**
  * usePump.js
  * Subscribes to /pump/controller and exposes pump state.
- * Also publishes 'on'/'off' string commands to /pump/controller.
+ * Publishes 'on'/'off' string commands to the current and legacy pump topics.
  */
 
 import { useState, useEffect, useCallback } from 'react';
 import RosService from '../services/RosService';
 
 const TOPIC = '/pump/controller';
+const LEGACY_TOPIC = 'pump_control';
 const MSG_TYPE = 'std_msgs/String';
 
 export function usePump(connected) {
@@ -17,6 +18,7 @@ export function usePump(connected) {
     if (!connected) return;
 
     RosService.advertise(TOPIC, MSG_TYPE);
+    RosService.advertise(LEGACY_TOPIC, MSG_TYPE);
 
     const handler = (msg) => {
       setPumpState(msg.data === 'on' ? 'on' : 'off');
@@ -28,7 +30,9 @@ export function usePump(connected) {
 
   const setPump = useCallback((state) => {
     if (!connected) return;
-    RosService.publish(TOPIC, { data: state });
+    const msg = { data: state };
+    RosService.publish(TOPIC, msg);
+    RosService.publish(LEGACY_TOPIC, msg);
     setPumpState(state);
   }, [connected]);
 
