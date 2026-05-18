@@ -1,202 +1,199 @@
 /**
  * CameraView.js
- * Displays /camera/left/compressed (sensor_msgs/CompressedImage) via rosbridge.
- * Fixed: timer-driven rendering like the Python node, no memory leak.
+ * Single camera feed (Pi Cam) via WebSocket.
+ * Minimal base64 work, dirty-flag rendering, no right camera.
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Platform,
-  requireNativeComponent,
-} from 'react-native';
-import RosService from '../services/RosService';
+import { View, Image, Text, StyleSheet, Dimensions } from 'react-native';
 
-const TOPIC = '/camera/left/compressed';
-const MSG_TYPE = 'sensor_msgs/CompressedImage';
-const MJPEG_STREAM_URL = 'http://192.168.50.1:5001/camera.mjpg';
-const DISPLAY_INTERVAL_MS = 33; // ~30 fps, matches Python timer
-const ROS_THROTTLE_MS = 80;
+const WS_URL = 'ws://192.168.50.1:5001/stream'; // <-- your Pi IP:port
+
 const { width: SCREEN_W } = Dimensions.get('window');
 const CAM_W = SCREEN_W - 32;
 const CAM_H = Math.round(CAM_W * (9 / 16));
 const CORNER = 14;
 const CORNER_T = 2;
-const OnyxMjpegView =
-  Platform.OS === 'android' ? requireNativeComponent('OnyxMjpegView') : null;
+const DISPLAY_INTERVAL_MS = 50; // 20 fps display tick — matches camera output
 
-// ─── decode only once, store raw string, never accumulate ───────────────────
+// ─── Fast ArrayBuffer → base64 ───────────────────────────────────────────────
+const B64_CHARS =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
-function bytesToBase64(bytes) {
-  const chars =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-  let output = '';
+function bufferToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  const len = bytes.length;
+  let out = '';
   let i = 0;
-  for (; i + 2 < bytes.length; i += 3) {
+  for (; i + 2 < len; i += 3) {
     const n = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-    output += chars[(n >> 18) & 63];
-    output += chars[(n >> 12) & 63];
-    output += chars[(n >> 6) & 63];
-    output += chars[n & 63];
+    out +=
+      B64_CHARS[(n >> 18) & 63] +
+      B64_CHARS[(n >> 12) & 63] +
+      B64_CHARS[(n >> 6) & 63] +
+      B64_CHARS[n & 63];
   }
-  if (i < bytes.length) {
+  if (i < len) {
     const a = bytes[i];
-    const b = i + 1 < bytes.length ? bytes[i + 1] : 0;
+    const b = i + 1 < len ? bytes[i + 1] : 0;
     const n = (a << 16) | (b << 8);
-    output += chars[(n >> 18) & 63];
-    output += chars[(n >> 12) & 63];
-    output += i + 1 < bytes.length ? chars[(n >> 6) & 63] : '=';
-    output += '=';
+    out +=
+      B64_CHARS[(n >> 18) & 63] +
+      B64_CHARS[(n >> 12) & 63] +
+      (i + 1 < len ? B64_CHARS[(n >> 6) & 63] : '=') +
+      '=';
   }
-  return output;
-}
-
-function decodeFrame(msg) {
-  // Returns a data URI string, or null on failure
-  try {
-    const format = msg.format?.includes('png') ? 'png' : 'jpeg';
-    let b64;
-    if (typeof msg.data === 'string') {
-      b64 = msg.data;
-    } else if (Array.isArray(msg.data)) {
-      b64 = bytesToBase64(msg.data);
-    } else if (msg.data && Array.isArray(msg.data.data)) {
-      b64 = bytesToBase64(msg.data.data);
-    } else if (msg.data && typeof msg.data.data === 'string') {
-      b64 = msg.data.data;
-    } else {
-      return null;
-    }
-    return `data:image/${format};base64,${b64}`;
-  } catch {
-    return null;
-  }
+  return out;
 }
 
 // ────────────────────────────────────────────────────────────────────────────
 
 export default function CameraView({ connected }) {
-  const useNativeStream =
-    connected && Platform.OS === 'android' && OnyxMjpegView;
-
   const [frameUri, setFrameUri] = useState(null);
   const [fps, setFps] = useState(0);
-  const [hasEverReceived, setHasEverReceived] = useState(false);
+  const [wsStatus, setWsStatus] = useState('disconnected');
 
-  // Refs hold mutable state that must NOT trigger re-renders
-  const latestUriRef = useRef(null); // newest decoded URI — overwritten each msg
-  const dirtyRef = useRef(false); // true when latestUriRef has a frame not yet shown
-  const fpsCountRef = useRef(0);
-  const lastFpsTickRef = useRef(Date.now());
-  const displayTimerRef = useRef(null);
-  const fpsTimerRef = useRef(null);
+  const latestUri = useRef(null);
+  const dirty = useRef(false);
+  const fpsCount = useRef(0);
+  const wsRef = useRef(null);
+  const displayTimer = useRef(null);
+  const fpsTimer = useRef(null);
+  const reconnectTimer = useRef(null);
+
+  const connect = () => {
+    if (wsRef.current) {
+      wsRef.current.onclose = null;
+      wsRef.current.close();
+    }
+
+    setWsStatus('connecting');
+    const ws = new WebSocket(WS_URL);
+    ws.binaryType = 'arraybuffer';
+    wsRef.current = ws;
+
+    ws.onopen = () => {
+      setWsStatus('connected');
+      clearTimeout(reconnectTimer.current);
+    };
+
+    ws.onmessage = event => {
+      if (!(event.data instanceof ArrayBuffer)) return;
+      const buf = event.data;
+      const tag = String.fromCharCode(new Uint8Array(buf)[0]);
+
+      // Only handle left / Pi camera frames
+      if (tag !== 'L') return;
+
+      const jpeg = buf.slice(1);
+      const b64 = bufferToBase64(jpeg);
+      latestUri.current = `data:image/jpeg;base64,${b64}`;
+      dirty.current = true;
+      fpsCount.current += 1;
+    };
+
+    ws.onerror = () => setWsStatus('disconnected');
+
+    ws.onclose = () => {
+      setWsStatus('disconnected');
+      reconnectTimer.current = setTimeout(() => {
+        if (connected) connect();
+      }, 2000);
+    };
+  };
 
   useEffect(() => {
-    if (useNativeStream) {
-      setFrameUri(null);
-      setFps(0);
-      setHasEverReceived(false);
-      return;
-    }
-
     if (!connected) {
-      // Clean up everything on disconnect
-      latestUriRef.current = null;
-      dirtyRef.current = false;
+      clearTimeout(reconnectTimer.current);
+      clearInterval(displayTimer.current);
+      clearInterval(fpsTimer.current);
+      if (wsRef.current) {
+        wsRef.current.onclose = null;
+        wsRef.current.close();
+        wsRef.current = null;
+      }
+      latestUri.current = null;
+      dirty.current = false;
       setFrameUri(null);
       setFps(0);
-      setHasEverReceived(false);
+      setWsStatus('disconnected');
       return;
     }
 
-    // ── ROS callback: decode once, store in ref, mark dirty ─────────────────
-    const handler = msg => {
-      const uri = decodeFrame(msg);
-      if (!uri) return;
+    connect();
 
-      // Overwrite previous frame — old string becomes unreferenced immediately
-      latestUriRef.current = uri;
-      dirtyRef.current = true;
-      fpsCountRef.current += 1;
-      setHasEverReceived(true);
-    };
-
-    // ── Display timer (~30 fps) — mirrors Python's create_timer(1/30) ────────
-    // Only calls setState when there is actually a new frame (dirtyRef).
-    // This means React never re-renders at 30 fps when the camera is idle.
-    displayTimerRef.current = setInterval(() => {
-      if (!dirtyRef.current) return;
-      dirtyRef.current = false;
-      // Swap ref into state — React batches this with nothing else, one render
-      setFrameUri(latestUriRef.current);
+    // Only push a new URI to state when a fresh frame has arrived
+    displayTimer.current = setInterval(() => {
+      if (!dirty.current) return;
+      dirty.current = false;
+      setFrameUri(latestUri.current);
     }, DISPLAY_INTERVAL_MS);
 
-    // ── FPS counter (1 s tick) ───────────────────────────────────────────────
-    fpsTimerRef.current = setInterval(() => {
-      setFps(fpsCountRef.current);
-      fpsCountRef.current = 0;
+    // FPS counter updates once per second
+    fpsTimer.current = setInterval(() => {
+      setFps(fpsCount.current);
+      fpsCount.current = 0;
     }, 1000);
 
-    RosService.subscribe(TOPIC, MSG_TYPE, handler, {
-      throttle_rate: ROS_THROTTLE_MS,
-      queue_length: 1,
-    });
-
     return () => {
-      clearInterval(displayTimerRef.current);
-      clearInterval(fpsTimerRef.current);
-      displayTimerRef.current = null;
-      fpsTimerRef.current = null;
-      RosService.unsubscribe(TOPIC, handler);
-      // Explicitly null out the large string so GC can collect it
-      latestUriRef.current = null;
-      dirtyRef.current = false;
+      clearTimeout(reconnectTimer.current);
+      clearInterval(displayTimer.current);
+      clearInterval(fpsTimer.current);
+      if (wsRef.current) {
+        wsRef.current.onclose = null;
+        wsRef.current.close();
+        wsRef.current = null;
+      }
+      latestUri.current = null;
     };
-  }, [connected, useNativeStream]);
+  }, [connected]);
+
+  const isLive = wsStatus === 'connected';
+
+  const placeholderText = {
+    disconnected: 'NO SIGNAL',
+    connecting: 'CONNECTING…',
+    connected: 'WAITING FOR STREAM',
+  }[wsStatus];
+
+  const placeholderSub = {
+    disconnected: 'Connect to robot hotspot',
+    connecting: 'Reaching camera server…',
+    connected: 'Check camera topic',
+  }[wsStatus];
 
   return (
     <View style={styles.wrapper}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.titleRow}>
-          <View style={[styles.liveDot, connected && styles.liveDotActive]} />
+          <View
+            style={[
+              styles.liveDot,
+              isLive && !!frameUri && styles.liveDotActive,
+            ]}
+          />
           <Text style={styles.title}>Camera Feed</Text>
         </View>
         <View style={styles.fpsPill}>
-          <Text style={styles.fps}>
-            {useNativeStream ? 'native' : connected ? `${fps} fps` : '-- fps'}
-          </Text>
+          <Text style={styles.fpsText}>{isLive ? `${fps} fps` : '-- fps'}</Text>
         </View>
       </View>
 
       {/* Frame */}
       <View style={[styles.frame, { width: CAM_W, height: CAM_H }]}>
-        {!connected ? (
-          <View style={styles.offline}>
-            <Text style={styles.offlineIcon}>NO</Text>
-            <Text style={styles.offlineText}>NO SIGNAL</Text>
-            <Text style={styles.offlineSub}>Connect to robot hotspot</Text>
-          </View>
-        ) : useNativeStream ? (
-          <OnyxMjpegView sourceUrl={MJPEG_STREAM_URL} style={styles.image} />
-        ) : !frameUri ? (
-          <View style={styles.offline}>
-            <Text style={styles.offlineText}>WAITING FOR STREAM</Text>
-            <Text style={styles.offlineSub}>
-              {hasEverReceived ? 'Frames decoding…' : 'Check camera topic'}
-            </Text>
-          </View>
-        ) : (
+        {isLive && frameUri ? (
           <Image
             source={{ uri: frameUri }}
             style={styles.image}
             resizeMode="contain"
             fadeDuration={0}
           />
+        ) : (
+          <View style={styles.offline}>
+            <Text style={styles.offlineText}>{placeholderText}</Text>
+            <Text style={styles.offlineSub}>{placeholderSub}</Text>
+          </View>
         )}
 
         <View style={styles.cornerTL} />
@@ -221,10 +218,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 7,
-    gap: 8,
   },
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  liveDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: '#CBD5E1' },
+  liveDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: '#CBD5E1',
+  },
   liveDotActive: { backgroundColor: '#16A34A' },
   title: {
     fontSize: 10,
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F1F5F9',
     alignItems: 'center',
   },
-  fps: { fontSize: 10, color: '#64748B', fontWeight: '700' },
+  fpsText: { fontSize: 10, color: '#64748B', fontWeight: '700' },
   frame: {
     backgroundColor: '#111827',
     borderWidth: 1,
@@ -255,9 +256,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     elevation: 3,
   },
-  image: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    width: '100%',
+    height: '100%',
+  },
   offline: { alignItems: 'center', justifyContent: 'center', gap: 6 },
-  offlineIcon: { fontSize: 18, color: '#1F2937', fontWeight: '900' },
   offlineText: {
     fontSize: 11,
     letterSpacing: 2.2,
