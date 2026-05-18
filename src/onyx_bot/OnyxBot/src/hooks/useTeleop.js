@@ -11,14 +11,14 @@ const TOPIC = '/onyx/cmd_vel';
 const MSG_TYPE = 'geometry_msgs/Twist';
 const PUBLISH_RATE_MS = 100; // 10 Hz
 
-const LINEAR_SPEED = 0.3;   // m/s
-const ANGULAR_SPEED = 0.8;  // rad/s
+const LINEAR_SPEED = 0.22;
+const ANGULAR_SPEED = 0.8;
 
 const CMD = {
-  forward:  { linear: { x: LINEAR_SPEED,  y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0 } },
-  backward: { linear: { x: -LINEAR_SPEED, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0 } },
-  left:     { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: ANGULAR_SPEED } },
-  right:    { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: -ANGULAR_SPEED } },
+  forward:  { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: -ANGULAR_SPEED } },
+  backward: { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: ANGULAR_SPEED } },
+  left:     { linear: { x: -LINEAR_SPEED, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0 } },
+  right:    { linear: { x: LINEAR_SPEED,  y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0 } },
   stop:     { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0 } },
 };
 

@@ -3,6 +3,7 @@
 import math
 import serial
 import threading
+import time
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Imu
@@ -100,6 +101,8 @@ class ImuNanoNode(Node):
         port          = self.get_parameter('port').value
         baud          = self.get_parameter('baud').value
         self.frame_id = self.get_parameter('frame_id').value
+        self.port     = port
+        self.baud     = baud
 
         self.kf_roll  = KalmanAngle()
         self.kf_pitch = KalmanAngle()
@@ -120,17 +123,40 @@ class ImuNanoNode(Node):
 
         self.srv = self.create_service(Trigger, '/reset_imu', self.reset_callback)
 
-        try:
-            self.ser = serial.Serial(port, baud, timeout=1.0)
-            self.get_logger().info(f'Opened {port} @ {baud}')
-        except serial.SerialException as e:
-            self.get_logger().error(f'Serial error: {e}')
-            raise
+        self.ser = None
+        self._open_serial_or_raise()
 
         # Calibrate gyro bias before starting the reader thread
         self._calibrate_gyro()
 
         threading.Thread(target=self._reader, daemon=True).start()
+
+    def _open_serial_or_raise(self):
+        try:
+            self.ser = serial.Serial(self.port, self.baud, timeout=0.2)
+            self.get_logger().info(f'Opened {self.port} @ {self.baud}')
+        except serial.SerialException as e:
+            self.get_logger().error(f'Serial error: {e}')
+            raise
+
+    def _reconnect_serial(self):
+        try:
+            if self.ser:
+                self.ser.close()
+        except serial.SerialException:
+            pass
+
+        self.ser = None
+
+        while rclpy.ok() and self.ser is None:
+            try:
+                self.ser = serial.Serial(self.port, self.baud, timeout=0.2)
+                self.ser.reset_input_buffer()
+                self.last_time = None
+                self.get_logger().info(f'Reconnected {self.port} @ {self.baud}')
+            except serial.SerialException as e:
+                self.get_logger().warn(f'IMU serial reconnect failed: {e}')
+                time.sleep(1.0)
 
     # ── Gyro bias calibration ─────────────────────────────────────────────────
     def _calibrate_gyro(self):
@@ -187,11 +213,29 @@ class ImuNanoNode(Node):
     # ── Serial reader ─────────────────────────────────────────────────────────
     def _reader(self):
         deadband_rad = math.radians(self.GYRO_DEADBAND_DEG)
+        last_valid_line_time = time.monotonic()
 
         while rclpy.ok():
+            if self.ser is None:
+                self._reconnect_serial()
+                continue
+
             try:
                 raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
-            except Exception:
+            except serial.SerialException as e:
+                self.get_logger().warn(f'IMU serial read failed: {e}')
+                self._reconnect_serial()
+                continue
+            except OSError as e:
+                self.get_logger().warn(f'IMU serial disconnected: {e}')
+                self._reconnect_serial()
+                continue
+
+            if not raw:
+                if time.monotonic() - last_valid_line_time > 2.0:
+                    self.get_logger().warn('IMU serial stream stalled; reconnecting')
+                    self._reconnect_serial()
+                    last_valid_line_time = time.monotonic()
                 continue
 
             if not raw.startswith('D '):
@@ -206,6 +250,8 @@ class ImuNanoNode(Node):
                 vals = [float(p) for p in parts[1:]]
             except ValueError:
                 continue
+
+            last_valid_line_time = time.monotonic()
 
             lax,lay,laz, lgx,lgy,lgz = vals[0:6]
             max_,may,maz, mgx,mgy,mgz = vals[6:12]
@@ -281,6 +327,15 @@ class ImuNanoNode(Node):
         swept_msg = Float32()
         swept_msg.data = float(swept)
         self.swept_pub.publish(swept_msg)
+
+    def destroy_node(self):
+        try:
+            if self.ser:
+                self.ser.close()
+        except serial.SerialException:
+            pass
+
+        super().destroy_node()
 
 
 def main(args=None):
