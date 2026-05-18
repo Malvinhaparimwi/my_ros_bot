@@ -1,38 +1,25 @@
 #!/usr/bin/env python3
-"""
-robot_api.py  –  Pi-side REST API for robot stack control
-Run this as a separate systemd service (robot-api.service).
-
-Install: pip3 install flask
-Run once to test: python3 robot_api.py
-
-Sudoers entry needed (visudo), replacing Malvin if your user differs:
-  Malvin ALL=(ALL) NOPASSWD: /bin/systemctl start robot.service, \
-                            /bin/systemctl stop robot.service, \
-                            /bin/systemctl restart robot.service, \
-                            /bin/systemctl status robot.service, \
-                            /bin/systemctl start robot_camera.service, \
-                            /bin/systemctl stop robot_camera.service, \
-                            /bin/systemctl restart robot_camera.service, \
-                            /bin/systemctl status robot_camera.service
-"""
-
+import asyncio
 import threading
-
-from flask import Flask, Response, jsonify
-import subprocess
-
 import rclpy
 from rclpy.executors import SingleThreadedExecutor
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.responses import JSONResponse
+import subprocess
+import uvicorn
 
-app = Flask(__name__)
+app = FastAPI()
 ALLOWED = {'start', 'stop', 'restart', 'status'}
 STACK_UNITS = ('robot.service', 'robot_camera.service')
-latest_camera_frame = None
-camera_condition = threading.Condition()
 
+# Shared state
+latest_left_frame: bytes | None = None
+latest_right_frame: bytes | None = None
+connected_clients: set[WebSocket] = set()
+clients_lock = asyncio.Lock()
+loop: asyncio.AbstractEventLoop = None
 
 class CameraRelayNode(Node):
     def __init__(self):
@@ -40,19 +27,41 @@ class CameraRelayNode(Node):
         self.create_subscription(
             CompressedImage,
             '/camera/left/compressed',
-            self.camera_callback,
+            self.left_callback,
+            10,
+        )
+        self.create_subscription(
+            CompressedImage,
+            '/camera/right/compressed',
+            self.right_callback,
             10,
         )
 
-    def camera_callback(self, msg):
-        global latest_camera_frame
+    def left_callback(self, msg):
+        global latest_left_frame
+        latest_left_frame = bytes(msg.data)
+        asyncio.run_coroutine_threadsafe(
+            broadcast(b'L' + latest_left_frame), loop
+        )
 
-        with camera_condition:
-            latest_camera_frame = bytes(msg.data)
-            camera_condition.notify_all()
+    def right_callback(self, msg):
+        global latest_right_frame
+        latest_right_frame = bytes(msg.data)
+        asyncio.run_coroutine_threadsafe(
+            broadcast(b'R' + latest_right_frame), loop
+        )
 
+async def broadcast(data: bytes):
+    async with clients_lock:
+        dead = set()
+        for ws in connected_clients:
+            try:
+                await ws.send_bytes(data)
+            except Exception:
+                dead.add(ws)
+        connected_clients.difference_update(dead)
 
-def start_camera_relay():
+def start_ros_relay():
     def spin():
         rclpy.init(args=None)
         node = CameraRelayNode()
@@ -64,17 +73,12 @@ def start_camera_relay():
             executor.shutdown()
             node.destroy_node()
             rclpy.shutdown()
-
-    thread = threading.Thread(target=spin, daemon=True)
-    thread.start()
-
+    threading.Thread(target=spin, daemon=True).start()
 
 def run_systemctl(action, unit):
     result = subprocess.run(
         ['sudo', 'systemctl', action, unit],
-        capture_output=True,
-        text=True,
-        timeout=10,
+        capture_output=True, text=True, timeout=10,
     )
     return {
         'unit': unit,
@@ -84,56 +88,47 @@ def run_systemctl(action, unit):
         'success': result.returncode == 0,
     }
 
+@app.get('/ping')
+async def ping():
+    return {'pong': True}
 
-@app.route('/service/<action>', methods=['POST'])
-def service(action):
+@app.post('/service/{action}')
+async def service(action: str):
     if action not in ALLOWED:
-        return jsonify({'error': f'Invalid action: {action}'}), 400
-
+        return JSONResponse({'error': f'Invalid action: {action}'}, status_code=400)
     units = STACK_UNITS if action != 'stop' else tuple(reversed(STACK_UNITS))
     results = [run_systemctl(action, unit) for unit in units]
-
-    return jsonify({
+    return {
         'action': action,
         'results': results,
-        'success': all(result['success'] for result in results),
-    })
+        'success': all(r['success'] for r in results),
+    }
 
+@app.websocket('/stream')
+async def stream(websocket: WebSocket):
+    await websocket.accept()
+    async with clients_lock:
+        connected_clients.add(websocket)
 
-@app.route('/ping', methods=['GET'])
-def ping():
-    return jsonify({'pong': True})
-
-
-@app.route('/camera.mjpg', methods=['GET'])
-def camera_mjpg():
-    def stream():
+    # Send latest frames immediately on connect so client isn't blank
+    try:
+        if latest_left_frame:
+            await websocket.send_bytes(b'L' + latest_left_frame)
+        if latest_right_frame:
+            await websocket.send_bytes(b'R' + latest_right_frame)
         while True:
-            with camera_condition:
-                camera_condition.wait_for(
-                    lambda: latest_camera_frame is not None,
-                    timeout=2.0,
-                )
-                frame = latest_camera_frame
+            await websocket.receive_text()  # keep connection alive
+    except WebSocketDisconnect:
+        pass
+    finally:
+        async with clients_lock:
+            connected_clients.discard(websocket)
 
-            if frame is None:
-                continue
-
-            yield (
-                b'--frame\r\n'
-                b'Content-Type: image/jpeg\r\n'
-                b'Cache-Control: no-cache\r\n\r\n'
-                + frame +
-                b'\r\n'
-            )
-
-    return Response(
-        stream(),
-        mimetype='multipart/x-mixed-replace; boundary=frame',
-    )
-
+@app.on_event('startup')
+async def startup():
+    global loop
+    loop = asyncio.get_event_loop()
+    start_ros_relay()
 
 if __name__ == '__main__':
-    start_camera_relay()
-    # Bind to hotspot interface IP
-    app.run(host='0.0.0.0', port=5001, debug=False, threaded=True)
+    uvicorn.run(app, host='0.0.0.0', port=5001)
