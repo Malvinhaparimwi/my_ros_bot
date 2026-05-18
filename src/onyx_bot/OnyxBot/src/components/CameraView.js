@@ -24,54 +24,6 @@ const CAM_H = Math.round(CAM_W * (9 / 16));
 const CORNER = 14;
 const CORNER_T = 2;
 
-function bytesToBase64(bytes) {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-  let output = '';
-  let i = 0;
-
-  for (; i + 2 < bytes.length; i += 3) {
-    const n = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-    output += chars[(n >> 18) & 63];
-    output += chars[(n >> 12) & 63];
-    output += chars[(n >> 6) & 63];
-    output += chars[n & 63];
-  }
-
-  if (i < bytes.length) {
-    const a = bytes[i];
-    const b = i + 1 < bytes.length ? bytes[i + 1] : 0;
-    const n = (a << 16) | (b << 8);
-    output += chars[(n >> 18) & 63];
-    output += chars[(n >> 12) & 63];
-    output += i + 1 < bytes.length ? chars[(n >> 6) & 63] : '=';
-    output += '=';
-  }
-
-  return output;
-}
-
-function normalizeImageData(data) {
-  if (typeof data === 'string') {
-    return data;
-  }
-
-  if (Array.isArray(data)) {
-    return bytesToBase64(data);
-  }
-
-  if (data && typeof data === 'object') {
-    if (typeof data.data === 'string') {
-      return data.data;
-    }
-
-    if (Array.isArray(data.data)) {
-      return bytesToBase64(data.data);
-    }
-  }
-
-  return null;
-}
-
 export default function CameraView({ connected }) {
   const [frameSlots, setFrameSlots] = useState([null, null]);
   const [visibleFrameIndex, setVisibleFrameIndex] = useState(null);
@@ -125,10 +77,7 @@ export default function CameraView({ connected }) {
     const handler = msg => {
       if (pausedRef.current) return;
       const format = msg.format?.includes('png') ? 'png' : 'jpeg';
-      const imageData = normalizeImageData(msg.data);
-      if (!imageData) return;
-
-      latestFrameRef.current = `data:image/${format};base64,${imageData}`;
+      latestFrameRef.current = `data:image/${format};base64,${msg.data}`;
 
       fpsCountRef.current += 1;
       const now = Date.now();
