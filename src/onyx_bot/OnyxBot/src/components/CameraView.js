@@ -1,7 +1,7 @@
 /**
  * CameraView.js
  * Displays /camera/left/compressed (sensor_msgs/CompressedImage) via rosbridge.
- * Light theme.
+ * Fixed: timer-driven rendering like the Python node, no memory leak.
  */
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -19,22 +19,23 @@ import RosService from '../services/RosService';
 const TOPIC = '/camera/left/compressed';
 const MSG_TYPE = 'sensor_msgs/CompressedImage';
 const MJPEG_STREAM_URL = 'http://192.168.50.1:5001/camera.mjpg';
-const DISPLAY_FRAME_MS = 83; // ~12 fps keeps base64 image swaps smooth in RN.
+const DISPLAY_INTERVAL_MS = 33; // ~30 fps, matches Python timer
 const ROS_THROTTLE_MS = 80;
 const { width: SCREEN_W } = Dimensions.get('window');
 const CAM_W = SCREEN_W - 32;
 const CAM_H = Math.round(CAM_W * (9 / 16));
 const CORNER = 14;
 const CORNER_T = 2;
-const OnyxMjpegView = Platform.OS === 'android'
-  ? requireNativeComponent('OnyxMjpegView')
-  : null;
+const OnyxMjpegView =
+  Platform.OS === 'android' ? requireNativeComponent('OnyxMjpegView') : null;
+
+// ─── decode only once, store raw string, never accumulate ───────────────────
 
 function bytesToBase64(bytes) {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  const chars =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
   let output = '';
   let i = 0;
-
   for (; i + 2 < bytes.length; i += 3) {
     const n = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
     output += chars[(n >> 18) & 63];
@@ -42,7 +43,6 @@ function bytesToBase64(bytes) {
     output += chars[(n >> 6) & 63];
     output += chars[n & 63];
   }
-
   if (i < bytes.length) {
     const a = bytes[i];
     const b = i + 1 < bytes.length ? bytes[i + 1] : 0;
@@ -52,100 +52,94 @@ function bytesToBase64(bytes) {
     output += i + 1 < bytes.length ? chars[(n >> 6) & 63] : '=';
     output += '=';
   }
-
   return output;
 }
 
-function normalizeImageData(data) {
-  if (typeof data === 'string') {
-    return data;
-  }
-
-  if (Array.isArray(data)) {
-    return bytesToBase64(data);
-  }
-
-  if (data && typeof data === 'object') {
-    if (typeof data.data === 'string') {
-      return data.data;
+function decodeFrame(msg) {
+  // Returns a data URI string, or null on failure
+  try {
+    const format = msg.format?.includes('png') ? 'png' : 'jpeg';
+    let b64;
+    if (typeof msg.data === 'string') {
+      b64 = msg.data;
+    } else if (Array.isArray(msg.data)) {
+      b64 = bytesToBase64(msg.data);
+    } else if (msg.data && Array.isArray(msg.data.data)) {
+      b64 = bytesToBase64(msg.data.data);
+    } else if (msg.data && typeof msg.data.data === 'string') {
+      b64 = msg.data.data;
+    } else {
+      return null;
     }
-
-    if (Array.isArray(data.data)) {
-      return bytesToBase64(data.data);
-    }
+    return `data:image/${format};base64,${b64}`;
+  } catch {
+    return null;
   }
-
-  return null;
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+
 export default function CameraView({ connected }) {
-  const useNativeStream = connected && Platform.OS === 'android' && OnyxMjpegView;
+  const useNativeStream =
+    connected && Platform.OS === 'android' && OnyxMjpegView;
+
   const [frameUri, setFrameUri] = useState(null);
   const [fps, setFps] = useState(0);
-  const [frameBytes, setFrameBytes] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [hasEverReceived, setHasEverReceived] = useState(false);
+
+  // Refs hold mutable state that must NOT trigger re-renders
+  const latestUriRef = useRef(null); // newest decoded URI — overwritten each msg
+  const dirtyRef = useRef(false); // true when latestUriRef has a frame not yet shown
   const fpsCountRef = useRef(0);
-  const pausedRef = useRef(false);
-  const lastFpsUpdate = useRef(Date.now());
-  const latestFrameRef = useRef(null);
-  const lastRenderRef = useRef(0);
-  const renderTimerRef = useRef(null);
+  const lastFpsTickRef = useRef(Date.now());
+  const displayTimerRef = useRef(null);
+  const fpsTimerRef = useRef(null);
 
   useEffect(() => {
     if (useNativeStream) {
       setFrameUri(null);
-      setFrameBytes(0);
       setFps(0);
+      setHasEverReceived(false);
       return;
     }
 
     if (!connected) {
+      // Clean up everything on disconnect
+      latestUriRef.current = null;
+      dirtyRef.current = false;
       setFrameUri(null);
-      setFrameBytes(0);
       setFps(0);
-      latestFrameRef.current = null;
-      fpsCountRef.current = 0;
+      setHasEverReceived(false);
       return;
     }
 
-    const showLatestFrame = () => {
-      renderTimerRef.current = null;
-      if (!latestFrameRef.current || pausedRef.current) return;
-
-      setFrameUri(latestFrameRef.current);
-      lastRenderRef.current = Date.now();
-    };
-
+    // ── ROS callback: decode once, store in ref, mark dirty ─────────────────
     const handler = msg => {
-      if (pausedRef.current) return;
-      const format = msg.format?.includes('png') ? 'png' : 'jpeg';
-      const imageData = normalizeImageData(msg.data);
-      if (!imageData) return;
+      const uri = decodeFrame(msg);
+      if (!uri) return;
 
-      latestFrameRef.current = `data:image/${format};base64,${imageData}`;
-      setFrameBytes(imageData.length);
-
+      // Overwrite previous frame — old string becomes unreferenced immediately
+      latestUriRef.current = uri;
+      dirtyRef.current = true;
       fpsCountRef.current += 1;
-      const now = Date.now();
-
-      const elapsed = now - lastRenderRef.current;
-      if (!renderTimerRef.current) {
-        if (elapsed >= DISPLAY_FRAME_MS) {
-          showLatestFrame();
-        } else {
-          renderTimerRef.current = setTimeout(
-            showLatestFrame,
-            DISPLAY_FRAME_MS - elapsed,
-          );
-        }
-      }
-
-      if (now - lastFpsUpdate.current >= 1000) {
-        setFps(fpsCountRef.current);
-        fpsCountRef.current = 0;
-        lastFpsUpdate.current = now;
-      }
+      setHasEverReceived(true);
     };
+
+    // ── Display timer (~30 fps) — mirrors Python's create_timer(1/30) ────────
+    // Only calls setState when there is actually a new frame (dirtyRef).
+    // This means React never re-renders at 30 fps when the camera is idle.
+    displayTimerRef.current = setInterval(() => {
+      if (!dirtyRef.current) return;
+      dirtyRef.current = false;
+      // Swap ref into state — React batches this with nothing else, one render
+      setFrameUri(latestUriRef.current);
+    }, DISPLAY_INTERVAL_MS);
+
+    // ── FPS counter (1 s tick) ───────────────────────────────────────────────
+    fpsTimerRef.current = setInterval(() => {
+      setFps(fpsCountRef.current);
+      fpsCountRef.current = 0;
+    }, 1000);
 
     RosService.subscribe(TOPIC, MSG_TYPE, handler, {
       throttle_rate: ROS_THROTTLE_MS,
@@ -153,15 +147,16 @@ export default function CameraView({ connected }) {
     });
 
     return () => {
-      if (renderTimerRef.current) {
-        clearTimeout(renderTimerRef.current);
-        renderTimerRef.current = null;
-      }
+      clearInterval(displayTimerRef.current);
+      clearInterval(fpsTimerRef.current);
+      displayTimerRef.current = null;
+      fpsTimerRef.current = null;
       RosService.unsubscribe(TOPIC, handler);
+      // Explicitly null out the large string so GC can collect it
+      latestUriRef.current = null;
+      dirtyRef.current = false;
     };
   }, [connected, useNativeStream]);
-
-  const hasFrame = Boolean(frameUri);
 
   return (
     <View style={styles.wrapper}>
@@ -176,15 +171,6 @@ export default function CameraView({ connected }) {
             {useNativeStream ? 'native' : connected ? `${fps} fps` : '-- fps'}
           </Text>
         </View>
-        {/* <TouchableOpacity
-          style={styles.pauseBtn}
-          onPress={togglePause}
-          activeOpacity={0.7}
-        >
-          <Text style={styles.pauseText}>
-            {paused ? '▶  Resume' : '⏸  Freeze'}
-          </Text>
-        </TouchableOpacity> */}
       </View>
 
       {/* Frame */}
@@ -196,15 +182,12 @@ export default function CameraView({ connected }) {
             <Text style={styles.offlineSub}>Connect to robot hotspot</Text>
           </View>
         ) : useNativeStream ? (
-          <OnyxMjpegView
-            sourceUrl={MJPEG_STREAM_URL}
-            style={styles.image}
-          />
-        ) : !hasFrame ? (
+          <OnyxMjpegView sourceUrl={MJPEG_STREAM_URL} style={styles.image} />
+        ) : !frameUri ? (
           <View style={styles.offline}>
             <Text style={styles.offlineText}>WAITING FOR STREAM</Text>
             <Text style={styles.offlineSub}>
-              {frameBytes ? `${frameBytes} bytes received` : 'Check camera topic'}
+              {hasEverReceived ? 'Frames decoding…' : 'Check camera topic'}
             </Text>
           </View>
         ) : (
@@ -216,17 +199,10 @@ export default function CameraView({ connected }) {
           />
         )}
 
-        {/* Corner brackets — blue on light */}
         <View style={styles.cornerTL} />
         <View style={styles.cornerTR} />
         <View style={styles.cornerBL} />
         <View style={styles.cornerBR} />
-
-        {paused && (
-          <View style={styles.pauseOverlay}>
-            <Text style={styles.pauseOverlayText}>FROZEN</Text>
-          </View>
-        )}
       </View>
     </View>
   );
@@ -247,20 +223,9 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     gap: 8,
   },
-  titleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  liveDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 4,
-    backgroundColor: '#CBD5E1',
-  },
-  liveDotActive: {
-    backgroundColor: '#16A34A',
-  },
+  titleRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  liveDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: '#CBD5E1' },
+  liveDotActive: { backgroundColor: '#16A34A' },
   title: {
     fontSize: 10,
     fontWeight: '800',
@@ -275,29 +240,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F1F5F9',
     alignItems: 'center',
   },
-  fps: {
-    fontSize: 10,
-    color: '#64748B',
-    fontWeight: '700',
-  },
-  pauseBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 5,
-    borderWidth: 1.5,
-    borderColor: '#BFDBFE',
-    borderRadius: 20,
-    backgroundColor: '#EFF6FF',
-  },
-  pauseText: {
-    fontSize: 10,
-    color: '#1D4ED8',
-    fontWeight: '600',
-    letterSpacing: 0.5,
-  },
-
-  // Frame
+  fps: { fontSize: 10, color: '#64748B', fontWeight: '700' },
   frame: {
-    backgroundColor: '#111827', // keep dark so video pops
+    backgroundColor: '#111827',
     borderWidth: 1,
     borderColor: '#D1FAE5',
     borderRadius: 12,
@@ -310,37 +255,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     elevation: 3,
   },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    width: '100%',
-    height: '100%',
-    opacity: 1,
-  },
-
-  // No signal state
-  offline: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-  },
-  offlineIcon: {
-    fontSize: 18,
-    color: '#1F2937',
-    fontWeight: '900',
-  },
+  image: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  offline: { alignItems: 'center', justifyContent: 'center', gap: 6 },
+  offlineIcon: { fontSize: 18, color: '#1F2937', fontWeight: '900' },
   offlineText: {
     fontSize: 11,
     letterSpacing: 2.2,
     color: '#94A3B8',
     fontWeight: '800',
   },
-  offlineSub: {
-    fontSize: 10,
-    color: '#CBD5E1',
-    letterSpacing: 0,
-  },
-
-  // Corner brackets — blue accent
+  offlineSub: { fontSize: 10, color: '#CBD5E1' },
   cornerTL: {
     position: 'absolute',
     top: 10,
@@ -380,19 +304,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: CORNER_T,
     borderRightWidth: CORNER_T,
     borderColor: '#22C55E',
-  },
-
-  // Freeze overlay
-  pauseOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(15,23,42,0.55)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pauseOverlayText: {
-    fontSize: 13,
-    letterSpacing: 3,
-    color: '#DCFCE7',
-    fontWeight: '800',
   },
 });
