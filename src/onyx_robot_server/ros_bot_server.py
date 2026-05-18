@@ -17,12 +17,56 @@ Sudoers entry needed (visudo), replacing Malvin if your user differs:
                             /bin/systemctl status robot_camera.service
 """
 
-from flask import Flask, jsonify
+import threading
+
+from flask import Flask, Response, jsonify
 import subprocess
+
+import rclpy
+from rclpy.executors import SingleThreadedExecutor
+from rclpy.node import Node
+from sensor_msgs.msg import CompressedImage
 
 app = Flask(__name__)
 ALLOWED = {'start', 'stop', 'restart', 'status'}
 STACK_UNITS = ('robot.service', 'robot_camera.service')
+latest_camera_frame = None
+camera_condition = threading.Condition()
+
+
+class CameraRelayNode(Node):
+    def __init__(self):
+        super().__init__('robot_api_camera_relay')
+        self.create_subscription(
+            CompressedImage,
+            '/camera/left/compressed',
+            self.camera_callback,
+            10,
+        )
+
+    def camera_callback(self, msg):
+        global latest_camera_frame
+
+        with camera_condition:
+            latest_camera_frame = bytes(msg.data)
+            camera_condition.notify_all()
+
+
+def start_camera_relay():
+    def spin():
+        rclpy.init(args=None)
+        node = CameraRelayNode()
+        executor = SingleThreadedExecutor()
+        executor.add_node(node)
+        try:
+            executor.spin()
+        finally:
+            executor.shutdown()
+            node.destroy_node()
+            rclpy.shutdown()
+
+    thread = threading.Thread(target=spin, daemon=True)
+    thread.start()
 
 
 def run_systemctl(action, unit):
@@ -61,6 +105,35 @@ def ping():
     return jsonify({'pong': True})
 
 
+@app.route('/camera.mjpg', methods=['GET'])
+def camera_mjpg():
+    def stream():
+        while True:
+            with camera_condition:
+                camera_condition.wait_for(
+                    lambda: latest_camera_frame is not None,
+                    timeout=2.0,
+                )
+                frame = latest_camera_frame
+
+            if frame is None:
+                continue
+
+            yield (
+                b'--frame\r\n'
+                b'Content-Type: image/jpeg\r\n'
+                b'Cache-Control: no-cache\r\n\r\n'
+                + frame +
+                b'\r\n'
+            )
+
+    return Response(
+        stream(),
+        mimetype='multipart/x-mixed-replace; boundary=frame',
+    )
+
+
 if __name__ == '__main__':
+    start_camera_relay()
     # Bind to hotspot interface IP
-    app.run(host='0.0.0.0', port=5001, debug=False)
+    app.run(host='0.0.0.0', port=5001, debug=False, threaded=True)

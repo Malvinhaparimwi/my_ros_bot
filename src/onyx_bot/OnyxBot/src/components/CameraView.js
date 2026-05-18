@@ -11,11 +11,14 @@ import {
   Text,
   StyleSheet,
   Dimensions,
+  Platform,
+  requireNativeComponent,
 } from 'react-native';
 import RosService from '../services/RosService';
 
 const TOPIC = '/camera/left/compressed';
 const MSG_TYPE = 'sensor_msgs/CompressedImage';
+const MJPEG_STREAM_URL = 'http://192.168.50.1:5001/camera.mjpg';
 const DISPLAY_FRAME_MS = 83; // ~12 fps keeps base64 image swaps smooth in RN.
 const ROS_THROTTLE_MS = 80;
 const { width: SCREEN_W } = Dimensions.get('window');
@@ -23,11 +26,63 @@ const CAM_W = SCREEN_W - 32;
 const CAM_H = Math.round(CAM_W * (9 / 16));
 const CORNER = 14;
 const CORNER_T = 2;
+const OnyxMjpegView = Platform.OS === 'android'
+  ? requireNativeComponent('OnyxMjpegView')
+  : null;
+
+function bytesToBase64(bytes) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  let output = '';
+  let i = 0;
+
+  for (; i + 2 < bytes.length; i += 3) {
+    const n = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+    output += chars[(n >> 18) & 63];
+    output += chars[(n >> 12) & 63];
+    output += chars[(n >> 6) & 63];
+    output += chars[n & 63];
+  }
+
+  if (i < bytes.length) {
+    const a = bytes[i];
+    const b = i + 1 < bytes.length ? bytes[i + 1] : 0;
+    const n = (a << 16) | (b << 8);
+    output += chars[(n >> 18) & 63];
+    output += chars[(n >> 12) & 63];
+    output += i + 1 < bytes.length ? chars[(n >> 6) & 63] : '=';
+    output += '=';
+  }
+
+  return output;
+}
+
+function normalizeImageData(data) {
+  if (typeof data === 'string') {
+    return data;
+  }
+
+  if (Array.isArray(data)) {
+    return bytesToBase64(data);
+  }
+
+  if (data && typeof data === 'object') {
+    if (typeof data.data === 'string') {
+      return data.data;
+    }
+
+    if (Array.isArray(data.data)) {
+      return bytesToBase64(data.data);
+    }
+  }
+
+  return null;
+}
 
 export default function CameraView({ connected }) {
-  const [frameSlots, setFrameSlots] = useState([null, null]);
-  const [visibleFrameIndex, setVisibleFrameIndex] = useState(null);
+  const useNativeStream = connected && Platform.OS === 'android' && OnyxMjpegView;
+  const [frameUri, setFrameUri] = useState(null);
   const [fps, setFps] = useState(0);
+  const [frameBytes, setFrameBytes] = useState(0);
   const [paused, setPaused] = useState(false);
   const fpsCountRef = useRef(0);
   const pausedRef = useRef(false);
@@ -35,22 +90,18 @@ export default function CameraView({ connected }) {
   const latestFrameRef = useRef(null);
   const lastRenderRef = useRef(0);
   const renderTimerRef = useRef(null);
-  const visibleFrameIndexRef = useRef(null);
-  const pendingFrameIndexRef = useRef(null);
-
-  const revealFrame = index => {
-    if (pendingFrameIndexRef.current !== index) return;
-    pendingFrameIndexRef.current = null;
-    visibleFrameIndexRef.current = index;
-    setVisibleFrameIndex(index);
-  };
 
   useEffect(() => {
+    if (useNativeStream) {
+      setFrameUri(null);
+      setFrameBytes(0);
+      setFps(0);
+      return;
+    }
+
     if (!connected) {
-      setFrameSlots([null, null]);
-      setVisibleFrameIndex(null);
-      visibleFrameIndexRef.current = null;
-      pendingFrameIndexRef.current = null;
+      setFrameUri(null);
+      setFrameBytes(0);
       setFps(0);
       latestFrameRef.current = null;
       fpsCountRef.current = 0;
@@ -61,23 +112,18 @@ export default function CameraView({ connected }) {
       renderTimerRef.current = null;
       if (!latestFrameRef.current || pausedRef.current) return;
 
-      const visibleIndex = visibleFrameIndexRef.current;
-      const nextIndex = visibleIndex === 0 ? 1 : 0;
-      const nextFrame = latestFrameRef.current;
-      pendingFrameIndexRef.current = nextIndex;
-      setFrameSlots(slots => {
-        if (slots[nextIndex] === nextFrame) return slots;
-        const nextSlots = [...slots];
-        nextSlots[nextIndex] = nextFrame;
-        return nextSlots;
-      });
+      setFrameUri(latestFrameRef.current);
       lastRenderRef.current = Date.now();
     };
 
     const handler = msg => {
       if (pausedRef.current) return;
       const format = msg.format?.includes('png') ? 'png' : 'jpeg';
-      latestFrameRef.current = `data:image/${format};base64,${msg.data}`;
+      const imageData = normalizeImageData(msg.data);
+      if (!imageData) return;
+
+      latestFrameRef.current = `data:image/${format};base64,${imageData}`;
+      setFrameBytes(imageData.length);
 
       fpsCountRef.current += 1;
       const now = Date.now();
@@ -113,9 +159,9 @@ export default function CameraView({ connected }) {
       }
       RosService.unsubscribe(TOPIC, handler);
     };
-  }, [connected]);
+  }, [connected, useNativeStream]);
 
-  const hasFrame = visibleFrameIndex !== null;
+  const hasFrame = Boolean(frameUri);
 
   return (
     <View style={styles.wrapper}>
@@ -126,7 +172,9 @@ export default function CameraView({ connected }) {
           <Text style={styles.title}>Camera Feed</Text>
         </View>
         <View style={styles.fpsPill}>
-          <Text style={styles.fps}>{connected ? `${fps} fps` : '-- fps'}</Text>
+          <Text style={styles.fps}>
+            {useNativeStream ? 'native' : connected ? `${fps} fps` : '-- fps'}
+          </Text>
         </View>
         {/* <TouchableOpacity
           style={styles.pauseBtn}
@@ -147,27 +195,25 @@ export default function CameraView({ connected }) {
             <Text style={styles.offlineText}>NO SIGNAL</Text>
             <Text style={styles.offlineSub}>Connect to robot hotspot</Text>
           </View>
+        ) : useNativeStream ? (
+          <OnyxMjpegView
+            sourceUrl={MJPEG_STREAM_URL}
+            style={styles.image}
+          />
         ) : !hasFrame ? (
           <View style={styles.offline}>
             <Text style={styles.offlineText}>WAITING FOR STREAM</Text>
-            {/* <Text style={styles.offlineSub}>Check camera topic</Text> */}
+            <Text style={styles.offlineSub}>
+              {frameBytes ? `${frameBytes} bytes received` : 'Check camera topic'}
+            </Text>
           </View>
         ) : (
-          frameSlots.map((uri, index) =>
-            uri ? (
-              <Image
-                key={index}
-                source={{ uri }}
-                style={[
-                  styles.image,
-                  visibleFrameIndex === index && styles.imageVisible,
-                ]}
-                resizeMode="contain"
-                fadeDuration={0}
-                onLoad={() => revealFrame(index)}
-              />
-            ) : null,
-          )
+          <Image
+            source={{ uri: frameUri }}
+            style={styles.image}
+            resizeMode="contain"
+            fadeDuration={0}
+          />
         )}
 
         {/* Corner brackets — blue on light */}
@@ -268,9 +314,6 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     width: '100%',
     height: '100%',
-    opacity: 0,
-  },
-  imageVisible: {
     opacity: 1,
   },
 
