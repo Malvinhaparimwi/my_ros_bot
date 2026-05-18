@@ -65,8 +65,8 @@ class StereoCameraNode(Node):
         cmd = [
             'rpicam-vid',
             '--codec', 'mjpeg',
-            '--width', '1280',
-            '--height', '720',
+            '--width', '640',
+            '--height', '360',
             '--framerate', '20',
             '--timeout', '0',
             '--nopreview',
