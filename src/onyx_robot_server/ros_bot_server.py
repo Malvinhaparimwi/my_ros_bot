@@ -6,11 +6,14 @@ from rclpy.executors import SingleThreadedExecutor
 from rclpy.node import Node
 from sensor_msgs.msg import CompressedImage
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 import subprocess
 import uvicorn
+from pathlib import Path
 
 app = FastAPI()
+WEB_DIR = Path(__file__).resolve().parent / 'web'
 ALLOWED = {'start', 'stop', 'restart', 'status'}
 STACK_UNITS = ('robot.service', 'robot_camera.service')
 
@@ -92,6 +95,10 @@ def run_systemctl(action, unit):
 async def ping():
     return {'pong': True}
 
+@app.get('/')
+async def index():
+    return FileResponse(WEB_DIR / 'index.html')
+
 @app.post('/service/{action}')
 async def service(action: str):
     if action not in ALLOWED:
@@ -129,6 +136,8 @@ async def startup():
     global loop
     loop = asyncio.get_event_loop()
     start_ros_relay()
+
+app.mount('/static', StaticFiles(directory=WEB_DIR), name='static')
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=5001)

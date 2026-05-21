@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OnyxBot Companion</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">OnyxBot</p>
+          <h1>Companion Console</h1>
+        </div>
+        <div class="status-cluster">
+          <span id="apiStatus" class="pill">API</span>
+          <span id="rosStatus" class="pill">ROS</span>
+          <span id="camStatus" class="pill">Camera</span>
+        </div>
+        <button id="menuOpen" class="menu-button" title="Open controls">☰</button>
+      </header>
+
+      <section class="layout">
+        <section class="video-panel" aria-label="Camera feed">
+          <div class="panel-head">
+            <div>
+              <h2>Camera Feed</h2>
+              <p id="frameMeta">Waiting for stream</p>
+            </div>
+            <button id="reconnectCamera" class="icon-button" title="Reconnect camera">
+              ↻
+            </button>
+          </div>
+          <div class="camera-frame">
+            <img id="cameraImage" alt="Robot camera feed" />
+            <div id="cameraEmpty" class="camera-empty">
+              <strong>No Signal</strong>
+              <span>Open robot stream on port 5001</span>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="control-section stack-section">
+            <div class="section-head">
+              <h2>Robot Stack</h2>
+              <button id="statusService" class="ghost-button">Status</button>
+            </div>
+            <div class="button-row">
+              <button id="startService" class="action-button">Start</button>
+              <button id="restartService" class="action-button">Restart</button>
+              <button id="stopService" class="danger-button">Stop</button>
+            </div>
+            <pre id="serviceLog" class="log">No service action yet.</pre>
+          </section>
+
+          <section class="control-section">
+            <div class="section-head">
+              <h2>Sprayer</h2>
+              <span id="pumpState" class="state-text">OFF</span>
+            </div>
+            <button id="pumpToggle" class="wide-toggle">Toggle Spray</button>
+          </section>
+
+          <section class="control-section">
+            <div class="section-head">
+              <h2>Drive</h2>
+              <span id="activeCommand" class="state-text">STOP</span>
+            </div>
+            <div class="dpad">
+              <button data-dir="forward" class="drive-button up">↑</button>
+              <button data-dir="left" class="drive-button left">←</button>
+              <button id="stopDrive" class="drive-button stop">■</button>
+              <button data-dir="right" class="drive-button right">→</button>
+              <button data-dir="backward" class="drive-button down">↓</button>
+            </div>
+            <p class="hint">Keyboard: W/S turn, A/D strafe, Space stops.</p>
+          </section>
+
+          <section class="control-section compact-grid">
+            <div>
+              <h2>Heading</h2>
+              <strong id="headingValue">--°</strong>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-head">
+        <h2>Robot Controls</h2>
+        <button id="menuClose" class="icon-button" title="Close controls">×</button>
+      </div>
+      <section class="drawer-section">
+        <div class="section-head">
+          <h2>Robot Stack</h2>
+          <button id="drawerStatusService" class="ghost-button">Status</button>
+        </div>
+        <div class="button-row">
+          <button id="drawerStartService" class="action-button">Start</button>
+          <button id="drawerRestartService" class="action-button">Restart</button>
+          <button id="drawerStopService" class="danger-button">Stop</button>
+        </div>
+      </section>
+      <section class="drawer-section">
+        <div class="section-head">
+          <h2>IMU</h2>
+          <span class="state-text">Heading zero</span>
+        </div>
+        <button id="resetHeading" class="wide-toggle">Zero IMU</button>
+      </section>
+      <pre id="drawerServiceLog" class="log">No service action yet.</pre>
+    </aside>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
