@@ -18,12 +18,12 @@ setup(
             glob('launch/*.launch.py'),
         ),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'onnxruntime', 'opencv-python', 'numpy', 'ultralytics'],
     zip_safe=True,
     maintainer='eath',
     maintainer_email='malvinhaparimwi@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Row following robot',
+    license='Apache License 2.0',
     extras_require={
         'test': [
             'pytest',

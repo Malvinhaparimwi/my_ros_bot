@@ -96,10 +96,20 @@ class ImuNanoNode(Node):
         self.declare_parameter('port',     '/dev/serial/by-id/usb-Arduino_Nano_33_BLE_5121ED79AD58E624-if00')
         self.declare_parameter('baud',     115200)
         self.declare_parameter('frame_id', 'imu_link')
+        self.declare_parameter('gyro_deadband_deg', self.GYRO_DEADBAND_DEG)
+        self.declare_parameter('calib_samples', self.CALIB_SAMPLES)
+        self.declare_parameter('calibrate_on_reset', True)
+        self.declare_parameter('reset_calib_samples', 80)
 
         port          = self.get_parameter('port').value
         baud          = self.get_parameter('baud').value
         self.frame_id = self.get_parameter('frame_id').value
+        self.gyro_deadband_deg = float(self.get_parameter('gyro_deadband_deg').value)
+        self.calib_samples = max(1, int(self.get_parameter('calib_samples').value))
+        self.calibrate_on_reset = bool(self.get_parameter('calibrate_on_reset').value)
+        self.reset_calib_samples = max(
+            1, int(self.get_parameter('reset_calib_samples').value)
+        )
 
         self.kf_roll  = KalmanAngle()
         self.kf_pitch = KalmanAngle()
@@ -110,6 +120,8 @@ class ImuNanoNode(Node):
         self.yaw       = 0.0
         self.yaw_zero  = 0.0
         self.lock      = threading.Lock()
+        self.serial_lock = threading.Lock()
+        self.calibrating = threading.Event()
 
         # Gyro Z bias (rad/s) — estimated during calibration
         self.gz_bias = 0.0
@@ -128,42 +140,60 @@ class ImuNanoNode(Node):
             raise
 
         # Calibrate gyro bias before starting the reader thread
-        self._calibrate_gyro()
+        self._calibrate_gyro(self.calib_samples)
 
         threading.Thread(target=self._reader, daemon=True).start()
 
     # ── Gyro bias calibration ─────────────────────────────────────────────────
-    def _calibrate_gyro(self):
+    def _read_data_line_locked(self):
+        try:
+            raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
+        except Exception:
+            return None
+
+        if not raw.startswith('D '):
+            return None
+
+        parts = raw.split()
+        if len(parts) != 13:
+            return None
+
+        try:
+            return [float(p) for p in parts[1:]]
+        except ValueError:
+            return None
+
+    def _calibrate_gyro(self, sample_count):
         """
-        Collect CALIB_SAMPLES readings while the sensor is still and average
+        Collect readings while the sensor is still and average
         the raw gz values to estimate the gyro Z-axis bias.
         Hold the sensor motionless during the ~2 s this takes.
         """
         self.get_logger().info(
-            f'Calibrating gyro Z bias ({self.CALIB_SAMPLES} samples) — hold sensor still...'
+            f'Calibrating gyro Z bias ({sample_count} samples) - hold sensor still...'
         )
         samples = []
-        while len(samples) < self.CALIB_SAMPLES:
-            try:
-                raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
-            except Exception:
-                continue
+        self.calibrating.set()
+        try:
+            with self.serial_lock:
+                try:
+                    self.ser.reset_input_buffer()
+                except Exception:
+                    pass
+                while len(samples) < sample_count and rclpy.ok():
+                    vals = self._read_data_line_locked()
+                    if vals is None:
+                        continue
 
-            if not raw.startswith('D '):
-                continue
+                    lgz = vals[5]
+                    mgz = vals[11]
+                    samples.append(math.radians((lgz + mgz) * 0.5))
+        finally:
+            self.calibrating.clear()
 
-            parts = raw.split()
-            if len(parts) != 13:
-                continue
-
-            try:
-                vals = [float(p) for p in parts[1:]]
-            except ValueError:
-                continue
-
-            lgz = vals[5]
-            mgz = vals[11]
-            samples.append(math.radians((lgz + mgz) * 0.5))
+        if not samples:
+            self.get_logger().warning('Gyro Z bias calibration got no samples.')
+            return
 
         self.gz_bias = sum(samples) / len(samples)
         self.get_logger().info(
@@ -172,6 +202,9 @@ class ImuNanoNode(Node):
 
     # ── Reset ─────────────────────────────────────────────────────────────────
     def reset_callback(self, request, response):
+        if self.calibrate_on_reset:
+            self._calibrate_gyro(self.reset_calib_samples)
+
         with self.lock:
             self.zero_quat      = quat_conjugate(self.last_quat)
             self.yaw_zero       = self.yaw
@@ -186,26 +219,18 @@ class ImuNanoNode(Node):
 
     # ── Serial reader ─────────────────────────────────────────────────────────
     def _reader(self):
-        deadband_rad = math.radians(self.GYRO_DEADBAND_DEG)
+        deadband_rad = math.radians(self.gyro_deadband_deg)
 
         while rclpy.ok():
-            try:
-                raw = self.ser.readline().decode('utf-8', errors='ignore').strip()
-            except Exception:
+            if self.calibrating.is_set():
+                self.calibrating.wait(0.01)
                 continue
 
-            if not raw.startswith('D '):
-                self.get_logger().info(f'[nano] {raw}')
+            with self.serial_lock:
+                vals = self._read_data_line_locked()
+            if vals is None:
                 continue
 
-            parts = raw.split()
-            if len(parts) != 13:
-                continue
-
-            try:
-                vals = [float(p) for p in parts[1:]]
-            except ValueError:
-                continue
 
             lax,lay,laz, lgx,lgy,lgz = vals[0:6]
             max_,may,maz, mgx,mgy,mgz = vals[6:12]
