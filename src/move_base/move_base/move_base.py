@@ -99,7 +99,7 @@ class RowFollower(Node):
                 ("end_confirm_sec",          0.25),
                 # Row-end advances
                 ("end_advance_distance_m",          0.75),   # advance after each row end
-                ("end_between_turns_distance_m",    0.27),   # right-turn corridor (row 1→2)
+                ("end_between_turns_distance_m",    0.17),   # right-turn corridor (row 1→2)
                 ("end_between_turns_distance_left_m", 0.50), # left-turn corridor  (row 2→3)
                 ("end_sequence_forward_speed",      0.1),
                 # Wheel/advance calibration
@@ -110,8 +110,8 @@ class RowFollower(Node):
                 ("end_heading_reset_wait_sec",  3.0),
                 # Turn parameters
                 ("end_turn_speed",               0.07),
-                ("end_right_turn_yaw_delta_deg", -84.0),
-                ("end_left_turn_yaw_delta_deg",   90.0),
+                ("end_right_turn_yaw_delta_deg", -80.0),
+                ("end_left_turn_yaw_delta_deg",   85.0),
                 ("end_turn_tolerance_deg",        2.0),
                 ("end_turn_timeout_sec",          8.0),
                 # How many degrees before the target to begin slowing (ramp-down zone).

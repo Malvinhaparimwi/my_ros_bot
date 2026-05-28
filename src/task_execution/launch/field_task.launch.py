@@ -37,7 +37,7 @@ def generate_launch_description():
         # 75 cm advance at the end of every row (all three rows)
         DeclareLaunchArgument("end_advance_distance_m",               default_value="0.75"),
         # 20 cm between the two RIGHT turns (row 0 → row 1)
-        DeclareLaunchArgument("end_between_turns_distance_m",         default_value="0.27"),
+        DeclareLaunchArgument("end_between_turns_distance_m",         default_value="0.17"),
         # 40 cm between the two LEFT  turns (row 1 → row 2)
         DeclareLaunchArgument("end_between_turns_distance_left_m",    default_value="0.50"),
 
@@ -55,9 +55,9 @@ def generate_launch_description():
         # ── turn parameters ──────────────────────────────────────────────────
         DeclareLaunchArgument("end_turn_speed",                       default_value="0.07"),
         # Right turn target (row 0→1): negative = clockwise
-        DeclareLaunchArgument("end_right_turn_yaw_delta_deg",         default_value="-84.0"),
+        DeclareLaunchArgument("end_right_turn_yaw_delta_deg",         default_value="-80.0"),
         # Left  turn target (row 1→2): positive = counter-clockwise
-        DeclareLaunchArgument("end_left_turn_yaw_delta_deg",          default_value="90.0"),
+        DeclareLaunchArgument("end_left_turn_yaw_delta_deg",          default_value="85.0"),
         DeclareLaunchArgument("end_turn_tolerance_deg",               default_value="2.0"),
         DeclareLaunchArgument("end_turn_timeout_sec",                 default_value="8.0"),
         # Degrees before target where speed drops to end_turn_slow_speed (overshoot fix)
